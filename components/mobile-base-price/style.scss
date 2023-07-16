@@ -1,0 +1,38 @@
+@use "@styles/mixins.scss" as *;
+
+.mobile-base-price {
+  margin-top: var(--sections-margin-top);
+
+  .title {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5em;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 2em;
+    }
+
+    span {
+      flex: 1;
+      height: 1px;
+      background-color: var(--clr-gray);
+    }
+  }
+
+  ul {
+    @include flex-center;
+    gap: 1.3em;
+
+    li {
+      width: 20%;
+      @include flex-center;
+
+      img {
+        @include size(100%);
+        max-width: 200px;
+        max-height: 200px;
+      }
+    }
+  }
+}
