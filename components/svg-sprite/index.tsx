@@ -1,6 +1,6 @@
 export default function SvgSprite() {
   return (
-    <div className="sprite">
+    <div className="svg-sprite">
       <svg xmlns="http://www.w3.org/2000/svg">
       <symbol viewBox="0 -960 960 960" id="chevron-right">
           <path d="m304-82-56-57 343-343-343-343 56-57 400 400L304-82Z" />

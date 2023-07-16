@@ -7,7 +7,7 @@
   --clr-primary-high-contrast: #ffbf00;
   --clr-gray: #dbdbdb;
   --clr-black: #000000;
-  
+
   // backgrounds
   --header-background: #fff;
   // z-index
@@ -88,4 +88,8 @@ img {
 
 ul {
   list-style-type: none;
+}
+
+.svg-sprite {
+  display: none;
 }
