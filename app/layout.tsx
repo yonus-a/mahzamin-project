@@ -12,6 +12,7 @@ import "swiper/css/autoplay";
 
 // import animate.css
 import "animate.css";
+import Footer from "@components/footer";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer/>
         <SvgSprite />
         <WOWINIT />
       </body>

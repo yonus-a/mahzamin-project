@@ -1,0 +1,9 @@
+@use "@styles/mixins.scss" as *;
+
+.best-selling-products-links {
+  display: none;
+
+  @include on-pc {
+    display: block;
+  }
+}

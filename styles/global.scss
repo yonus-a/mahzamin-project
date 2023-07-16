@@ -3,9 +3,11 @@
 :root {
   // colors
   --clr-primary: #fdc210;
+  --cls-scondary: #2e9699;
   --clr-primary-high-contrast: #ffbf00;
   --clr-gray: #dbdbdb;
   --clr-black: #000000;
+  
   // backgrounds
   --header-background: #fff;
   // z-index
@@ -16,6 +18,8 @@
   --header-transition: 300ms;
   // margin
   --sections-margin-top: 4em;
+  // breakpoints
+  --footer-breakpoint: 1000px;
 }
 
 @font-face {
