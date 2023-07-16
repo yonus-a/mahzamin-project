@@ -1,0 +1,24 @@
+@use "@styles/mixins.scss" as *;
+
+.ads-one {
+  margin-top: var(--sections-margin-top);
+
+  ul {
+    display: flex;
+    gap: 1em;
+
+    a {
+      display: flex;
+
+      img {
+        @include size(100%);
+        border-radius: 1em;
+      }
+    }
+
+    @media (max-width: 724px) {
+      flex-direction: column;
+      gap: 1.5em;
+    }
+  }
+}
