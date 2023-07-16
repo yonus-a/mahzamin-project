@@ -1,5 +1,7 @@
-import "global.scss";
 import { Metadata } from "next";
+import Header from "@components/header";
+import SvgSprite from "@components/svg-sprite";
+import "@styles/global.scss";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -15,12 +17,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({children}: {
-  children: React.ReactNode
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <SvgSprite />
+      </body>
     </html>
   );
 }

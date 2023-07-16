@@ -1,0 +1,44 @@
+@use "@styles/mixins.scss" as *;
+
+.search {
+  .icon-button {
+    @include size(44px);
+    background: var(--clr-gray);
+    border-radius: 50%;
+
+    svg {
+      @include size(20px);
+    }
+  }
+
+  .input-group {
+    display: none;
+    align-items: center;
+    background: var(--clr-gray);
+    border-radius: 3em;
+    padding: 0 1.5em;
+
+    input {
+      background-color: transparent;
+      border: none;
+      font-size: 14px;
+      outline: none;
+      padding: 1em;
+      width: 309px;
+    }
+
+    svg {
+      @include size(24px);
+    }
+  }
+
+  @include on-pc {
+    .icon-button {
+      display: none;
+    }
+
+    .input-group {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@mixin on-pc {
+  @media (min-width: 1230px) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin size($w, $h: "") {
+  width: $w;
+  height: $w;
+
+  @if $h != "" {
+    height: $h;
+  }
+}

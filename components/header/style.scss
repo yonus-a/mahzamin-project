@@ -1,0 +1,87 @@
+@use "@styles/mixins.scss" as *;
+
+header {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--header-background);
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+    margin: 0 auto;
+
+    .col-right,
+    .col-left {
+      @include flex-align-center;
+    }
+
+    .col-right {
+      gap: 1.2em;
+
+      .menu-cta {
+        svg {
+          @include size(34px);
+        }
+      }
+
+      .logo {
+        img {
+          @include size(54px);
+        }
+      }
+    }
+
+    .col-left {
+      gap: 1.5em;
+
+      .login {
+        background-color: var(--clr-primary);
+        padding: 0.9em 1.5em;
+        border-radius: 3em;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: all var(--header-transition);
+
+        &:hover {
+          background: transparent;
+          border: 1px solid var(--clr-primary);
+        }
+      }
+
+      .cart {
+        svg {
+          @include size(30px);
+        }
+      }
+    }
+
+    @media (min-width: 1700px) {
+      width: 1700px;
+    }
+  }
+
+  @include on-pc {
+    position: fixed;
+    z-index: var(--header-zIndex);
+    width: 100%;
+    top: 0;
+
+    .header-container {
+      padding: 1em 3.5em;
+
+      .col-right {
+        gap: 2em;
+
+        .menu-cta {
+          display: none;
+        }
+
+        .logo {
+          img {
+            @include size(75px);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use "@styles/mixins.scss" as *;
+
+.main-nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  background: var(--header-background);
+  box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.2);
+  z-index: var(--menu-zIndex);
+  padding: 2em;
+
+  .close-menu {
+    margin-bottom: 2em;
+
+    svg {
+      @include size(48px);
+    }
+  }
+
+  .menubar {
+    list-style: none;
+
+    a {
+      text-decoration: none;
+      padding: 1.3em 1em;
+      transition: all var(--header-transition);
+      display: inline-block;
+    }
+
+    .active,
+    a:hover {
+      color: var(--clr-primary-high-contrast);
+    }
+  }
+
+  @include on-pc {
+    display: block !important;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+
+    .close-menu {
+      display: none;
+    }
+
+    .menubar {
+      display: flex;
+    }
+  }
+}

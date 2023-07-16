@@ -1,7 +1,18 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@use "./mixins.scss" as *;
+
+:root {
+  // colors
+  --clr-primary: #fdc210;
+  --clr-primary-high-contrast: #ffbf00;
+  --clr-gray: #dbdbdb;
+  --clr-black: #000000;
+  // backgrounds
+  --header-background: #fff;
+  // z-index
+  --header-zIndex: 9999;
+  --menu-zIndex: 999;
+  // transition
+  --header-transition: 300ms;
 }
 
 @font-face {
@@ -36,6 +47,38 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: "IranYkan";
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 100vh;
+
+  // for fixed header
+  @include on-pc {
+    padding-top: 105px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-black);
+}
+
+svg,
+img {
+  vertical-align: middle;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
 }
