@@ -12,6 +12,7 @@
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "animate.css": "^4.1.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "next": "13.4.10",
@@ -19,6 +20,7 @@
     "react-dom": "18.2.0",
     "sass": "^1.63.6",
     "swiper": "^10.0.4",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "wowjs": "^1.1.3"
   }
 }

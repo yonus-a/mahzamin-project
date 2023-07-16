@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Header from "@components/header";
 import SvgSprite from "@components/svg-sprite";
+import WOWINIT from "@components/WOWINIT";
 import "@styles/global.scss";
 
 // import swiper css
@@ -8,6 +9,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/a11y";
 import "swiper/css/autoplay";
+
+// import animate.css
+import "animate.css";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -34,6 +38,7 @@ export default function RootLayout({
         <Header />
         {children}
         <SvgSprite />
+        <WOWINIT />
       </body>
     </html>
   );
