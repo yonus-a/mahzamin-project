@@ -1,0 +1,18 @@
+@use "@styles/mixins.scss" as *;
+
+.ads-tow {
+  margin-top: var(--sections-margin-top);
+
+  a {
+    display: flex;
+
+    img {
+      @include size(100%);
+      border-radius: 1em;
+    }
+
+    @media (max-width: 780px) {
+      height: 120px;
+    }
+  }
+}
