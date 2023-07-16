@@ -3,6 +3,12 @@ import Header from "@components/header";
 import SvgSprite from "@components/svg-sprite";
 import "@styles/global.scss";
 
+// import swiper css
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/a11y";
+import "swiper/css/autoplay";
+
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
   description:

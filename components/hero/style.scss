@@ -1,0 +1,47 @@
+@use "@styles/mixins.scss" as *;
+
+.hero {
+  position: relative;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 520px;
+  }
+
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--clr-gray);
+    padding: 0.3em 0.6em;
+    border-radius: 1em;
+  }
+
+  &:hover .navigation {
+    display: flex;
+  }
+
+  .navigation {
+    display: none;
+    position: absolute;
+    gap: 0.7em;
+    z-index: var(--swiperNavigation-zIndex);
+    bottom: 40px;
+    right: 30px;
+
+    .button {
+      background-color: var(--clr-gray);
+      border-radius: 50%;
+      @include flex-center;
+      @include size(44px);
+
+      svg {
+        @include size(17px);
+      }
+    }
+
+    .next-slide {
+      svg {
+        margin-left: 8px;
+      }
+    }
+  }
+}
