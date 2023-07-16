@@ -1,0 +1,30 @@
+@use "@styles/mixins.scss" as *;
+
+.brands {
+  margin-top: var(--sections-margin-top);
+
+  .swiper-slide {
+    width: 200px;
+
+    a {
+      background-color: var(--clr-gray);
+      @include flex-center;
+      border-radius: 1em;
+      padding: 1em;
+      height: 110px;
+
+      img {
+        @include size(65%);
+        object-fit: scale-down;
+      }
+    }
+
+    @include on-pc {
+      width: 245px;
+
+      a {
+        height: 130px;
+      }
+    }
+  }
+}
