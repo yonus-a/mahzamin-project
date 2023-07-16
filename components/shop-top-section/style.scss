@@ -1,0 +1,28 @@
+@use "@styles/mixins.scss" as *;
+
+.shop-top-section {
+  @include flex-align-center;
+  justify-content: space-between;
+  margin-top: var(--sections-margin-top);
+
+  .right-col {
+    h2 {
+      @include flex-align-center;
+      font-size: 1.4rem;
+      gap: 1em;
+
+      svg {
+        @include size(36px);
+      }
+    }
+  }
+
+  .left-col {
+    button {
+      padding: 1em 2em;
+      background-color: var(--clr-gray);
+      border-radius: 10px;
+      margin-right: 1em;
+    }
+  }
+}

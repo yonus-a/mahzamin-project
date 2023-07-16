@@ -1,0 +1,27 @@
+@use "@styles/mixins.scss" as *;
+
+.products {
+  @include flex-center;
+  flex-wrap: wrap;
+  margin-top: var(--sections-margin-top);
+  gap: 2em;
+
+  li {
+    a {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 1em;
+
+      img {
+        object-fit: scale-down;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 2em;
+      }
+    }
+  }
+}
