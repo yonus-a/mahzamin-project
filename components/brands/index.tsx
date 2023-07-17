@@ -62,6 +62,16 @@ export default function Brands() {
             />
           </Link>
         </SwiperSlide>
+        <SwiperSlide>
+          <Link href="#">
+            <Image
+              src="/images/brands/sony.png"
+              alt="sony"
+              width={200}
+              height={200}
+            />
+          </Link>
+        </SwiperSlide>
       </Swiper>
     </section>
   );
