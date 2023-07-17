@@ -8,31 +8,39 @@ export const metadata = {
   title: "فروشگاه",
 };
 
+const take = 12;
+
 async function getProducts(page: number) {
-  const count = await prisma.product.count();
+  const totalResult = await prisma.product.count();
   const products = await prisma.product.findMany({
-    skip: page * 12,
-    take: 12,
+    skip: page * take,
+    take: take,
     orderBy: {
       id: "asc",
     },
   });
 
   return {
-    count,
+    totalResult,
     products,
   };
 }
 
-export default async function Shop({ params }: { params: { page: number } }) {
-  const { products, count } = await getProducts(params.page || 0);
+export default async function Shop({ searchParams }: { searchParams?: any }) {
+  const page = Number.parseInt(searchParams?.page) || 0;
+  const { products, totalResult } = await getProducts(page);
+  const totalPages = Math.round(totalResult / take);
 
   return (
     <main>
       <Container>
-        <ShopTopSection />
+        <ShopTopSection
+          currentPage={page}
+          totalPages={totalPages}
+          totalResult={totalResult}
+        />
         <ShowProducts products={products} />
-        <ProductPagination count={2} />
+        <ProductPagination totalPages={totalPages} currentPage={page}/>
       </Container>
     </main>
   );

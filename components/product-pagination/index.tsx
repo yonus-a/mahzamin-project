@@ -1,17 +1,29 @@
 import Link from "next/link";
+import "./style.scss";
 
-export default function ProductPagination({ count }: { count: number }) {
+export default function ProductPagination({
+  totalPages,
+  currentPage,
+}: {
+  totalPages: number;
+  currentPage: number;
+}) {
   return (
     <div className="product-pagination">
-      {
-        <ul>
-          {Array.from({ length: count }, (_, idx: number) => (
+      <ul>
+        {Array.from({ length: totalPages }, (_, idx: number) => {
+          const href = idx > 0 ? `/shop?page=${idx}` : "/shop";
+          const classnames = `${idx === currentPage ? "active" : ""}`;
+
+          return (
             <li key={idx}>
-              <Link href={`/shop/${idx + 1}`}>{idx + 1}</Link>
+              <Link href={href} className={classnames}>
+                {idx + 1}
+              </Link>
             </li>
-          ))}
-        </ul>
-      }
+          );
+        })}
+      </ul>
     </div>
   );
 }

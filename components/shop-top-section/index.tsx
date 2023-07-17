@@ -1,7 +1,17 @@
 import Button from "../button";
 import "./style.scss";
 
-export default function ShopTopSection() {
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  totalResult: number;
+}
+
+export default function ShopTopSection({
+  currentPage,
+  totalPages,
+  totalResult,
+}: Props) {
   return (
     <div className="shop-top-section">
       <div className="right-col">
@@ -11,11 +21,25 @@ export default function ShopTopSection() {
           </svg>
           فروشگاه
         </h2>
-        <p>نمایش </p>
+        <p>
+          نمایش {currentPage + 1}&#8209;{totalPages} از {totalResult} نتیجه
+        </p>
       </div>
       <div className="left-col">
         <Button>فیتر</Button>
-        <Button>مرتب سازی بر اساس</Button>
+        <Button>
+          <span className="pc-only">
+            مرتب سازی بر اساس
+            <svg>
+              <use href="#chevron-down" />
+            </svg>
+          </span>
+          <span className="mobile-only">
+            <svg >
+                <use href="#sort" />
+            </svg>
+          </span>
+        </Button>
       </div>
     </div>
   );

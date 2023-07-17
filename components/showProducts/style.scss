@@ -1,9 +1,10 @@
 @use "@styles/mixins.scss" as *;
 
 .products {
-  @include flex-center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin-top: var(--sections-margin-top);
+
   gap: 2em;
 
   li {
@@ -11,6 +12,7 @@
       padding: 2em;
       display: flex;
       flex-direction: column;
+      align-items: center;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
       border-radius: 1em;
 
@@ -19,7 +21,6 @@
       }
 
       p {
-        text-align: center;
         margin-top: 2em;
       }
     }
