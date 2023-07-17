@@ -27,18 +27,22 @@
       }
     }
 
-    @media (min-width: 1030px) {
+    @media (min-width: 855px) {
+      li {
+        width: 20%;
+      }
+    }
+
+    @media (min-width: 1050px) {
       padding: 0 2em;
 
       li {
-        width: 20%;
-
         a {
           .image {
-            padding: 2.2em;
+            padding: 2.1em;
 
             img {
-              @include size(70px);
+              @include size(65px);
             }
           }
         }
