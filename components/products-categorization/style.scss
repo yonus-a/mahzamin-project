@@ -10,8 +10,8 @@
     row-gap: 2.5em;
 
     li {
-      width: 33.333%;
       @include flex-center;
+      width: 33.333%;
 
       a {
         .image {
@@ -27,25 +27,18 @@
       }
     }
 
-    @media (min-width: 990px) {
-      gap: 4em;
-      flex-wrap: nowrap;
+    @media (min-width: 1030px) {
+      padding: 0 2em;
 
       li {
-        width: auto;
-      }
-    }
+        width: 20%;
 
-    @include on-pc {
-      gap: 5em;
-
-      li {
         a {
           .image {
-            padding: 2em;
+            padding: 2.2em;
 
             img {
-              @include size(90px);
+              @include size(70px);
             }
           }
         }
