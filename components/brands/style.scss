@@ -4,14 +4,14 @@
   margin-top: var(--sections-margin-top);
 
   .swiper-slide {
-    width: 200px;
+    width: 185px;
 
     a {
       background-color: var(--clr-gray);
       @include flex-center;
       border-radius: 1em;
       padding: 1em;
-      height: 110px;
+      height: 100px;
 
       img {
         @include size(65%);

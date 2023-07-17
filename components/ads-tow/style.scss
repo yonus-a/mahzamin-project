@@ -10,6 +10,7 @@
       @include size(100%);
       max-height: 155px;
       border-radius: 1em;
+      object-fit: cover;
     }
 
     @media (max-width: 780px) {
