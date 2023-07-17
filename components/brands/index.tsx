@@ -10,7 +10,7 @@ import "./style.scss";
 export default function Brands() {
   return (
     <section className="brands" aria-label="brands">
-      <Swiper modules={[A11y]} slidesPerView={"auto"} spaceBetween={10}>
+      <Swiper modules={[A11y]} slidesPerView={"auto"} spaceBetween={15}>
         <SwiperSlide>
           <Link href="#">
             <Image
