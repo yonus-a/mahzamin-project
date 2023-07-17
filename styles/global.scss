@@ -7,6 +7,7 @@
   --clr-primary-high-contrast: #ffbf00;
   --clr-gray: #dbdbdb;
   --clr-black: #000000;
+  --clr-svgs: #333;
 
   // backgrounds
   --header-background: #fff;
@@ -68,7 +69,7 @@ body {
 
   // for fixed header
   @include on-pc {
-    padding-top: 105px;
+    padding-top: 92px;
   }
 }
 
@@ -80,6 +81,10 @@ a {
 svg,
 img {
   vertical-align: middle;
+}
+
+svg {
+  fill: var(--clr-svgs);
 }
 
 .hidden {

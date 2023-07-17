@@ -23,9 +23,9 @@ export default function Header() {
           <Link href="/" className="logo">
             <Image
               src="/images/logo.png"
-              width={75}
-              height={75}
-              alt="mahzamin"
+              width={65}
+              height={65}
+              alt="ماه ززمین"
             />
           </Link>
           <Nav />

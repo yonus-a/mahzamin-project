@@ -36,7 +36,7 @@ header {
 
       .login {
         background-color: var(--clr-primary);
-        padding: 0.9em 1.5em;
+        padding: 0.8em 1.5em;
         border-radius: 3em;
         font-size: 14px;
         border: 1px solid transparent;
@@ -67,7 +67,7 @@ header {
     top: 0;
 
     .header-container {
-      padding: 1em 3.5em;
+      padding: 0.9em 3.5em;
 
       .col-right {
         gap: 2em;
@@ -78,7 +78,7 @@ header {
 
         .logo {
           img {
-            @include size(75px);
+            @include size(65px);
           }
         }
       }
