@@ -14,7 +14,7 @@ export default function ShowProducts({ products }: { products: any }) {
     <ul className="products">
       {products.map((product: Product) => (
         <AnimatedItem key={product.id} animation="animate__fadeIn" delay={200}>
-          <Link href="#" >
+          <Link href={`/product/${product.id}`} >
             <Image
               src={`/images/products/${product.image}`}
               alt={product.name}

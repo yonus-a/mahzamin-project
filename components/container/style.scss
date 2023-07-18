@@ -1,6 +1,12 @@
+@use "@styles/mixins.scss" as *;
+
 .container {
   padding: 0 30px;
   margin: 0 auto;
+
+  @include on-pc {
+    padding: 0 45px;
+  }
 }
 
 @media (min-width: 1336px) {

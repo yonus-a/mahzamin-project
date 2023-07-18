@@ -1,0 +1,34 @@
+@use "@styles/mixins.scss" as *;
+
+.product-general-info {
+  margin-top: var(--sections-margin-top);
+
+  .left-col {
+    margin-top: 4em;
+
+    h1 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 1.2em;
+    }
+
+    ul {
+      li {
+        font-size: 15px;
+      }
+
+      li:first-child {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+
+  @include on-pc {
+    display: flex;
+    gap: 4em;
+
+    .left-col {
+      margin-top: 0em;
+    }
+  }
+}

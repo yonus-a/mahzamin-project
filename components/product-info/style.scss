@@ -1,0 +1,29 @@
+@use "@styles/mixins.scss" as *;
+
+.product-info {
+  margin-top: calc(var(--sections-margin-top) * 1.5);
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    row-gap: 2em;
+
+    li {
+      .title {
+        @include flex-align-center;
+        gap: 0.5em;
+
+        svg {
+          @include size(24px);
+        }
+      }
+
+      .sub-title {
+        margin-top: 0.5em;
+        font-size: 13px;
+        color: #b6b6b6;
+      }
+    }
+  }
+}

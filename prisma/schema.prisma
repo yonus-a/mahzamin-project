@@ -35,7 +35,8 @@ model Product {
 model ProductColor {
   id        Int     @id @default(autoincrement())
   productId Int?
-  color     String? @db.TinyText
+  name      String? @db.TinyText
+  code      String? @db.TinyText
 
   @@index([productId], map: "ProductID")
 }
@@ -52,7 +53,7 @@ model ProductDetail {
 model ProductImage {
   id        Int     @id @default(autoincrement())
   productId Int?
-  image     String? @db.TinyText
+  name      String? @db.TinyText
 
   @@index([productId], map: "productId")
 }

@@ -1,0 +1,41 @@
+@use "@styles/mixins" as *;
+
+.product-gallary {
+  @include flex-align-center;
+  flex-direction: column;
+
+  img {
+    @include size(100%);
+    object-fit: contain;
+  }
+
+  .main-image {
+    @include size(300px);
+  }
+
+  .swiper {
+    margin-top: 1em;
+    width: 400px;
+
+    .swiper-slide {
+      padding: 0 10px;
+      width: 100px;
+    }
+  }
+
+  @include on-pc {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 1.5em;
+
+    .swiper {
+      @include size(120px, 300px);
+      margin: 0;
+
+      .swiper-slide {
+        height: 100px;
+      }
+    }
+  }
+}
