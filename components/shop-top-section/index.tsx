@@ -4,13 +4,13 @@ import "./style.scss";
 interface Props {
   currentPage: number;
   totalPages: number;
-  totalResult: number;
+  totalProducts: number;
 }
 
 export default function ShopTopSection({
   currentPage,
   totalPages,
-  totalResult,
+  totalProducts,
 }: Props) {
   return (
     <div className="shop-top-section">
@@ -22,7 +22,7 @@ export default function ShopTopSection({
           فروشگاه
         </h2>
         <p>
-          نمایش {currentPage + 1}&#8209;{totalPages} از {totalResult} نتیجه
+          نمایش {currentPage + 1}&#8209;{totalPages} از {totalProducts} نتیجه
         </p>
       </div>
       <div className="left-col">
@@ -35,8 +35,8 @@ export default function ShopTopSection({
             </svg>
           </span>
           <span className="mobile-only">
-            <svg >
-                <use href="#sort" />
+            <svg>
+              <use href="#sort" />
             </svg>
           </span>
         </Button>

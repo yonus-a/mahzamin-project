@@ -7,7 +7,6 @@ interface Product {
   id: number;
   image: string;
   name: string;
-  price: number
 }
 
 export default function ShowProducts({ products }: { products: any }) {
