@@ -1,0 +1,63 @@
+@use "@styles/mixins.scss" as *;
+
+.shop-top-section {
+  @include flex-align-center;
+  justify-content: space-between;
+  margin-top: var(--sections-margin-top);
+
+  .right-col {
+    h2 {
+      @include flex-align-center;
+      font-size: 1.3rem;
+      gap: 1em;
+
+      svg {
+        @include size(33px);
+      }
+    }
+
+    p {
+      margin-top: 0.7em;
+    }
+  }
+
+  .left-col {
+    display: flex;
+    gap: 1em;
+
+    button {
+      padding: 1em 1.5em;
+      background-color: var(--clr-gray);
+      border-radius: 10px;
+
+      span {
+        @include flex-center;
+        gap: 0.3em;
+      }
+
+      .pc-only {
+        display: none;
+
+        svg {
+          @include size(20px);
+        }
+      }
+
+      .mobile-only {
+        svg {
+          @include size(24px);
+        }
+      }
+
+      @include on-pc {
+        .pc-only {
+          display: flex;
+        }
+
+        .mobile-only {
+          display: none;
+        }
+      }
+    }
+  }
+}
