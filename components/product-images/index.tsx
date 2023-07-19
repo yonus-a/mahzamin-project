@@ -1,18 +1,19 @@
-import ShowImages from "@components/show-images";
+import ShowImages from "@components/product-carousel";
 import prisma from "@lib/prisma";
 
-export default async function ProductImages({
-  main,
-  id,
-}: {
-  main: string;
-  id: number;
-}) {
+
+interface Props {
+  main: string | null;
+  alt: string | null;
+  productId: number;
+}
+
+export default async function ProductImages({ main, productId, alt }: Props) {
   const images = await prisma.productImage.findMany({
     where: {
-      productId: id,
+      productId,
     },
   });
 
-  return <ShowImages main={main} images={images} alt="" />;
+  return <ShowImages main={main} images={images} alt={alt} />;
 }

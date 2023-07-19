@@ -1,7 +1,7 @@
 import Container from "@components/container";
-import ProductImages from "@components/product-images";
-import prisma from "@lib/prisma";
+import ProductGeneralInfo from "@components/product-general-info";
 import { notFound } from "next/navigation";
+import prisma from "@lib/prisma";
 
 export default async function Product({ params }: { params: { id: string } }) {
   const id = Number.parseInt(params.id);
@@ -11,13 +11,14 @@ export default async function Product({ params }: { params: { id: string } }) {
     },
   });
 
+  if (!product) {
+    notFound();
+  }
 
   return (
     <main>
       <Container>
-        <div className="top-section">
-          {/* <ProductImages image={product.image} productId={product.id} /> */}
-        </div>
+        <ProductGeneralInfo product={product} />
       </Container>
     </main>
   );

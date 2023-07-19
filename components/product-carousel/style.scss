@@ -1,0 +1,43 @@
+@use "@styles/mixins" as *;
+
+.product-carousel {
+  img {
+    @include size(100%);
+    object-fit: contain;
+  }
+
+  .main-image {
+    height: 400px;
+  }
+
+  .swiper {
+    margin-top: 1em;
+    width: 400px;
+
+    .swiper-slide {
+      padding: 0 10px;
+      width: 100px;
+    }
+  }
+
+  @include on-pc {
+    height: 400px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 1.5em;
+
+    .main-image {
+      width: 400px;
+    }
+
+    .swiper {
+      width: 120px;
+      margin: 0;
+
+      .swiper-slide {
+        height: 100px;
+      }
+    }
+  }
+}

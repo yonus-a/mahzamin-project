@@ -1,0 +1,15 @@
+@use "@styles/mixins.scss" as *;
+
+.product-general-info {
+  margin-top: var(--sections-margin-top);
+
+  @include on-pc {
+    display: flex;
+    gap: 2em;
+
+    h1 {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  }
+}
