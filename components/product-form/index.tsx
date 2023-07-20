@@ -1,7 +1,6 @@
 import ChooseColor from "@components/choose-color";
 import ProductPriceCalculator from "@components/product-price-calculator";
 import prisma from "@lib/prisma";
-import "./style.scss";
 
 interface Props {
   productId: number;
