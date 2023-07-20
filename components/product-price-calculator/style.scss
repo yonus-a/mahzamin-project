@@ -1,0 +1,38 @@
+@use "@styles/mixins.scss" as *;
+
+.product-price-calculator {
+  margin-top: 2em;
+
+  strong {
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  .input-group {
+    margin-top: 1.7em;
+    @include flex-align-center;
+    gap: 1em;
+
+    .counter {
+      background-color: var(--clr-gray);
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 3em;
+      gap: 1.5em;
+
+      button {
+        padding: 0.5em;
+        font-weight: bold;
+      }
+    }
+
+    .submit {
+      background-color: var(--clr-primary);
+      padding: 1em 2em;
+      border-radius: 3em;
+      font-size: 14px;
+    }
+  }
+}

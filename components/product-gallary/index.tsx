@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Button from "@components/button";
+import Button from "../button";
 import Image from "next/image";
 import "./style.scss";
 
@@ -12,12 +12,12 @@ interface Props {
   images: any;
 }
 
-export default function ProductCarousel({ main, images, alt }: Props) {
-  var [mainImage, setMain] = useState(main);
+export default function ProductGallary({ main, images, alt }: Props) {
+  var [mainImage, setMainImage] = useState(main);
   var base = "/images/products/";
 
   const handleClick = (image: string) => {
-    setMain(image);
+    setMainImage(image);
   };
 
   function getDirection() {
@@ -25,7 +25,7 @@ export default function ProductCarousel({ main, images, alt }: Props) {
   }
 
   return (
-    <div className="product-carousel">
+    <div className="product-gallary">
       <Image
         className="main-image"
         src={base + mainImage}
@@ -40,14 +40,14 @@ export default function ProductCarousel({ main, images, alt }: Props) {
           direction={getDirection()}
           onResize={(swiper) => swiper.changeDirection(getDirection())}
         >
-          {images.map(({ image }: { image: string }) => (
+          {images.map(({ name }: { name: string }) => (
             <SwiperSlide>
               <Button
                 className="button-image"
-                onClick={handleClick.bind(null, image)}
+                onClick={handleClick.bind(null, name)}
               >
                 <Image
-                  src={base + image}
+                  src={base + name}
                   alt={`${alt}`}
                   width={100}
                   height={100}

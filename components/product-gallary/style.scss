@@ -1,6 +1,6 @@
 @use "@styles/mixins" as *;
 
-.product-carousel {
+.product-gallary {
   img {
     @include size(100%);
     object-fit: contain;

@@ -3,13 +3,26 @@
 .product-general-info {
   margin-top: var(--sections-margin-top);
 
-  @include on-pc {
-    display: flex;
-    gap: 2em;
-
+  .left-col {
     h1 {
       font-size: 1.5em;
       font-weight: bold;
+      margin-bottom: 1.2em;
     }
+
+    ul {
+      li {
+        font-size: 15px;
+      }
+
+      li:first-child {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+
+  @include on-pc {
+    display: flex;
+    gap: 4em;
   }
 }

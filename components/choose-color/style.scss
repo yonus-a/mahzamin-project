@@ -1,0 +1,24 @@
+@use "@styles/mixins.scss" as *;
+
+.choose-color {
+  @include flex-align-center;
+  margin-top: 0.5em;
+  font-size: 15px;
+  gap: 1em;
+
+  ul {
+    display: flex;
+    gap: 0.5em;
+
+    .radio-btn {
+      border-radius: 50%;
+      @include flex-center;
+      @include size(34px);
+
+      svg {
+        @include size(16px);
+        fill: #fff;
+      }
+    }
+  }
+}
