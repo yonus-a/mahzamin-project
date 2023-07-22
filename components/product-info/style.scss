@@ -1,0 +1,29 @@
+.product-info {
+  margin-top: var(--sections-margin-top);
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10em;
+    row-gap: 2em;
+
+    li {
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .sub-title {
+        margin-top: 0.5em;
+        font-size: 13px;
+        color: #b6b6b6;
+      }
+    }
+  }
+}
