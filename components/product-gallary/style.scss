@@ -1,6 +1,9 @@
 @use "@styles/mixins" as *;
 
 .product-gallary {
+  @include flex-align-center;
+  flex-direction: column;
+
   img {
     @include size(100%);
     object-fit: contain;
@@ -27,7 +30,7 @@
     gap: 1.5em;
 
     .swiper {
-      width: 120px;
+      @include size(120px, 300px);
       margin: 0;
 
       .swiper-slide {

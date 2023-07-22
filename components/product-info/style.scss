@@ -1,21 +1,21 @@
+@use "@styles/mixins.scss" as *;
+
 .product-info {
-  margin-top: var(--sections-margin-top);
+  margin-top: calc(var(--sections-margin-top) * 1.5);
 
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 10em;
+    align-items: center;
     row-gap: 2em;
 
     li {
       .title {
-        display: flex;
-        align-items: center;
+        @include flex-align-center;
         gap: 0.5em;
 
         svg {
-          width: 24px;
-          height: 24px;
+          @include size(24px);
         }
       }
 

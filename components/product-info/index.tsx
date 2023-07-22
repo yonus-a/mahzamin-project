@@ -18,7 +18,7 @@ export default async function ProductInfo({ id }: Props) {
         {info.map(({ id, title, subTitle, logo }) => (
           <li key={id}>
             <p className="title">
-              <svg>
+              <svg aria-hidden="true">
                 <use href={`#${logo}`} />
               </svg>
               {title}
