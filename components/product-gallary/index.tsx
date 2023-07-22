@@ -30,8 +30,8 @@ export default function ProductGallary({ main, images, alt }: Props) {
         className="main-image"
         src={base + mainImage}
         alt={`${alt}`}
-        width={400}
-        height={400}
+        width={300}
+        height={300}
       />
       {images.length > 0 ? (
         <Swiper
