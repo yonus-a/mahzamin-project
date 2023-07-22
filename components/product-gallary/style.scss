@@ -10,7 +10,7 @@
   }
 
   .main-image {
-    @include size(300px);
+    height: 400px;
   }
 
   .swiper {
@@ -24,10 +24,15 @@
   }
 
   @include on-pc {
+    height: 400px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
     gap: 1.5em;
+
+    .main-image {
+      width: 400px;
+    }
 
     .swiper {
       @include size(120px, 300px);

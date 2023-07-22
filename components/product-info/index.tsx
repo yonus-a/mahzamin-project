@@ -1,12 +1,11 @@
 import prisma from "@lib/prisma";
-import "./style.scss";
 
 interface Props {
   id: number;
 }
 
 export default async function ProductInfo({ id }: Props) {
-  const info = await prisma.productInfo.findMany({
+  const info = prisma.productInfo.findMany({
     where: {
       productId: id,
     },
@@ -26,7 +25,6 @@ export default async function ProductInfo({ id }: Props) {
             <p className="sub-title">{subTitle}</p>
           </li>
         ))}
-      </ul>
-    </div>
-  );
+    </ul>
+  </div>
 }
