@@ -12,7 +12,7 @@ export default function MobileBasePrice() {
       </div>
       <ul>
         <AnimatedItem animation="animate__pulse">
-          <Link href="#">
+          <Link href="/shop?min=0&max=5000000">
             <Image
               src="/images/mobile-base-price/mobile5.png"
               alt="گوشی از 5 میلیون تومان"
@@ -22,7 +22,7 @@ export default function MobileBasePrice() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={200}>
-          <Link href="#">
+          <Link href="/shop?min=5000000&max=10000000">
             <Image
               src="/images/mobile-base-price/mobile5-10.png"
               alt="گوشی 5 تا 10 میلیون تومان"
@@ -32,7 +32,7 @@ export default function MobileBasePrice() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={400}>
-          <Link href="#">
+          <Link href="/shop?min=10000000&max=15000000">
             <Image
               src="/images/mobile-base-price/mobile10-15.png"
               alt="گوشی 10 تا 15 میلیون تومان"
@@ -42,7 +42,7 @@ export default function MobileBasePrice() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={600}>
-          <Link href="#">
+          <Link href="/shop?min=15000000&max=20000000">
             <Image
               src="/images/mobile-base-price/mobile15-20.png"
               alt="گوشی 15 تا 20 میلیون تومان"
