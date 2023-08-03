@@ -1,5 +1,6 @@
 import prisma from "@lib/prisma";
 import filterProductBaseCategory from "./filterProductBaseCategory";
+import filterProductBaseBrand from "./filterProductBaseBrand";
 
 export default async function getProducts(
   page: number,
@@ -8,6 +9,7 @@ export default async function getProducts(
 ) {
   const filter = {
     ...(await filterProductBaseCategory(params.category)),
+    ...(await filterProductBaseBrand(params.brand)),
   };
 
   const totalProduct = await prisma.product.count({

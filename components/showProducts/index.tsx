@@ -12,9 +12,14 @@ interface Product {
 export default function ShowProducts({ products }: { products: any }) {
   return (
     <ul className="products">
+      {products.length <= 0 ? (
+        <h1 className="not-found">موردی یافت نشد !</h1>
+      ) : (
+        ""
+      )}
       {products.map((product: Product) => (
         <AnimatedItem key={product.id} animation="animate__fadeIn" delay={200}>
-          <Link href={`/product/${product.id}`} >
+          <Link href={`/product/${product.id}`}>
             <Image
               src={`/images/products/${product.image}`}
               alt={product.name}

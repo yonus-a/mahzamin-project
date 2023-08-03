@@ -12,7 +12,7 @@ export default function Brands() {
     <section className="brands" aria-label="brands">
       <Swiper modules={[A11y]} slidesPerView={"auto"} spaceBetween={15}>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=sony">
             <Image
               src="/images/brands/sony.png"
               alt="sony"
@@ -22,7 +22,7 @@ export default function Brands() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=huawei">
             <Image
               src="/images/brands/huawei.png"
               className="huawei"
@@ -33,7 +33,7 @@ export default function Brands() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=samsung">
             <Image
               src="/images/brands/sumsung.png"
               alt="sumsung"
@@ -43,7 +43,7 @@ export default function Brands() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=xiaomi">
             <Image
               src="/images/brands/xiaomi.png"
               alt="xiaomi"
@@ -53,7 +53,7 @@ export default function Brands() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=oneplus">
             <Image
               src="/images/brands/oneplus.png"
               alt="oneplus"
@@ -63,7 +63,7 @@ export default function Brands() {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="#">
+          <Link href="/shop?brand=sony">
             <Image
               src="/images/brands/sony.png"
               alt="sony"

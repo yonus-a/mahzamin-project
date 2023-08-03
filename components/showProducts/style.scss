@@ -4,8 +4,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin-top: var(--sections-margin-top);
-
   gap: 2em;
+
+  .not-found {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2em 0;
+
+    @include on-pc {
+      font-size: 2rem;
+    }
+  }
 
   li {
     a {

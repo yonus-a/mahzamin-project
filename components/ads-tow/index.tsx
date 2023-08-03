@@ -5,7 +5,10 @@ import "./style.scss";
 export default function AdsTow() {
   return (
     <section className="ads-tow" aria-label="ads tow">
-      <Link href="#" className="wow animate__animated animate__bounceInUp">
+      <Link
+        href="/product/4"
+        className="wow animate__animated animate__bounceInUp"
+      >
         <Image
           src="/images/ads/ads3.png"
           alt="انواع پرینتر با کیفیت عالی"
