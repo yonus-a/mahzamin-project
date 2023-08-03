@@ -11,7 +11,7 @@ export default function ProductsCategorization() {
     >
       <ul>
         <AnimatedItem animation="animate__pulse">
-          <Link href="/shop/laptop">
+          <Link href="/shop?category=laptop">
             <div className="image">
               <Image
                 src="/images/products-categorization/laptop.png"
@@ -24,7 +24,7 @@ export default function ProductsCategorization() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={200}>
-          <Link href="/shop/watch">
+          <Link href="/shop?category=watch">
             <div className="image">
               <Image
                 src="/images/products-categorization/watch.png"
@@ -37,7 +37,7 @@ export default function ProductsCategorization() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={400}>
-          <Link href="/shop/accessories">
+          <Link href="/shop?category=accessories">
             <div className="image">
               <Image
                 src="/images/products-categorization/mouse.png"
@@ -50,7 +50,7 @@ export default function ProductsCategorization() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={600}>
-          <Link href="/shop/tablet">
+          <Link href="/shop?category=tablet">
             <div className="image">
               <Image
                 src="/images/products-categorization/tablet.png"
@@ -63,7 +63,7 @@ export default function ProductsCategorization() {
           </Link>
         </AnimatedItem>
         <AnimatedItem animation="animate__pulse" delay={800}>
-          <Link href="/shop/mobile">
+          <Link href="/shop?category=mobile">
             <div className="image">
               <Image
                 src="/images/products-categorization/phone.png"

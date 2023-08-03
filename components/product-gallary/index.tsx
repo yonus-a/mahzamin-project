@@ -40,8 +40,8 @@ export default function ProductGallary({ main, images, alt }: Props) {
           direction={getDirection()}
           onResize={(swiper) => swiper.changeDirection(getDirection())}
         >
-          {images.map(({ name }: { name: string }) => (
-            <SwiperSlide>
+          {images.map(({ name, id }: { name: string; id: number }) => (
+            <SwiperSlide key={id}>
               <Button
                 className="button-image"
                 onClick={handleClick.bind(null, name)}
