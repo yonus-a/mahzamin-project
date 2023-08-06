@@ -15,6 +15,12 @@ export default function useMenu() {
       close.addEventListener("click", () => {
         nav?.classList.add("hidden");
       });
+
+      nav?.addEventListener("click", ({ target }) => {
+        if ((target as HTMLElement).closest("a")) {
+          (close as HTMLInputElement).click();
+        }
+      });
     }
   }, []);
 }
