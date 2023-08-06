@@ -1,11 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import Button from "../button";
+import { usePathname } from "next/navigation";
 import useMenu from "@hooks/useMenu";
+import Button from "../button";
+import Link from "next/link";
 import "./style.scss";
 
+const navLinks = [
+  { href: "/", name: "صفحه اصلی" },
+  { href: "/shop", name: "فروشگاه" },
+  { href: "/cart", name: "سبد خرید" },
+  { href: "/acount", name: "حساب کاربری من" },
+];
+
 export default function Nav() {
+  const pathname = usePathname();
   useMenu();
 
   return (
@@ -20,26 +29,21 @@ export default function Nav() {
         </svg>
       </Button>
       <ul role="menubar" className="menubar">
-        <li role="none">
-          <Link href="/" role="menuitem" className="active">
-            صفحه اصلی
-          </Link>
-        </li>
-        <li role="none">
-          <Link href="/shop" role="menuitem">
-            فروشگاه
-          </Link>
-        </li>
-        <li role="none">
-          <Link href="/" role="menuitem">
-            سبد خرید
-          </Link>
-        </li>
-        <li role="none">
-          <Link href="/" role="menuitem">
-            حساب کاربری من
-          </Link>
-        </li>
+        {navLinks.map(({ href, name }) => {
+          var isActive = pathname === href;
+
+          return (
+            <li role="none" key={name}>
+              <Link
+                href={href}
+                role="menuitem"
+                className={isActive ? "active" : ""}
+              >
+                {name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
