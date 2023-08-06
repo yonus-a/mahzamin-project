@@ -3,6 +3,7 @@ import filterProductBaseCategory from "./filterProductBaseCategory";
 import filterProductBaseBrand from "./filterProductBaseBrand";
 import filterProductBasePrice from "./filterProductBasePrice";
 import filterProductBaseSearch from "./filterProductBaseSearch";
+import sort from "./sort";
 
 export default async function getProducts(
   page: number,
@@ -28,9 +29,7 @@ export default async function getProducts(
       name: true,
       image: true,
     },
-    orderBy: {
-      id: "desc",
-    },
+    orderBy: sort(params.sort),
     where: filter,
   });
 

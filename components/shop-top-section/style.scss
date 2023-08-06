@@ -25,39 +25,5 @@
     display: flex;
     gap: 1em;
 
-    button {
-      padding: 1em 1.5em;
-      background-color: var(--clr-gray);
-      border-radius: 10px;
-
-      span {
-        @include flex-center;
-        gap: 0.3em;
-      }
-
-      .pc-only {
-        display: none;
-
-        svg {
-          @include size(20px);
-        }
-      }
-
-      .mobile-only {
-        svg {
-          @include size(24px);
-        }
-      }
-
-      @include on-pc {
-        .pc-only {
-          display: flex;
-        }
-
-        .mobile-only {
-          display: none;
-        }
-      }
-    }
   }
 }

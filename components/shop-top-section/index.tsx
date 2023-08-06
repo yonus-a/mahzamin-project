@@ -1,3 +1,4 @@
+import SortProducts from "@components/sort-products";
 import Button from "../button";
 import "./style.scss";
 
@@ -27,19 +28,7 @@ export default function ShopTopSection({
       </div>
       <div className="left-col">
         <Button>فیتر</Button>
-        <Button>
-          <span className="pc-only">
-            مرتب سازی بر اساس
-            <svg>
-              <use href="#chevron-down" />
-            </svg>
-          </span>
-          <span className="mobile-only">
-            <svg>
-              <use href="#sort" />
-            </svg>
-          </span>
-        </Button>
+        <SortProducts />
       </div>
     </div>
   );
