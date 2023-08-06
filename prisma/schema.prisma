@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextIndex", "fullTextSearch"]
 }
 
 datasource db {
@@ -15,21 +16,6 @@ model Brand {
 model Category {
   id   Int     @id @default(autoincrement())
   name String? @db.TinyText
-}
-
-model Product {
-  id          Int     @id @default(autoincrement())
-  name        String? @db.TinyText
-  image       String? @db.TinyText
-  price       Int?
-  discount    Int?    @default(0)
-  number      Int?
-  categoryId  Int?
-  brandId     Int?
-  description String? @db.Text
-
-  @@index([brandId], map: "brandId")
-  @@index([categoryId], map: "categoryId")
 }
 
 model ProductColor {
@@ -66,4 +52,20 @@ model ProductInfo {
   logo      String? @db.TinyText
 
   @@index([productId], map: "productId")
+}
+
+model product {
+  id          Int     @id @default(autoincrement())
+  name        String? @db.TinyText
+  image       String? @db.TinyText
+  price       Int?
+  discount    Int?    @default(0)
+  number      Int?
+  categoryId  Int?
+  brandId     Int?
+  description String? @db.Text
+
+  @@index([brandId], map: "brandId")
+  @@index([categoryId], map: "categoryId")
+  @@index([name(length: 250)], map: "product_name")
 }

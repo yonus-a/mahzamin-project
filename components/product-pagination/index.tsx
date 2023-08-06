@@ -1,4 +1,3 @@
-import queryString from "@utils/queryString";
 import Link from "next/link";
 import "./style.scss";
 
@@ -16,13 +15,13 @@ export default function ProductPagination({
       <ul>
         {Array.from({ length: totalPages }, (_, idx: number) => {
           const classnames = `${idx === currentPage ? "active" : ""}`;
-          var href = "";
+          var href = {};
 
           if (idx > 0) {
-            href = `/shop${queryString({ ...params, page: idx })}`;
+            href = { pathname: "/shop", query: { ...params, page: idx } };
           } else {
             delete params.page;
-            href = `/shop${queryString(params)}`;
+            href = { pathname: "/shop", query: params };
           }
 
           return (

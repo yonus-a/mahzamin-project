@@ -1,6 +1,8 @@
 @use "@styles/mixins.scss" as *;
 
 .search {
+  position: relative;
+  
   .icon-button {
     @include size(44px);
     background: var(--clr-gray);

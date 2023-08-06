@@ -1,0 +1,48 @@
+@use "@styles/mixins.scss" as *;
+
+.search-results {
+  box-shadow: 0 10px 10px 0 rgba($color: #000000, $alpha: 0.2);
+  position: absolute;
+  background-color: white;
+  border-radius: 1em;
+  padding: 2em;
+  max-height: 344px;
+  overflow: hidden;
+  width: 336px;
+
+  ul {
+    list-style: none;
+
+    li:nth-child(4) {
+      -webkit-mask-image: linear-gradient(black, transparent);
+      mask-image: linear-gradient(black, transparent);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    a {
+      @include flex-align-center;
+
+      img {
+        @include size(90px);
+        padding: 1em 1.3em;
+        padding-right: 0;
+        object-fit: scale-down;
+      }
+    }
+  }
+
+  .more {
+    @include flex-align-center;
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: underline;
+    gap: 0.3em;
+
+    svg {
+      @include size(9px);
+    }
+  }
+}
