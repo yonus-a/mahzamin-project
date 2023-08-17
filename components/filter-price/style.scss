@@ -1,0 +1,27 @@
+@use "@styles/mixins.scss" as *;
+
+.filter-price {
+  label {
+    input {
+      width: 120px;
+      padding: 0.8em;
+      border: none;
+      background-color: var(--clr-gray);
+      border-radius: 10px;
+      margin: 0 1.3em;
+    }
+  }
+
+  .slider {
+    width: 70%;
+    margin-top: 1.5em;
+
+    .css-sy6mg7-MuiSlider-thumb {
+      margin-right: -20px;
+    }
+
+    @include on-pc {
+      width: 50%;
+    }
+  }
+}

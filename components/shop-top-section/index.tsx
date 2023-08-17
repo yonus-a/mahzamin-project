@@ -1,5 +1,5 @@
-import SortProducts from "@components/sort-products";
-import Button from "../button";
+import SortProducts from "../sort-products";
+import FilterProducts from "../filter-products";
 import "./style.scss";
 
 interface Props {
@@ -27,7 +27,7 @@ export default function ShopTopSection({
         </p>
       </div>
       <div className="left-col">
-        <Button>فیتر</Button>
+        <FilterProducts />
         <SortProducts />
       </div>
     </div>

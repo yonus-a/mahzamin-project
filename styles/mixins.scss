@@ -15,6 +15,11 @@
   align-items: center;
 }
 
+@mixin m-p($m, $p) {
+  margin: $m;
+  padding: $p;
+}
+
 @mixin size($w, $h: "") {
   width: $w;
   height: $w;

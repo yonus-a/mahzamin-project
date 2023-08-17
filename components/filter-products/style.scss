@@ -1,0 +1,58 @@
+@use "@styles/mixins.scss" as *;
+
+.filter-products {
+  button {
+    padding: 1em 1.5em;
+    background-color: var(--clr-gray);
+    border-radius: 10px;
+  }
+
+  form {
+    @include m-p(0 2em, 3em);
+    background-color: white;
+    padding-top: 1em;
+    border-radius: 15px;
+
+    h2 {
+      font-size: 1.2rem;
+      @include flex-align-center;
+      margin: 2em 0 1.5em 0;
+      gap: 0.5em;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        @include size(12px);
+        border-radius: 50%;
+        background-color: var(--cls-scondary);
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 1em;
+      gap: 2.5em;
+
+      label {
+        @include flex-align-center;
+        white-space: nowrap;
+        gap: 1em;
+      }
+    }
+
+    .switch-container {
+      @include flex-align-center;
+      gap: 1.5em;
+
+      .switch {
+        margin-top: 10px;
+      }
+    }
+
+    .submit {
+      background-color: var(--clr-primary);
+      margin-left: 1em;
+    }
+  }
+}

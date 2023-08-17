@@ -12,9 +12,10 @@
   // backgrounds
   --header-background: #fff;
   // z-index
-  --header-zIndex: 9999;
+  --header-zIndex: 99999;
   --menu-zIndex: 999;
   --swiperNavigation-zIndex: 99;
+  --dialog-layer-zIndex: 9999;
   // transition
   --header-transition: 300ms;
   // margin
@@ -24,40 +25,53 @@
 }
 
 @font-face {
-  font-family: "IranYkan";
-  src: url("/fonts/iranyekan-400.woff2") format("woff2"),
+  font-family: "myFont";
+  src:
+    url("/fonts/iranyekan-400.woff2") format("woff2"),
     url("/fonts/iranyekan-400.woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "IranYkan";
-  src: url("/fonts/iranyekan-500.woff2") format("woff2"),
+  font-family: "myFont";
+  src:
+    url("/fonts/iranyekan-500.woff2") format("woff2"),
     url("/fonts/iranyekan-500.woff");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "IranYkan";
-  src: url("/fonts/iranyekan-700.woff2") format("woff2"),
+  font-family: "myFont";
+  src:
+    url("/fonts/iranyekan-700.woff2") format("woff2"),
     url("/fonts/iranyekan-700.woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "IranYkan";
-  src: url("/fonts/iranyekan-700.woff2") format("woff2"),
+  font-family: "myFont";
+  src:
+    url("/fonts/iranyekan-700.woff2") format("woff2"),
     url("/fonts/iranyekan-700.woff");
   font-weight: 700;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "myFont";
+  src:
+    url("/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("/fonts/Roboto-Regular.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
-  font-family: "IranYkan";
+  font-family: "myFont";
   font-weight: 400;
   font-size: 14px;
   margin: 0;

@@ -9,9 +9,9 @@ interface Props {
 }
 
 export default function ChooseColor({ colors }: Props) {
-  if (!colors.length) return null;
-
   var [colorId, setColorId] = useState(colors[0].id);
+
+  if (!colors.length) return null;
 
   const handleClick = (id: number) => {
     setColorId(id);

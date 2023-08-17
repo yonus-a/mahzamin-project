@@ -1,6 +1,6 @@
 import prisma from "@lib/prisma";
 
-const obj = {
+const alternate = {
   mobile: "موبایل",
   laptop: "لپتاپ",
   watch: "ساعت هوشمند",
@@ -8,16 +8,24 @@ const obj = {
   tablet: "تبلت",
 };
 
-export default async function filterProductBaseCategory(category: string) {
-  if (!category) return {};
+export default async function filterProductBaseCategory(value: string | []) {
+  if (!value) return {};
 
-  const categoryId = await prisma.category.findFirst({
-    where: {
-      name: obj[category],
-    },
+  const where: any = {};
+
+  typeof value === "string"
+    ? (where.name = alternate[value as keyof typeof alternate])
+    : (where.OR = value.map((val) => ({
+        name: alternate[val as keyof typeof alternate],
+      })));
+
+  const wantedCategories = await prisma.category.findMany({ where });
+  const notWantedCategories = await prisma.category.findMany({
+    where: { NOT: where.OR || where },
   });
 
   return {
-    categoryId: categoryId?.id,
+    OR: wantedCategories.map((category) => ({ categoryId: category?.id })),
+    NOT: notWantedCategories.map((category) => ({ categoryId: category?.id })),
   };
 }
