@@ -3,11 +3,10 @@
 import DialogContext from "@context/dialogContext";
 import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./style.scss";
 
 interface Props {
   children: React.ReactNode;
-  variants?: { initial: {}; animate: {} };
+  variants?: { initial: {}; animate: {}; exit?: {} };
 }
 
 export default function DialogContainer({ children, variants }: Props) {
@@ -24,7 +23,7 @@ export default function DialogContainer({ children, variants }: Props) {
           variants={variants}
           initial="initial"
           animate="animate"
-          exit="initial"
+          exit={variants?.exit ? "exit" : "initial"}
         >
           {children}
         </motion.div>

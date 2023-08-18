@@ -41,9 +41,10 @@
   ul {
     position: absolute;
     background: #eee;
-    width: 100%;
+    width: 175px;
     border-radius: 10px;
     margin-top: 0.5em;
+    left: 0;
     overflow: hidden;
     z-index: 99999;
 
@@ -55,6 +56,10 @@
       &:hover {
         background-color: var(--clr-gray);
       }
+    }
+
+    @include on-pc {
+      width: 100%;
     }
   }
 }
