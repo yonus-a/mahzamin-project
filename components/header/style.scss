@@ -2,6 +2,7 @@
 
 header {
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
 
   .header-container {
     display: flex;
@@ -10,28 +11,30 @@ header {
     padding: 1.5em;
     margin: 0 auto;
 
-    .col-right,
-    .col-left {
-      @include flex-align-center;
-    }
-
     .col-right {
-      gap: 1.2em;
+      @include flex-align-center;
+      white-space: nowrap;
+
+      .pc-only {
+        @include flex-align-center;
+        gap: 2em;
+
+        .logo {
+          img {
+            @include size(65px);
+          }
+        }
+      }
 
       .menu-cta {
         svg {
           @include size(34px);
         }
       }
-
-      .logo {
-        img {
-          @include size(54px);
-        }
-      }
     }
 
     .col-left {
+      @include flex-align-center;
       gap: 1.5em;
 
       .login {
@@ -63,25 +66,10 @@ header {
   @include on-pc {
     position: fixed;
     z-index: var(--header-zIndex);
-    width: 100%;
     top: 0;
 
     .header-container {
       padding: 0.9em 3.5em;
-
-      .col-right {
-        gap: 2em;
-
-        .menu-cta {
-          display: none;
-        }
-
-        .logo {
-          img {
-            @include size(65px);
-          }
-        }
-      }
     }
   }
 }

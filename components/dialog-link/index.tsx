@@ -6,13 +6,19 @@ interface Props {
   children: React.ReactNode;
   className?: string;
   href: string;
+  role?: string;
 }
 
-export function DialogLink({ children, href, className = "" }: Props) {
+export function DialogLink({
+  children,
+  href,
+  className = "",
+  role = "",
+}: Props) {
   const { closeDialog } = useContext<any>(DialogContext);
 
   return (
-    <Link href={href} className={className} onClick={closeDialog}>
+    <Link href={href} className={className} onClick={closeDialog} role={role}>
       {children}
     </Link>
   );

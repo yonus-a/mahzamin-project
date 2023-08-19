@@ -1,9 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import useMenu from "@hooks/useMenu";
-import Button from "../button";
-import Link from "next/link";
+import DialogCta from "@components/dialog-cta";
+import { DialogLink } from "@components/dialog-link";
 import "./style.scss";
 
 const navLinks = [
@@ -15,32 +14,28 @@ const navLinks = [
 
 export default function Nav() {
   const pathname = usePathname();
-  useMenu();
 
   return (
-    <nav className="main-nav hidden" id="main_nav">
-      <Button
-        className="close-menu"
-        aria-label="Close Menu"
-        aria-controls="main_nav"
-      >
+    <nav className="main-nav">
+      <DialogCta className="close-menu">
         <svg>
+          <title>close Navigation</title>
           <use href="#close" />
         </svg>
-      </Button>
+      </DialogCta>
       <ul role="menubar" className="menubar">
         {navLinks.map(({ href, name }) => {
           var isActive = pathname === href;
 
           return (
             <li role="none" key={name}>
-              <Link
+              <DialogLink
                 href={href}
                 role="menuitem"
                 className={isActive ? "active" : ""}
               >
                 {name}
-              </Link>
+              </DialogLink>
             </li>
           );
         })}
