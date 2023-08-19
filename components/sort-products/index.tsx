@@ -5,6 +5,7 @@ import DialogCta from "../dialog-cta";
 import Dialog from "../dialog";
 import Link from "next/link";
 import "./style.scss";
+import { DialogLink } from "@components/dialog-link";
 
 const links = [
   { href: "/shop?sort=maxPrice", name: "گرانترین ها" },
@@ -41,7 +42,7 @@ export default function SortProducts() {
           <ul>
             {links.map(({ href, name }) => (
               <li key={name}>
-                <Link href={href}>{name}</Link>
+                <DialogLink href={href}>{name}</DialogLink>
               </li>
             ))}
           </ul>

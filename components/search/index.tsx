@@ -37,7 +37,7 @@ export default function SearchForm() {
     const value = target.value;
     setSearchValue(value);
 
-    if (value == "") return setResult([]);
+    if (value === "") return setResult([]);
 
     searchProducts(value)
       .then((res) => res.json())
@@ -55,16 +55,20 @@ export default function SearchForm() {
           </svg>
           <input onChange={handleChagne} value={searchValue} />
         </div>
-        <Dialog ariaLabel="search result">
-          <DialogCta clicked={result.length > 0}></DialogCta>
-          <DialogLayer onClose={reset} style={{ zIndex: -1 }}></DialogLayer>
+        <Dialog
+          ariaLabel="search result"
+          onClose={reset}
+          close={searchValue === ""}
+          open={result.length > 0}
+        >
+          <DialogLayer style={{ zIndex: -1 }}></DialogLayer>
           <DialogContainer variants={pc_variants}>
             <SearchResults results={result} searchValue={searchValue} />
           </DialogContainer>
         </Dialog>
       </PcOnly>
       <MobileOnly>
-        <Dialog ariaLabel="search">
+        <Dialog ariaLabel="search" onClose={reset}>
           <DialogCta className="icon-button">
             <svg aria-hidden="true">
               <use href="#search" />

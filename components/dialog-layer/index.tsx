@@ -9,15 +9,13 @@ import "./style.scss";
 interface Props {
   children?: React.ReactNode;
   style?: MotionStyle;
-  onClose: () => void | undefined;
 }
-export default function DialogLayer({ children, style, onClose }: Props) {
-  const { isOpen, setIsOpen } = useContext<any>(DialogContext);
+export default function DialogLayer({ children, style }: Props) {
+  const { isOpen, closeDialog } = useContext<any>(DialogContext);
 
   const handleClick = ({ target }: any) => {
     if (target.classList.contains("dialog-layer")) {
-      onClose?.();
-      setIsOpen(false);
+      closeDialog();
     }
   };
 

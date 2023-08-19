@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { DialogLink } from "../dialog-link";
 import "./style.scss";
 
 interface Props {
@@ -22,7 +22,7 @@ export default function SearchResults({
       <ul>
         {results.map((result: any) => (
           <li key={result.id}>
-            <Link href={`/product/${result.id}`}>
+            <DialogLink href={`/product/${result.id}`}>
               <Image
                 src={`/images/products/${result.image}`}
                 width={100}
@@ -30,17 +30,17 @@ export default function SearchResults({
                 alt=""
               />
               {result.name}
-            </Link>
+            </DialogLink>
           </li>
         ))}
       </ul>
       {results.length > 4 ? (
-        <Link href={`/shop?search=${searchValue}`} className="more">
+        <DialogLink href={`/shop?search=${searchValue}`} className="more">
           نمایش بیشتر
           <svg aria-hidden="true">
             <use href="#chevron-left" />
           </svg>
-        </Link>
+        </DialogLink>
       ) : (
         ""
       )}
