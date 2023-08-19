@@ -3,9 +3,8 @@
 import DialogContainer from "../dialog-container";
 import DialogCta from "../dialog-cta";
 import Dialog from "../dialog";
-import Link from "next/link";
-import "./style.scss";
 import { DialogLink } from "@components/dialog-link";
+import "./style.scss";
 
 const links = [
   { href: "/shop?sort=maxPrice", name: "گرانترین ها" },
