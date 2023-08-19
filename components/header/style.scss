@@ -2,11 +2,11 @@
 
 header {
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-  background-color: var(--header-background);
 
   .header-container {
     display: flex;
     justify-content: space-between;
+    background-color: var(--header-background);
     padding: 1.5em;
     margin: 0 auto;
 

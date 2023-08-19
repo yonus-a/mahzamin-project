@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import "./style.scss";
@@ -5,12 +7,18 @@ import "./style.scss";
 interface Props {
   searchValue: string;
   results: any;
+  className?: string;
 }
 
-export default function SearchResults({ results, searchValue }: Props) {
+export default function SearchResults({
+  results,
+  searchValue,
+  className,
+}: Props) {
   if (!results?.length) return null;
+
   return (
-    <div className="search-results">
+    <div className={`search-results ${className}`}>
       <ul>
         {results.map((result: any) => (
           <li key={result.id}>

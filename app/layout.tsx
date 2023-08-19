@@ -13,6 +13,8 @@ import "swiper/css/autoplay";
 // import animate.css
 import "animate.css";
 import Footer from "@components/footer";
+import { StrictMode } from "react";
+import DialogLayer from "@components/dialog-layer";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -36,11 +38,13 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">
       <body>
-        <Header />
-        {children}
-        <Footer/>
-        <SvgSprite />
-        <WOWINIT />
+        <StrictMode>
+          <Header />
+          {children}
+          <Footer />
+          <SvgSprite />
+          <WOWINIT />
+        </StrictMode>
       </body>
     </html>
   );

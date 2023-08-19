@@ -8,6 +8,9 @@ export default function SvgSprite() {
         <symbol viewBox="0 -960 960 960" id="chevron-left">
           <path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z" />
         </symbol>
+        <symbol viewBox="0 -960 960 960" id="arrow-right">
+          <path d="m560-242-43-42 168-168H160v-60h525L516-681l43-42 241 241-240 240Z" />
+        </symbol>
         <symbol viewBox="0 -960 960 960" id="bluetooth">
           <path d="M450-94v-314L256-214l-42-42 224-224-224-224 42-42 194 194v-314h30l214 214-172 172 172 172L480-94h-30Zm60-458 100-100-100-98v198Zm0 342 100-98-100-100v198Z" />
         </symbol>
