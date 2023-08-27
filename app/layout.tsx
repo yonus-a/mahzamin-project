@@ -14,7 +14,6 @@ import "swiper/css/autoplay";
 import "animate.css";
 import Footer from "@components/footer";
 import { StrictMode } from "react";
-import DialogLayer from "@components/dialog-layer";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -37,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">
-      <body>
+      <body className="m-top">
         <StrictMode>
           <Header />
           {children}

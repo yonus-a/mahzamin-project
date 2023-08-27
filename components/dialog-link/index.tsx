@@ -1,3 +1,5 @@
+"use client";
+
 import DialogContext from "@context/dialogContext";
 import { useContext } from "react";
 import Link from "next/link";
