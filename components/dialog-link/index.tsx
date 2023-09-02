@@ -11,7 +11,7 @@ interface Props {
   role?: string;
 }
 
-export function DialogLink({
+export default function DialogLink({
   children,
   href,
   className = "",

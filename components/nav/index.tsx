@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import DialogCta from "@components/dialog-cta";
-import { DialogLink } from "@components/dialog-link";
+import DialogLink from "@components/dialog-link";
 import "./style.scss";
 
 const navLinks = [

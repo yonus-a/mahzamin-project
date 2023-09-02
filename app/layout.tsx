@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Header from "@components/header";
 import SvgSprite from "@components/svg-sprite";
 import WOWINIT from "@components/WOWINIT";
+import CustomCartProvider from "@components/custom-cart-provider";
 import "@styles/global.scss";
 
 // import swiper css
@@ -38,11 +39,13 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">
       <body className="m-top">
         <StrictMode>
-          <Header />
-          {children}
-          <Footer />
-          <SvgSprite />
-          <WOWINIT />
+          <CustomCartProvider>
+            <Header />
+            {children}
+            <Footer />
+            <SvgSprite />
+            <WOWINIT />
+          </CustomCartProvider>
         </StrictMode>
       </body>
     </html>

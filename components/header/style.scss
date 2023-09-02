@@ -50,12 +50,6 @@ header {
           border: 1px solid var(--clr-primary);
         }
       }
-
-      .cart {
-        svg {
-          @include size(30px);
-        }
-      }
     }
 
     @media (min-width: 1700px) {

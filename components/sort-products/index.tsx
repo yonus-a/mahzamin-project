@@ -3,7 +3,7 @@
 import DialogContainer from "../dialog-container";
 import DialogCta from "../dialog-cta";
 import Dialog from "../dialog";
-import { DialogLink } from "@components/dialog-link";
+import DialogLink from "@components/dialog-link";
 import "./style.scss";
 
 const links = [

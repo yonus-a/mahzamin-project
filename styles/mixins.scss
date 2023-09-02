@@ -15,6 +15,30 @@
   align-items: center;
 }
 
+@mixin take-all-space {
+  z-index: 9999999999;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-gap($gap) {
+  display: flex;
+  gap: $gap;
+}
+
+@mixin grid-gap($gap) {
+  display: grid;
+  gap: $gap;
+}
+
 @mixin m-p($m, $p) {
   margin: $m;
   padding: $p;

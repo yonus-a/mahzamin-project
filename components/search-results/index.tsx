@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { DialogLink } from "../dialog-link";
+import DialogLink from "../dialog-link";
 import "./style.scss";
 
 interface Props {

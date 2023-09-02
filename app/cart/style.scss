@@ -1,0 +1,32 @@
+@use "@styles/mixins.scss" as *;
+
+.cart {
+  margin-top: 3.5em;
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 2em;
+    border-bottom: 2px solid var(--clr-primary);
+    padding-bottom: 0.5em;
+    display: inline-block;
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include on-pc {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .empty-cart {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 4em;
+
+    @include on-pc {
+      padding: 5em 4em;
+    }
+  }
+}

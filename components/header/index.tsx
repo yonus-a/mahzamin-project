@@ -10,6 +10,7 @@ import MobileOnly from "@components/mobile-only";
 import PcOnly from "@components/pc-only";
 import LoginBtn from "@components/login-btn";
 import "./style.scss";
+import CartDialog from "@components/cart-dialog";
 
 export default function Header() {
   const variants = {
@@ -51,12 +52,7 @@ export default function Header() {
         <div className="col-left">
           <Search />
           <LoginBtn />
-          <Link href="/cart" className="cart">
-            <svg>
-              <title>shopping cart</title>
-              <use href="#shopping-cart" />
-            </svg>
-          </Link>
+          <CartDialog />
         </div>
       </div>
     </header>

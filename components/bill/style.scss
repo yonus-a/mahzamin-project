@@ -1,0 +1,46 @@
+@use "@styles/mixins.scss" as *;
+
+.bill {
+  width: 100%;
+  margin-top: 3em;
+  box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.3);
+  height: fit-content;
+  border-radius: 1em;
+  padding: 2em;
+
+  h2 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 1.5em;
+  }
+
+  p {
+    margin: 1.5em 0;
+    @include flex-space-between;
+
+    strong {
+      font-weight: bold;
+      font-size: 17px;
+    }
+  }
+
+  hr {
+    margin-top: 2.5em;
+  }
+
+  button {
+    margin-top: 1em;
+    padding: 1.2em;
+    text-align: center;
+    border-radius: 1em;
+    background-color: var(--clr-primary);
+    width: 100%;
+  }
+
+  @include on-pc {
+    width: 60%;
+    margin: 0 auto;
+    position: sticky;
+    top: 100px;
+  }
+}

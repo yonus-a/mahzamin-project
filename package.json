@@ -26,6 +26,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-map-interaction": "^2.1.0",
+    "react-use-cart": "^1.13.0",
     "sass": "^1.63.6",
     "swiper": "^10.0.4",
     "typescript": "5.1.6",

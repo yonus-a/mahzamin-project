@@ -1,35 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import Button from "../button";
 import "./style.scss";
 
 interface Props {
-  colors: any;
+  colorId: any;
+  setColorId: () => void;
 }
 
-export default function ChooseColor({ colors }: Props) {
-  var [colorId, setColorId] = useState(colors[0].id);
-
+export default function ChooseColor({ color, setColor, colors }: any) {
   if (!colors.length) return null;
 
-  const handleClick = (id: number) => {
-    setColorId(id);
+  const handleClick = (color: any) => {
+    setColor(color);
   };
 
   return (
     <div className="choose-color">
       رنک:
       <ul>
-        {colors.map(({ id, code }: any) => (
+        {colors.map(({ id, code, name }: any) => (
           <li key={id}>
             <Button
-              onClick={handleClick.bind(null, id)}
+              onClick={handleClick.bind(null, { id, name, code })}
               style={{ backgroundColor: code }}
               className="radio-btn"
               type="button"
             >
-              {id === colorId ? (
+              {id === color.id ? (
                 <svg>
                   <use href="#done" />
                 </svg>
@@ -40,7 +38,6 @@ export default function ChooseColor({ colors }: Props) {
           </li>
         ))}
       </ul>
-      <input type="hidden" value={colorId} name="color" />
     </div>
   );
 }

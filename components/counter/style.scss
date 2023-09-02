@@ -1,0 +1,24 @@
+@use "@styles/mixins.scss" as *;
+
+.counter {
+  background-color: var(--clr-gray);
+  padding: 0.5em 1em;
+  @include flex-align-center;
+  justify-content: space-between;
+  border-radius: 3em;
+  gap: 1.5em;
+
+  button {
+    padding: 0.5em;
+    font-weight: bold;
+    @include flex-align-center;
+
+    svg {
+      @include size(20px);
+    }
+  }
+
+  .delete {
+    padding-right: 0;
+  }
+}

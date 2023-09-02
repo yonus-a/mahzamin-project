@@ -1,0 +1,22 @@
+.add-to-cart {
+  strong {
+    display: inline-block;
+    margin-top: 0.7em;
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  .primary-btn {
+    background-color: var(--clr-primary);
+    padding: 1em 2em;
+    border-radius: 3em;
+    font-size: 14px;
+  }
+
+  .flex-wrapper {
+    margin-top: 2em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+}
