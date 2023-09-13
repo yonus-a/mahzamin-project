@@ -1,0 +1,96 @@
+@use "@styles/mixins.scss" as *;
+
+.admin-header {
+  background: var(--clr-secondary);
+  padding: 0 4em;
+
+  .admin-header-container {
+    margin: 0 auto;
+
+    a.logout {
+      padding: 1em;
+      border-radius: 50%;
+      @include flex-center;
+
+      svg {
+        fill: white;
+        @include size(24px);
+      }
+    }
+
+    .pc-only {
+      @include flex-space-between;
+      align-items: center;
+
+      a {
+        transition: all 200ms ease-in-out;
+
+        &.active,
+        &:hover {
+          background-color: #2e8d91;
+        }
+      }
+
+      nav {
+        ul {
+          @include flex-center;
+
+          a {
+            color: white;
+            padding: 2.3em 2em;
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .mobile-only {
+      .dialog-cta {
+        padding: 1.3em;
+        padding-right: 0;
+
+        svg {
+          @include size(30px, 35px);
+          fill: white;
+        }
+      }
+
+      .dialog {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 80%;
+        background-color: white;
+        box-shadow:
+          -10px 0 10px 0 rgba($color: #000000, $alpha: 0.2),
+          0 0 0 100vh rgba($color: #000000, $alpha: 0.2);
+        padding: 1.5em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        svg {
+          fill: black;
+        }
+
+        nav {
+          a {
+            display: inline-block;
+            padding: 1em;
+          }
+        }
+
+        a.logout {
+          margin-top: auto;
+          padding: 1.3em;
+          padding-right: 0;
+        }
+      }
+    }
+
+    @media (min-width: 1700px) {
+      width: 1700px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "@styles/mixins.scss" as *;
+
+.error {
+  background-color: white;
+  padding: 2em;
+  position: absolute;
+  top: 40px;
+  border-radius: 10px;
+  text-align: center;
+  left: 50%;
+  color: #771a1a;
+  transform: translateX(-50%);
+  @include flex-align-center;
+  gap: 0.7em;
+
+  svg {
+    fill: #f37b7b;
+  }
+}

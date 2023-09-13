@@ -1,0 +1,30 @@
+@use "@styles/mixins.scss" as *;
+
+.create-form {
+  svg {
+    @include size(30px);
+  }
+
+  .input-group {
+    padding: 4em 2.5em;
+    background-color: white;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1em;
+
+    input,
+    button {
+      padding: 1em;
+      border-radius: 10px;
+    }
+
+    input {
+      width: 30ch;
+    }
+
+    button {
+      background-color: var(--clr-primary);
+    }
+  }
+}

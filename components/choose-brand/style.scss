@@ -1,0 +1,11 @@
+@use "@styles/mixins.scss" as *;
+
+.choose-brand {
+  margin-top: var(--sections-margin-top);
+  background-color: var(--clr-gray);
+  @include flex-align-center;
+  flex-direction: row-reverse;
+  border-radius: 3em;
+  padding: 0 2em;
+  gap: 1.5em;
+}

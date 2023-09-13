@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", name: "صفحه اصلی" },
   { href: "/shop", name: "فروشگاه" },
   { href: "/cart", name: "سبد خرید" },
-  { href: "/acount", name: "حساب کاربری من" },
+  { href: "/admin", name: "پنل مدریت" },
 ];
 
 export default function Nav() {

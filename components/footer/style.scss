@@ -1,7 +1,7 @@
 @use "@styles/mixins.scss" as *;
 
 footer {
-  background-color: var(--cls-scondary);
+  background-color: var(--clr-secondary);
   margin-top: calc(var(--sections-margin-top) * 1.6);
   padding-top: 3em;
   color: white;
