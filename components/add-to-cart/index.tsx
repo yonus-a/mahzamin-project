@@ -1,6 +1,6 @@
 "use client";
 
-import ChooseColor from "../choose-color";
+import SelectColor from "../select-color";
 import UpdateQuantity from "../updateQuantity";
 import { useState } from "react";
 import { useCart } from "react-use-cart";
@@ -36,7 +36,7 @@ export default function ProductForm({ colors, product }: Props) {
 
   return (
     <form className="add-to-cart" onSubmit={handleSubmit}>
-      <ChooseColor colors={colors} color={color} setColor={setColor} />
+      <SelectColor colors={colors} color={color} setColor={setColor} />
       <strong>{product.price} تومان</strong>
       <div className="flex-wrapper">
         <UpdateQuantity

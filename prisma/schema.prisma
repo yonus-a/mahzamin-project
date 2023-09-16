@@ -8,70 +8,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Brand {
-  id   Int     @id @default(autoincrement())
-  name String? @db.TinyText
-}
-
-model Category {
-  id   Int     @id @default(autoincrement())
-  name String? @db.TinyText
-}
-
-model ProductColor {
-  id        Int     @id @default(autoincrement())
-  productId Int?
-  name      String? @db.TinyText
-  code      String? @db.TinyText
-
-  @@index([productId], map: "ProductID")
-}
-
-model ProductDetail {
-  id         Int     @id @default(autoincrement())
-  productId  Int?
-  term       String? @db.TinyText
-  definition String? @db.TinyText
-
-  @@index([productId], map: "productId")
-}
-
-model ProductImage {
-  id        Int     @id @default(autoincrement())
-  productId Int?
-  name      String? @db.TinyText
-
-  @@index([productId], map: "productId")
-}
-
-model ProductInfo {
-  id        Int     @id @default(autoincrement())
-  productId Int?
-  title     String? @db.TinyText
-  subTitle  String? @db.TinyText
-  logo      String? @db.TinyText
-
-  @@index([productId], map: "productId")
-}
-
-model product {
-  id          Int     @id @default(autoincrement())
-  name        String? @db.TinyText
-  image       String? @db.TinyText
-  price       Int?
-  discount    Int?    @default(0)
-  number      Int?
-  categoryId  Int?
-  brandId     Int?
-  description String? @db.Text
-
-  @@index([brandId], map: "brandId")
-  @@index([categoryId], map: "categoryId")
-  @@index([name(length: 250)], map: "product_name")
-}
-
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id
   userId            String
   type              String
   provider          String
@@ -83,18 +21,101 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  User              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@index([userId], map: "Account_userId_fkey")
 }
 
+model Brand {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique(map: "name")
+  Product Product[]
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique(map: "name")
+  Product Product[]
+}
+
+model Color {
+  id           Int            @id @default(autoincrement())
+  name         String
+  code         String
+  ProductColor ProductColor[]
+
+  @@unique([name, code], map: "unique_name_code")
+}
+
+model Product {
+  id           Int            @id @default(autoincrement())
+  name         String         @unique(map: "name")
+  image        String?
+  price        Int?
+  discount     Int?
+  number       Int?
+  categoryId   Int
+  brandId      Int
+  description  String?        @db.Text
+  Detail       Detail[]
+  Image        Image[]
+  Info         Info[]
+  Brand        Brand          @relation(fields: [brandId], references: [id], onUpdate: Restrict, map: "FK_ProductBrand")
+  Category     Category       @relation(fields: [categoryId], references: [id], onUpdate: Restrict, map: "FK_ProductCategory")
+  ProductColor ProductColor[]
+
+  @@index([brandId], map: "FK_ProductBrand")
+  @@index([categoryId], map: "FK_ProductCategory")
+}
+
+model ProductColor {
+  id        Int     @id
+  productId Int
+  ccolorId  Int
+  Color     Color   @relation(fields: [ccolorId], references: [id], onUpdate: Restrict, map: "FK_ProductColor_ColorId")
+  Product   Product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_ProductColor_ProductId")
+
+  @@index([ccolorId], map: "FK_ProductColor_ColorId")
+  @@index([productId], map: "FK_ProductColor_ProductId")
+}
+
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id
   name          String?
   email         String?   @unique
   password      String?   @db.TinyText
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
+  Account       Account[]
+}
+
+model Detail {
+  id         Int     @id @default(autoincrement())
+  productId  Int
+  term       String?
+  definition String?
+  Product    Product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_Detail_Product")
+
+  @@index([productId], map: "FK_Detail_Product")
+}
+
+model Image {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  name      String?
+  Product   Product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_Image_Product")
+
+  @@index([productId], map: "FK_Image_Product")
+}
+
+model Info {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  title     String?
+  subTitle  String?
+  logo      String?
+  Product   Product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_Info_Product")
+
+  @@index([productId], map: "FK_Info_Product")
 }

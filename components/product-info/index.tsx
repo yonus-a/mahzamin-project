@@ -1,21 +1,14 @@
-import prisma from "@lib/prisma";
 import "./style.scss";
 
 interface Props {
-  id: number;
+  info: any;
 }
 
-export default async function ProductInfo({ id }: Props) {
-  const info = await prisma.productInfo.findMany({
-    where: {
-      productId: id,
-    },
-  });
-
+export default function ProductInfo({ info }: Props) {
   return (
     <div className="product-info">
       <ul>
-        {info.map(({ id, title, subTitle, logo }) => (
+        {info.map(({ id, title, subTitle, logo }: any) => (
           <li key={id}>
             <p className="title">
               <svg aria-hidden="true">
