@@ -12,10 +12,12 @@
   // backgrounds
   --header-background: #fff;
   // z-index
+  --error-zIndex: 99999999;
   --header-zIndex: 99999;
   --menu-zIndex: 999;
   --swiperNavigation-zIndex: 99;
   --dialog-layer-zIndex: 9999;
+
   // transition
   --header-transition: 300ms;
   // margin
@@ -113,4 +115,10 @@ ul {
 
 .svg-sprite {
   display: none;
+}
+
+// material ui
+
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
 }

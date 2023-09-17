@@ -1,13 +1,11 @@
 import AdminContainer from "@components/admin-container";
-import ChooseBrand from "@components/choose-brand";
+import CreateProductForm from "@components/create-product-form";
 
 export default function AddProduct() {
   return (
     <main className="add-product">
       <AdminContainer>
-        <form action="">
-          <ChooseBrand />
-        </form>
+        <CreateProductForm />
       </AdminContainer>
     </main>
   );

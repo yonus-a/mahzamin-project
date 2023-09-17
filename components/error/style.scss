@@ -12,8 +12,10 @@
   transform: translateX(-50%);
   @include flex-align-center;
   gap: 0.7em;
+  z-index: var(--error-zIndex);
 
   svg {
     fill: #f37b7b;
+    @include size(32px);
   }
 }

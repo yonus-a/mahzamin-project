@@ -1,7 +1,7 @@
 import CreateBrand from "@components/create-brand";
 import CusomSelect from "@components/custom-select";
+import SelectWrapper from "@components/select-wrapper";
 import prisma from "@lib/prisma";
-import "./style.scss";
 
 export default async function ChooseBrand() {
   const brands = await prisma.brand.findMany({
@@ -11,9 +11,9 @@ export default async function ChooseBrand() {
   });
 
   return (
-    <div className="choose-brand">
+    <SelectWrapper>
       <CusomSelect items={brands} label="برند" />
       <CreateBrand />
-    </div>
+    </SelectWrapper>
   );
 }

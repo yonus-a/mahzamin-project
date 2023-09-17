@@ -1,43 +1,19 @@
-"use client";
+import SelectWrapper from "@components/select-wrapper";
+import CreateColor from "@components/create-color";
+import ColorMultipleSelect from "@components/color-multiple-select";
+import prisma from "@lib/prisma";
 
-import Button from "../button";
-import "./style.scss";
-
-interface Props {
-  colorId: any;
-  setColorId: () => void;
-}
-
-export default function ChooseColor({ color, setColor, colors }: any) {
-  if (!colors.length) return null;
-
-  const handleClick = (color: any) => {
-    setColor(color);
-  };
+export default async function ChooseColor() {
+  const colors = await prisma.color.findMany({
+    orderBy: {
+      id: "desc",
+    },
+  });
 
   return (
-    <div className="choose-color">
-      رنک:
-      <ul>
-        {colors.map(({ id, code, name }: any) => (
-          <li key={id}>
-            <Button
-              onClick={handleClick.bind(null, { id, name, code })}
-              style={{ backgroundColor: code }}
-              className="radio-btn"
-              type="button"
-            >
-              {id === color.id ? (
-                <svg>
-                  <use href="#done" />
-                </svg>
-              ) : (
-                ""
-              )}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <SelectWrapper>
+      <ColorMultipleSelect items={colors} />
+      <CreateColor />
+    </SelectWrapper>
   );
 }

@@ -41,11 +41,9 @@ model Category {
 
 model Color {
   id           Int            @id @default(autoincrement())
-  name         String
-  code         String
+  name         String         @unique(map: "name")
+  code         String         @unique(map: "code")
   ProductColor ProductColor[]
-
-  @@unique([name, code], map: "unique_name_code")
 }
 
 model Product {

@@ -1,0 +1,13 @@
+@use "@styles/mixins.scss" as *;
+
+.color-input {
+  @include size(50px);
+  background-color: red;
+  border-radius: 50%;
+
+  input {
+    opacity: 0;
+    @include size(100%);
+    cursor: pointer;
+  }
+}

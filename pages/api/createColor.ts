@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "@app/api/auth/[...nextauth]/route";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
 import prisma from "@lib/prisma";
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
@@ -13,24 +13,25 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   }
 
   try {
-    const { name } = req.body;
+    const { name, code } = req.body;
 
-    if (!name) {
+    if (!name || !code) {
       res.status(400).json({ error: "لطفا تمام مقادر را وارد کنید !" });
     }
 
-    const result = await prisma.brand.create({
+    const result = await prisma.color.create({
       data: {
         name,
+        code,
       },
     });
 
     res.status(201).json(result);
   } catch (err: any) {
     if (err.code === "P2002") {
-      res.status(409).json({ error: "برند در حال حاضر وجود دارد !" });
+      res.status(409).json({ error: "رنگ در حال حاضر وجود دارد !" });
     } else {
-      res.status(500).json({ error: "خطایی در زمان ایجاد برند رخ داده است !" });
+      res.status(500).json({ error: "خطایی در زمان ایجاد رنگ رخ داده است !" });
     }
   }
 }

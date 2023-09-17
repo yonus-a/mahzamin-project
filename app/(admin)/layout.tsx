@@ -5,6 +5,7 @@ import { StrictMode } from "react";
 import AdminHeader from "@components/admin-header";
 import SvgSprite from "@components/svg-sprite";
 import "@styles/global.scss";
+import ErrorProvider from "@components/errorProvider";
 
 export const metadata: Metadata = {
   title: "فوشگاه اینترنتی ماه زمین",
@@ -29,9 +30,11 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">
       <body>
         <StrictMode>
-          <AdminHeader />
-          {children}
-          <SvgSprite />
+          <ErrorProvider>
+            <AdminHeader />
+            {children}
+            <SvgSprite />
+          </ErrorProvider>
         </StrictMode>
       </body>
     </html>

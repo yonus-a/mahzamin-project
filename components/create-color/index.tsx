@@ -2,30 +2,35 @@
 
 import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
-import CreateForm from "@components/create-form";
 import fetchPost from "@utils/fetchPost";
+import CreateColorForm from "@components/create-color-form";
 import ErrorContext from "@context/errorContext";
 
-export default function CreateBrand() {
-  const [value, setValue] = useState();
+export default function CreateColor() {
+  const [values, setValues] = useState({
+    name: "",
+    code: "#000000",
+  });
   const [closeDialog, setCloseDialog] = useState(false);
   const { setErrMsg } = useContext<any>(ErrorContext);
   const router = useRouter();
 
   const handleChange = ({ target }: any) => {
-    setValue(target.value);
+    const { name, value } = target;
+    setValues({ ...values, [name]: value });
   };
 
   const handleClick = async () => {
     setCloseDialog(false);
 
-    if (!value) {
+    if (!values.name || !values.code) {
       return setErrMsg("لطفا تمام مقادیر را وارد کنید !");
     }
 
-    const res = await fetchPost("http://localhost:3000/api/createBrand", {
-      name: value,
-    });
+    const res = await fetchPost(
+      "http://localhost:3000/api/createColor",
+      values
+    );
 
     if (res.ok) {
       setCloseDialog(true);
@@ -38,10 +43,10 @@ export default function CreateBrand() {
   };
 
   return (
-    <CreateForm
+    <CreateColorForm
       handleChange={handleChange}
       handleClick={handleClick}
-      ariaLabel="create Brand"
+      ariaLabel="create Category"
       close={closeDialog}
     />
   );
