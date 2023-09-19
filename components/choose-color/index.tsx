@@ -1,4 +1,4 @@
-import SelectWrapper from "@components/select-wrapper";
+import InputWrapper from "@components/input-wrapper";
 import CreateColor from "@components/create-color";
 import ColorMultipleSelect from "@components/color-multiple-select";
 import prisma from "@lib/prisma";
@@ -11,9 +11,9 @@ export default async function ChooseColor() {
   });
 
   return (
-    <SelectWrapper>
+    <InputWrapper>
       <ColorMultipleSelect items={colors} />
       <CreateColor />
-    </SelectWrapper>
+    </InputWrapper>
   );
 }

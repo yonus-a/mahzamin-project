@@ -1,7 +1,6 @@
 @use "@styles/mixins.scss" as *;
 
-.select-wrapper {
-  margin-top: var(--sections-margin-top);
+.input-wrapper {
   background-color: var(--clr-gray);
   @include flex-align-center;
   flex-direction: row-reverse;

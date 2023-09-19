@@ -1,6 +1,6 @@
 import CreateBrand from "@components/create-brand";
 import CusomSelect from "@components/custom-select";
-import SelectWrapper from "@components/select-wrapper";
+import InputWrapper from "@components/input-wrapper";
 import prisma from "@lib/prisma";
 
 export default async function ChooseBrand() {
@@ -11,9 +11,9 @@ export default async function ChooseBrand() {
   });
 
   return (
-    <SelectWrapper>
+    <InputWrapper>
       <CusomSelect items={brands} label="برند" />
       <CreateBrand />
-    </SelectWrapper>
+    </InputWrapper>
   );
 }

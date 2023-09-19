@@ -1,5 +1,5 @@
 import CusomSelect from "@components/custom-select";
-import SelectWrapper from "@components/select-wrapper";
+import InputWrapper from "@components/input-wrapper";
 import CreateCategory from "@components/create-category";
 import prisma from "@lib/prisma";
 
@@ -11,9 +11,9 @@ export default async function ChooseCategory() {
   });
 
   return (
-    <SelectWrapper>
+    <InputWrapper>
       <CusomSelect items={categories} label="دسته بندی" />
       <CreateCategory />
-    </SelectWrapper>
+    </InputWrapper>
   );
 }

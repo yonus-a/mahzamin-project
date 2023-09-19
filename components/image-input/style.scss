@@ -1,0 +1,47 @@
+@use "@styles/mixins.scss" as *;
+
+.image-input {
+  .dialog-cta {
+    width: 100%;
+    @include flex-align-center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0.8em;
+
+    svg {
+      @include size(30px);
+    }
+  }
+
+  .dialog {
+    padding: 4em 2.5em;
+    background-color: white;
+    border-radius: 1em;
+
+    label {
+      background-color: var(--clr-gray);
+      @include flex-align-center;
+      border-radius: 3em;
+      padding: 1.2em 2em;
+      min-width: 40ch;
+      cursor: pointer;
+
+      input {
+        display: none;
+      }
+    }
+
+    .show-selected-images {
+      margin-top: 2.5em;
+      display: grid;
+      gap: 1em;
+
+      .msg {
+        text-align: center;
+        font-size: 13px;
+        margin-top: 1em;
+        color: #888;
+      }
+    }
+  }
+}
