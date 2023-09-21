@@ -1,0 +1,13 @@
+@use "@styles/mixins.scss" as *;
+
+.image-input {
+  h2 {
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 2em;
+    font-size: 12px;
+  }
+}

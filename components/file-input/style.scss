@@ -1,0 +1,34 @@
+@use "@styles/mixins.scss" as *;
+
+.file-input {
+  .input-wrapper {
+    flex-direction: row;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1em;
+
+    svg {
+      @include size(32px);
+    }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      align-items: center;
+      width: 100%;
+
+      label {
+        background-color: var(--clr-gray);
+        @include flex-align-center;
+        border-radius: 3em;
+        padding: 1.2em 2em;
+        cursor: pointer;
+
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+}
