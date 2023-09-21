@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 import FileInput from "@components/file-input";
+import { nanoid } from "nanoid";
 import "./style.scss";
 
 export default function ImageInputCreator() {
-  const [count, setCount] = useState<number>(1);
+  const [keys, setKeys] = useState([nanoid()]);
 
   const handleAdd = () => {
-    setCount(count + 1);
+    setKeys([...keys, nanoid()]);
   };
 
-  const handleDrop = (idx: any) => {
-    setCount(count - 1);
+  const handleDrop = (key: any) => {
+    setKeys(keys.filter((k) => k !== key));
   };
 
   return (
@@ -21,15 +22,15 @@ export default function ImageInputCreator() {
       <p>
         توجه داشته باشید که تصوری اول به عنوان تصور اصلی در نظر گرفته خواهد شد !
       </p>
-      {Array.from({ length: count }, (_, i) => {
-        const isLastItem = i >= count - 1;
+      {keys.map((key, i) => {
+        const isLastItem = i >= keys.length - 1;
         const isFirstItem = i === 0;
 
         return (
           <FileInput
-            key={i}
+            key={key}
             name={isFirstItem ? "mainImage" : "images[]"}
-            onDrop={handleDrop}
+            onDrop={() => handleDrop(key)}
             onAdd={handleAdd}
             showAdd={isLastItem}
           />
