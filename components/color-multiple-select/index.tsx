@@ -5,26 +5,15 @@ import {
   Select,
   InputLabel,
   MenuItem,
-  createTheme,
   SelectChangeEvent,
   Box,
   Chip,
 } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
+import FontProvider from "@components/font-provider";
 import "./style.scss";
 
-interface Props {
-  items: any;
-}
-
-const theme = createTheme({
-  typography: {
-    fontFamily: ["myFont", "Roboto", "Arial", "sans-serif"].join(","),
-  },
-});
-
-export default function ColorMultipleSelect({ items }: Props) {
+export default function ColorMultipleSelect({ items }: any) {
   const [itemName, setItemName] = useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof items>) => {
@@ -35,11 +24,12 @@ export default function ColorMultipleSelect({ items }: Props) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <FontProvider>
       <FormControl className="color-multiple-select" fullWidth>
         <InputLabel id="select_label">رنگ</InputLabel>
         <Select
           className="select-input"
+          name="colors"
           labelId="select_label"
           multiple
           value={itemName}
@@ -78,6 +68,6 @@ export default function ColorMultipleSelect({ items }: Props) {
           ))}
         </Select>
       </FormControl>
-    </ThemeProvider>
+    </FontProvider>
   );
 }

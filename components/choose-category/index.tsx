@@ -12,7 +12,7 @@ export default async function ChooseCategory() {
 
   return (
     <InputWrapper>
-      <CusomSelect items={categories} label="دسته بندی" />
+      <CusomSelect name="category" items={categories} label="دسته بندی" />
       <CreateCategory />
     </InputWrapper>
   );

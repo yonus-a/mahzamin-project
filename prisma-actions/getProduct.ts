@@ -10,7 +10,11 @@ export default function getProduct(id: number) {
       Category: true,
       Image: true,
       Detail: true,
-      Info: true,
+      Info: {
+        include: {
+          Logo: true,
+        },
+      },
       ProductColor: {
         select: {
           Color: true,

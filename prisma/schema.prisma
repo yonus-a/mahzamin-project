@@ -112,8 +112,16 @@ model Info {
   productId Int
   title     String?
   subTitle  String?
-  logo      String?
+  logoId    Int?
   Product   Product @relation(fields: [productId], references: [id], onUpdate: Restrict, map: "FK_Info_Product")
+  Logo      Logo?   @relation(fields: [logoId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_info_logo")
 
   @@index([productId], map: "FK_Info_Product")
+  @@index([logoId], map: "FK_info_logo")
+}
+
+model Logo {
+  id   Int    @id @default(autoincrement())
+  name String @unique(map: "unique_name")
+  Info Info[]
 }

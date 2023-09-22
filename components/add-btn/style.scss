@@ -1,0 +1,7 @@
+@use "@styles/mixins.scss" as *;
+
+.add-btn {
+  svg {
+    @include size(32px);
+  }
+}

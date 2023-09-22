@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 import InputWrapper from "@components/input-wrapper";
-import Button from "@components/button";
+import AddBtn from "@components/add-btn";
+import RemoveBtn from "@components/remove-btn";
 import "./style.scss";
 
 interface Props {
   showAdd: boolean;
   onAdd: any;
   name: string;
-  onDrop: any;
+  onRemove: any;
 }
 
-export default function FileInput({ showAdd, onAdd, name, onDrop }: Props) {
+export default function FileInput({ showAdd, onAdd, name, onRemove }: Props) {
   const [value, setValue] = useState("");
 
   const handleChange = ({ target }: any) => {
@@ -25,19 +26,9 @@ export default function FileInput({ showAdd, onAdd, name, onDrop }: Props) {
       <div className="file-input">
         <InputWrapper>
           {showAdd ? (
-            <Button type="button" onClick={onAdd}>
-              <svg>
-                <title>add</title>
-                <use href="#add" />
-              </svg>
-            </Button>
+            <AddBtn onClick={onAdd} />
           ) : (
-            <Button type="button" onClick={onDrop}>
-              <svg>
-                <title>drop</title>
-                <use href="#delete" />
-              </svg>
-            </Button>
+            <RemoveBtn onClick={onRemove} />
           )}
           <div className="grid-wrapper">
             <label>

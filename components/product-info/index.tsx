@@ -8,11 +8,11 @@ export default function ProductInfo({ info }: Props) {
   return (
     <div className="product-info">
       <ul>
-        {info.map(({ id, title, subTitle, logo }: any) => (
+        {info.map(({ id, title, subTitle, Logo }: any) => (
           <li key={id}>
             <p className="title">
               <svg aria-hidden="true">
-                <use href={`#${logo}`} />
+                <use href={`#${Logo.name}`} />
               </svg>
               {title}
             </p>

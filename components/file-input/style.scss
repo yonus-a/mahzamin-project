@@ -8,10 +8,6 @@
     text-overflow: ellipsis;
     margin-top: 1em;
 
-    svg {
-      @include size(32px);
-    }
-
     .grid-wrapper {
       display: grid;
       grid-template-columns: 1fr 3fr;

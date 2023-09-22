@@ -1,0 +1,48 @@
+@use "@styles/mixins.scss" as *;
+
+.info-input-creator {
+  display: grid;
+
+  h2 {
+    margin-bottom: 2em;
+    font-weight: bold;
+  }
+
+  > .add-btn {
+    margin-top: 1em;
+    width: fit-content;
+    justify-self: center;
+
+    svg {
+      @include size(80px, 80px);
+      border-radius: 50%;
+      transition: all 200ms;
+    }
+
+    &:hover {
+      svg {
+        background-color: #eee;
+      }
+    }
+  }
+
+  .input-wrapper {
+    width: 100%;
+    padding-block: 0.3em;
+    margin: 1em 0;
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: 3fr 3fr 1fr;
+      gap: 1em;
+      width: 100%;
+
+      input {
+        background: #efefef;
+        padding: 1em;
+        border-radius: 10px;
+        border: none;
+      }
+    }
+  }
+}

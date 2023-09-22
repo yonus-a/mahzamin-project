@@ -12,7 +12,7 @@ export default function ImageInputCreator() {
     setKeys([...keys, nanoid()]);
   };
 
-  const handleDrop = (key: any) => {
+  const handleRemove = (key: any) => {
     setKeys(keys.filter((k) => k !== key));
   };
 
@@ -30,7 +30,7 @@ export default function ImageInputCreator() {
           <FileInput
             key={key}
             name={isFirstItem ? "mainImage" : "images[]"}
-            onDrop={() => handleDrop(key)}
+            onRemove={() => handleRemove(key)}
             onAdd={handleAdd}
             showAdd={isLastItem}
           />

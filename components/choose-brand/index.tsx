@@ -12,7 +12,7 @@ export default async function ChooseBrand() {
 
   return (
     <InputWrapper>
-      <CusomSelect items={brands} label="برند" />
+      <CusomSelect name="brand" items={brands} label="برند" />
       <CreateBrand />
     </InputWrapper>
   );
