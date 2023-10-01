@@ -14,7 +14,7 @@
     justify-self: center;
 
     svg {
-      @include size(80px, 80px);
+      @include size(70px);
       border-radius: 50%;
       transition: all 200ms;
     }
@@ -28,12 +28,11 @@
 
   .input-wrapper {
     width: 100%;
-    padding-block: 0.3em;
+    padding-block: 2em;
     margin: 1em 0;
 
     .grid-wrapper {
       display: grid;
-      grid-template-columns: 3fr 3fr 1fr;
       gap: 1em;
       width: 100%;
 
@@ -42,6 +41,14 @@
         padding: 1em;
         border-radius: 10px;
         border: none;
+      }
+    }
+
+    @include on-pc {
+      padding-block: 0.3em;
+
+      .grid-wrapper {
+        grid-template-columns: 3fr 3fr 1fr;
       }
     }
   }

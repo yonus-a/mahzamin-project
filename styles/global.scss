@@ -5,6 +5,7 @@
   --clr-primary: #fdc210;
   --clr-secondary: #2e9699;
   --clr-primary-high-contrast: #ffbf00;
+  --clr-error: #b00020;
   --clr-gray: #dbdbdb;
   --clr-black: #000000;
   --clr-svgs: #333;
@@ -117,8 +118,18 @@ ul {
   display: none;
 }
 
+.invalid-input {
+  border: 1px solid var(--clr-error) !important;
+}
+
 // material ui
 
 .MuiOutlinedInput-notchedOutline {
   border: none !important;
+}
+
+.select-fix-padding {
+  .MuiSelect-select {
+    padding-block: 0.75em;
+  }
 }

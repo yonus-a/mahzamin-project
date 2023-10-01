@@ -51,11 +51,12 @@ model Product {
   name         String         @unique(map: "name")
   image        String?
   price        Int?
-  discount     Int?
-  number       Int?
+  discount     Int?           @default(0)
+  quantity     Int?           @default(0)
   categoryId   Int
   brandId      Int
   description  String?        @db.Text
+  publish      Boolean
   Detail       Detail[]
   Image        Image[]
   Info         Info[]
@@ -68,7 +69,7 @@ model Product {
 }
 
 model ProductColor {
-  id        Int     @id
+  id        Int     @id @default(autoincrement())
   productId Int
   ccolorId  Int
   Color     Color   @relation(fields: [ccolorId], references: [id], onUpdate: Restrict, map: "FK_ProductColor_ColorId")

@@ -1,49 +1,33 @@
 "use client";
 
-import {
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
-  SelectChangeEvent,
-  Box,
-  Chip,
-} from "@mui/material";
-import { useState } from "react";
+import { Select, MenuItem, Box, Chip } from "@mui/material";
 import FontProvider from "@components/font-provider";
 import "./style.scss";
 
-export default function ColorMultipleSelect({ items }: any) {
-  const [itemName, setItemName] = useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent<typeof items>) => {
-    const {
-      target: { value },
-    } = event;
-    setItemName(typeof value === "string" ? value.split(",") : value);
-  };
+export default function ColorMultipleSelect({ items, register, watch }: any) {
+  const selectedColors = watch("colors") || [];
+  const renderClass = selectedColors.length > 0 ? "select-fix-padding" : "";
 
   return (
     <FontProvider>
-      <FormControl className="color-multiple-select" fullWidth>
-        <InputLabel id="select_label">رنگ</InputLabel>
-        <Select
-          className="select-input"
-          name="colors"
-          labelId="select_label"
-          multiple
-          value={itemName}
-          onChange={handleChange}
-          renderValue={(selected) => (
+      <Select
+        className={`color-multiple-select ${renderClass}`}
+        {...register("colors", {
+          validate: (value: any) => value,
+        })}
+        multiple
+        defaultValue={[]}
+        renderValue={(selected: [number]) => {
+          return (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => {
+              {selected.map((id: any) => {
                 var { code, name } = items.filter(
-                  ({ id }: any) => id == value
+                  (item: any) => item.id === id
                 )[0];
 
                 return (
                   <Chip
-                    key={value}
+                    key={id}
                     style={{
                       background: code,
                     }}
@@ -56,18 +40,16 @@ export default function ColorMultipleSelect({ items }: any) {
                 );
               })}
             </Box>
-          )}
-        >
-          {items.map(({ name, id, code }: any) => (
-            <MenuItem key={name} value={id}>
-              {code && (
-                <span className="color-box" style={{ background: code }}></span>
-              )}
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          );
+        }}
+      >
+        {items.map(({ name, id, code }: any) => (
+          <MenuItem key={name} value={id}>
+            <span className="color-box" style={{ background: code }}></span>
+            {name}
+          </MenuItem>
+        ))}
+      </Select>
     </FontProvider>
   );
 }

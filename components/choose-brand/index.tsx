@@ -1,19 +1,18 @@
 import CreateBrand from "@components/create-brand";
 import CusomSelect from "@components/custom-select";
+import ErrorMsg from "@components/error-msg";
+import FormControl from "@components/form-control";
 import InputWrapper from "@components/input-wrapper";
-import prisma from "@lib/prisma";
 
-export default async function ChooseBrand() {
-  const brands = await prisma.brand.findMany({
-    orderBy: {
-      id: "desc",
-    },
-  });
-
+export default function ChooseBrand({ brands, register, errors }: any) {
   return (
-    <InputWrapper>
-      <CusomSelect name="brand" items={brands} label="برند" />
-      <CreateBrand />
-    </InputWrapper>
+    <FormControl>
+      <label htmlFor="brand">برند</label>
+      <InputWrapper className={errors.brand ? "invalid-input" : ""}>
+        <CusomSelect name="brand" items={brands} register={register} />
+        <CreateBrand />
+      </InputWrapper>
+      {errors.brand && <ErrorMsg>برند نمی توانید خالی باشد</ErrorMsg>}
+    </FormControl>
   );
 }

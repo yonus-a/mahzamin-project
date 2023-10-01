@@ -1,4 +1,15 @@
+@use "@styles/mixins.scss" as *;
+
 .create-product {
+  @include grid-gap(2em);
+  padding: 3em 0;
+
+  .equalize-items {
+    .choose-color {
+      flex: 2;
+    }
+  }
+
   .mt-3 {
     margin-top: 3.5em;
   }
@@ -6,26 +17,9 @@
   .mt-4 {
     margin-top: 4em;
   }
-  
-  .group {
-    display: flex;
-    gap: 2em;
 
-    > * {
-      flex: 1;
-    }
-  }
-
-  .input-label {
-    display: grid;
-    text-indent: 10px;
-    gap: 1.5em;
-
-    input {
-      border-radius: 3em;
-      border: none;
-      padding: 1.3em;
-      background-color: var(--clr-gray);
-    }
+  @include on-pc {
+    gap: 3.5em;
+    padding: 4em 0;
   }
 }

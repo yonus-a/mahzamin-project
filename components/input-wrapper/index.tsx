@@ -2,8 +2,12 @@ import "./style.scss";
 
 export default function InputWrapper({
   children,
+  className,
 }: {
   children: React.ReactNode;
+  className?: string;
 }) {
-  return <div className="input-wrapper">{children}</div>;
+  const classnames = "input-wrapper " + (className || "");
+
+  return <div className={classnames}>{children}</div>;
 }

@@ -6,10 +6,12 @@ import { nanoid } from "nanoid";
 import AddBtn from "@components/add-btn";
 import RemoveBtn from "@components/remove-btn";
 import LogoSelect from "@components/logo-select";
+import FormControl from "@components/form-control";
+import ErrorMsg from "@components/error-msg";
 import "./style.scss";
 
-export default function InfoInputsCreator({ logos }: any) {
-  const [keys, setKeys] = useState<any>([nanoid()]);
+export default function InfoInputsCreator({ logos, register, errors }: any) {
+  const [keys, setKeys] = useState<any>([]);
 
   const handleAdd = () => {
     setKeys([...keys, nanoid()]);
@@ -22,29 +24,38 @@ export default function InfoInputsCreator({ logos }: any) {
   return (
     <div className="info-input-creator">
       <h2>اطلاعات مختصر</h2>
-      {/* {keys.length <= 0 && <AddBtn type="button" onClick={handleAdd} />} */}
-      {keys.map((key: string, i: number) => (
-        <InputWrapper key={key}>
-          <div className="grid-wrapper">
-            <input type="text" name={`info[${i}][title]`} placeholder="عنوان" />
-            <input
-              type="text"
-              name={`info[${i}][subTitle]`}
-              placeholder="زیر عنوان"
-            />
-            <LogoSelect items={logos} name={`info[${i}][logo]`} />
-          </div>
-          {/* {i >= keys.length - 1 ? (
-            <>
-              <AddBtn type="button" onClick={handleAdd} />
+      {keys.map((key: string, i: number) => {
+        const error = errors["info"]?.[i];
+
+        return (
+          <FormControl key={key}>
+            <InputWrapper>
+              <div className="grid-wrapper">
+                <input
+                  type="text"
+                  {...register(`info[${i}][title]`, { required: true })}
+                  className={error?.title ? "invalid-input" : ""}
+                  placeholder="عنوان"
+                />
+                <input
+                  type="text"
+                  {...register(`info[${i}][subTitle]`)}
+                  className={error?.subTitle ? "invalid-input" : ""}
+                  placeholder="زیر عنوان"
+                />
+                <LogoSelect
+                  items={logos}
+                  name={`info[${i}][logo]`}
+                  register={register}
+                  className={error?.logo ? "invalid-input" : ""}
+                />
+              </div>
               <RemoveBtn onClick={() => handleRemove(key)} />
-              </>
-              ) : (
-                <RemoveBtn onClick={() => handleRemove(key)} />
-              )} */}
-          <RemoveBtn onClick={() => handleRemove(key)} />
-        </InputWrapper>
-      ))}
+            </InputWrapper>
+            {error && <ErrorMsg>اطلاعات مختصر نمیتواند خالی باشد</ErrorMsg>}
+          </FormControl>
+        );
+      })}
       <AddBtn type="button" onClick={handleAdd} />
     </div>
   );

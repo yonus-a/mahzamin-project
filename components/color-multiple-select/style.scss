@@ -1,9 +1,9 @@
 @use "@styles/mixins.scss" as *;
 
 .color-multiple-select {
-  label {
-    font-weight: bold;
-  }
+  width: 100%;
+  height: auto !important;
+  min-height: 1em !important;
 }
 
 .color-box {

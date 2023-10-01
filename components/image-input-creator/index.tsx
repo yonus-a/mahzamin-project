@@ -3,9 +3,11 @@
 import { useState } from "react";
 import FileInput from "@components/file-input";
 import { nanoid } from "nanoid";
+import FormControl from "@components/form-control";
+import ErrorMsg from "@components/error-msg";
 import "./style.scss";
 
-export default function ImageInputCreator() {
+export default function ImageInputCreator({ register, errors, watch }: any) {
   const [keys, setKeys] = useState([nanoid()]);
 
   const handleAdd = () => {
@@ -24,16 +26,21 @@ export default function ImageInputCreator() {
       </p>
       {keys.map((key, i) => {
         const isLastItem = i >= keys.length - 1;
-        const isFirstItem = i === 0;
+        const error = errors["images"]?.[i];
 
         return (
-          <FileInput
-            key={key}
-            name={isFirstItem ? "mainImage" : "images[]"}
-            onRemove={() => handleRemove(key)}
-            onAdd={handleAdd}
-            showAdd={isLastItem}
-          />
+          <FormControl key={key}>
+            <FileInput
+              name={`images[${i}]`}
+              onRemove={() => handleRemove(key)}
+              onAdd={handleAdd}
+              showAdd={isLastItem}
+              register={register}
+              watch={watch}
+              className={error ? "invalid-input" : ""}
+            />
+            {error && <ErrorMsg>تصویر نمیتواند خالی باشد</ErrorMsg>}
+          </FormControl>
         );
       })}
     </div>

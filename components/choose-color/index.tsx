@@ -1,19 +1,18 @@
 import InputWrapper from "@components/input-wrapper";
 import CreateColor from "@components/create-color";
 import ColorMultipleSelect from "@components/color-multiple-select";
-import prisma from "@lib/prisma";
+import FormControl from "@components/form-control";
+import ErrorMsg from "@components/error-msg";
 
-export default async function ChooseColor() {
-  const colors = await prisma.color.findMany({
-    orderBy: {
-      id: "desc",
-    },
-  });
-
+export default function ChooseColor({ colors, register, errors, watch }: any) {
   return (
-    <InputWrapper>
-      <ColorMultipleSelect items={colors} />
-      <CreateColor />
-    </InputWrapper>
+    <FormControl className="choose-color">
+      <label htmlFor="brand">رنگ</label>
+      <InputWrapper className={errors.colors ? "invalid-input" : ""}>
+        <ColorMultipleSelect items={colors} register={register} watch={watch} />
+        <CreateColor />
+      </InputWrapper>
+      {errors.colors && <ErrorMsg> رنگ محصول نمی تواند خالی باشد </ErrorMsg>}
+    </FormControl>
   );
 }
