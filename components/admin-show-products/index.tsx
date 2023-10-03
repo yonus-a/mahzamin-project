@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DeleteProduct from "@components/delete-product";
 import "./style.scss";
 
 export default function AdminShowProducts({ products }: { products: any }) {
@@ -17,7 +18,7 @@ export default function AdminShowProducts({ products }: { products: any }) {
               <p>{item.name}</p>
             </div>
             <div className="left-side">
-              {/* TODO */}
+              <DeleteProduct id={item.id} />
             </div>
           </li>
         ))}

@@ -1,0 +1,24 @@
+@use "@styles/mixins.scss" as *;
+
+.conform {
+  .dialog {
+    background-color: white;
+    padding: 4em 6.4em;
+    border-radius: 1em;
+    text-align: center;
+
+    p {
+      margin-bottom: 2.4em;
+    }
+
+    .flex-wrapper {
+      @include flex-gap(1.4em);
+    }
+
+    button {
+      padding: 1em 2em !important;
+      background: var(--clr-gray);
+      border-radius: 10px;
+    }
+  }
+}

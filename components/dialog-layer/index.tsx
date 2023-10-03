@@ -3,7 +3,7 @@
 import DialogContext from "@context/dialogContext";
 import toggleScrollbar from "@utils/togggleScrollbar";
 import { AnimatePresence, MotionStyle, motion } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext, useMemo } from "react";
 import "./style.scss";
 
 interface Props {
@@ -19,7 +19,7 @@ export default function DialogLayer({ children, style }: Props) {
     }
   };
 
-  useEffect(() => {
+  useMemo(() => {
     toggleScrollbar(isOpen);
   }, [isOpen]);
 

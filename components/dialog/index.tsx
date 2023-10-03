@@ -1,7 +1,7 @@
 "use client";
 
 import DialogContext from "@context/dialogContext";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -9,14 +9,16 @@ interface Props {
   onClose?: () => void | undefined;
   close?: boolean;
   open?: boolean;
+  show?: boolean;
 }
 
 export default function Dialog({
   children,
   ariaLabel,
   onClose,
-  close,
+  show = false,
   open,
+  close,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,10 +27,11 @@ export default function Dialog({
     onClose?.();
   };
 
-  useEffect(() => {
+  useMemo(() => {
+    setIsOpen(show);
     if (open) setIsOpen(true);
     if (close) setIsOpen(false);
-  }, [open, close]);
+  }, [open, close, show]);
 
   return (
     <DialogContext.Provider
