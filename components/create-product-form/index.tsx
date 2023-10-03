@@ -55,7 +55,7 @@ export default function CreateProductForm({
 
       setTimeout(() => {
         closeAlert();
-        router.push("/");
+        router.push("/admin/products");
       }, 1500);
     } else {
       let msg = "مشکلی در هنگام ایجاد محصول به وجود آمده است‌ ‌!!";

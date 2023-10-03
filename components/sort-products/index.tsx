@@ -6,15 +6,15 @@ import Dialog from "../dialog";
 import DialogLink from "@components/dialog-link";
 import "./style.scss";
 
-const links = [
-  { href: "/shop?sort=maxPrice", name: "گرانترین ها" },
-  { href: "/shop?sort=minPrice", name: "ارزان ترین ها" },
-  { href: "/shop?sort=old", name: "قدیمی ترین ها" },
-  { href: "/shop?sort=new", name: "جدید ترین ها" },
-  { href: "/shop", name: "پرفروش ترین ها" },
-];
+export default function SortProducts({ pathname }: { pathname: string }) {
+  const links = [
+    { href: `${pathname}?sort=maxPrice`, name: "گرانترین ها" },
+    { href: `${pathname}/shop?sort=minPrice`, name: "ارزان ترین ها" },
+    { href: `${pathname}/shop?sort=old`, name: "قدیمی ترین ها" },
+    { href: `${pathname}/shop?sort=new`, name: "جدید ترین ها" },
+    { href: `${pathname}/shop`, name: "پرفروش ترین ها" },
+  ];
 
-export default function SortProducts() {
   const variants = {
     initial: { y: -10, opacity: 0 },
     animate: { y: 0, opacity: 1 },

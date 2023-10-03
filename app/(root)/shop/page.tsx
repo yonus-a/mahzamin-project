@@ -1,5 +1,5 @@
 import Container from "@components/container";
-import ProductPagination from "@components/product-pagination";
+import Pagination from "@components/pagination";
 import ShopTopSection from "@components/shop-top-section";
 import ShowProducts from "@components/showProducts";
 import getProducts from "@prisma-actions/getProducts";
@@ -27,10 +27,11 @@ export default async function Shop({ searchParams }: { searchParams?: any }) {
           totalProducts={totalProduct}
         />
         <ShowProducts products={products} />
-        <ProductPagination
+        <Pagination
           totalPages={totalPages}
           currentPage={page}
           params={searchParams}
+          pathname="/shop"
         />
       </Container>
     </main>

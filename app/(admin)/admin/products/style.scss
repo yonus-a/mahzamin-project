@@ -1,0 +1,34 @@
+@use "@styles/mixins.scss" as *;
+
+.admin-products {
+  padding: 3em 0 6em 0;
+
+  .admin-products-top-section {
+    @include flex-space-between;
+
+    .search-form {
+      @include flex-gap(0.5em);
+      flex-direction: row-reverse;
+
+      input,
+      button {
+        padding: 1em;
+      }
+
+      input {
+        border-radius: 10px;
+        border: 1px solid #555;
+        padding: 1em;
+      }
+
+      button {
+        background-color: var(--clr-gray);
+        border-radius: 10px;
+      }
+    }
+    
+    .right-side {
+      @include flex-gap(1.3em);
+    }
+  }
+}

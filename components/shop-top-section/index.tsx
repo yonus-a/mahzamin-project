@@ -28,7 +28,7 @@ export default function ShopTopSection({
       </div>
       <div className="left-col">
         <FilterProducts />
-        <SortProducts />
+        <SortProducts pathname="/shop" />
       </div>
     </div>
   );
