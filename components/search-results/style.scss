@@ -23,15 +23,12 @@
 
   .more {
     @include flex-align-center;
+    @include icon-size(9px);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     text-decoration: underline;
     bottom: 16px;
     gap: 0.3em;
-
-    svg {
-      @include size(9px);
-    }
   }
 }

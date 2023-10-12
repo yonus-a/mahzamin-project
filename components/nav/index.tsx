@@ -1,8 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import DialogCta from "@components/dialog-cta";
-import DialogLink from "@components/dialog-link";
+import DialogLink from "../dialog-link";
+import DialogCta from "../dialog-cta";
+import Icon from "../icon";
 import "./style.scss";
 
 const navLinks = [
@@ -18,10 +19,7 @@ export default function Nav() {
   return (
     <nav className="main-nav">
       <DialogCta className="close-menu">
-        <svg>
-          <title>close Navigation</title>
-          <use href="#close" />
-        </svg>
+        <Icon title="close Navigation" name="close" />
       </DialogCta>
       <ul role="menubar" className="menubar">
         {navLinks.map(({ href, name }) => {

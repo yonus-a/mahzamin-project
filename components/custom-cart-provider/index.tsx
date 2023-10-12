@@ -7,9 +7,5 @@ interface Props {
 }
 
 export default function CustomCartProvider({ children }: Props) {
-  return (
-    <>
-      <CartProvider>{children}</CartProvider>
-    </>
-  );
+  return <CartProvider>{children}</CartProvider>;
 }

@@ -5,9 +5,10 @@ import SearchResults from "../search-results";
 import DialogLayer from "../dialog-layer";
 import MobileOnly from "../mobile-only";
 import DialogCta from "../dialog-cta";
-import Dialog from "../dialog";
-import PcOnly from "../pc-only";
 import { useState } from "react";
+import PcOnly from "../pc-only";
+import Dialog from "../dialog";
+import Icon from "../icon";
 import "./style.scss";
 
 async function searchProducts(value: string) {
@@ -50,9 +51,7 @@ export default function SearchForm() {
     <div className="search">
       <PcOnly>
         <div className="input-group">
-          <svg aria-hidden="true">
-            <use href="#search" />
-          </svg>
+          <Icon name="search" />
           <input onChange={handleChagne} value={searchValue} />
         </div>
         <Dialog
@@ -70,17 +69,12 @@ export default function SearchForm() {
       <MobileOnly>
         <Dialog ariaLabel="search" onClose={reset}>
           <DialogCta className="icon-button">
-            <svg aria-hidden="true">
-              <use href="#search" />
-            </svg>
+            <Icon name="search" />
           </DialogCta>
           <DialogContainer takeAllSpace variants={mobile_variants} kickOff>
             <div className="input-group">
               <DialogCta className="icon-button" onClick={reset}>
-                <svg>
-                  <title>close</title>
-                  <use href="#arrow-right" />
-                </svg>
+                <Icon name="arrow-right" title="close" />
               </DialogCta>
               <input onChange={handleChagne} placeholder="جستجو" />
             </div>

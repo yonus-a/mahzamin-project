@@ -1,13 +1,14 @@
 "use client";
 
-import Dialog from "@components/dialog";
-import DialogCta from "@components/dialog-cta";
-import DialogContainer from "@components/dialog-container";
-import DialogLayer from "@components/dialog-layer";
-import MobileOnly from "@components/mobile-only";
-import DialogLink from "@components/dialog-link";
+import DialogContainer from "../dialog-container";
+import DialogLayer from "../dialog-layer";
 import { useCart } from "react-use-cart";
+import MobileOnly from "../mobile-only";
+import DialogLink from "../dialog-link";
+import DialogCta from "../dialog-cta";
+import Dialog from "../dialog";
 import Image from "next/image";
+import Icon from "../icon";
 import "./style.scss";
 
 export default function CartDialog() {
@@ -22,19 +23,13 @@ export default function CartDialog() {
     <div className="cart-dialog">
       <Dialog ariaLabel="cart dialog">
         <DialogCta>
-          <svg>
-            <title>shopping cart</title>
-            <use href="#shopping-cart" />
-          </svg>
+          <Icon name="shopping-cart" title="shopping cart" />
         </DialogCta>
         <DialogLayer style={{ zIndex: -1 }}></DialogLayer>
         <DialogContainer variants={variants}>
           <MobileOnly>
             <DialogCta className="close">
-              <svg>
-                <title>close</title>
-                <use href="#close" />
-              </svg>
+              <Icon name="close" title="close" />
             </DialogCta>
           </MobileOnly>
           {!isEmpty ? (

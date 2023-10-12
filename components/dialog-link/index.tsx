@@ -12,10 +12,10 @@ interface Props {
 }
 
 export default function DialogLink({
-  children,
-  href,
   className = "",
+  children,
   role = "",
+  href,
 }: Props) {
   const { closeDialog } = useContext<any>(DialogContext);
 

@@ -1,9 +1,9 @@
 "use client";
 
-import DialogContext from "@context/dialogContext";
-import { useContext, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import toggleScrollbar from "@utils/togggleScrollbar";
+import DialogContext from "@context/dialogContext";
+import { useContext, useEffect } from "react";
 import "./style.scss";
 
 interface Props {
@@ -25,10 +25,6 @@ export default function DialogContainer({
     if (takeAllSpace) toggleScrollbar(isOpen);
   }, [isOpen, takeAllSpace]);
 
-  const transition = {
-    ease: "easeInOut",
-  };
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -41,7 +37,7 @@ export default function DialogContainer({
           initial="initial"
           animate="animate"
           exit={variants?.exit ? "exit" : "initial"}
-          transition={kickOff ? transition : {}}
+          transition={kickOff ? { ease: "easeInOut" } : {}}
         >
           {children}
         </motion.div>

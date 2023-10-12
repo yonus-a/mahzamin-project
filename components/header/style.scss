@@ -4,12 +4,10 @@ header {
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   width: 100%;
 
-  .header-container {
-    display: flex;
-    justify-content: space-between;
+  .header-wrapper {
     background-color: var(--header-background);
-    padding: 1.5em;
-    margin: 0 auto;
+    @include flex-space-between;
+    @include m-p(0 auto, 1.5em);
 
     .col-right {
       @include flex-align-center;
@@ -43,7 +41,7 @@ header {
         border-radius: 3em;
         font-size: 14px;
         border: 1px solid transparent;
-        transition: all var(--header-transition);
+        transition: all var(--header-transition) ease-in-out;
 
         &:hover {
           background: transparent;
@@ -62,7 +60,7 @@ header {
     z-index: var(--header-zIndex);
     top: 0;
 
-    .header-container {
+    .header-wrapper {
       padding: 0.9em 3.5em;
     }
   }

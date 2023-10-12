@@ -1,8 +1,8 @@
 "use client";
 
-import DialogContext from "@context/dialogContext";
-import toggleScrollbar from "@utils/togggleScrollbar";
 import { AnimatePresence, MotionStyle, motion } from "framer-motion";
+import toggleScrollbar from "@utils/togggleScrollbar";
+import DialogContext from "@context/dialogContext";
 import { useContext, useMemo } from "react";
 import "./style.scss";
 

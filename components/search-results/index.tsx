@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import DialogLink from "../dialog-link";
+import Icon from "../icon";
 import "./style.scss";
 
 interface Props {
   searchValue: string;
-  results: any;
   className?: string;
+  results: any;
 }
 
 export default function SearchResults({
@@ -25,9 +26,9 @@ export default function SearchResults({
             <DialogLink href={`/product/${result.id}`}>
               <Image
                 src={`/images/products/${result.image}`}
+                alt={result.name}
                 width={100}
                 height={100}
-                alt=""
               />
               {result.name}
             </DialogLink>
@@ -37,9 +38,7 @@ export default function SearchResults({
       {results.length > 4 ? (
         <DialogLink href={`/shop?search=${searchValue}`} className="more">
           نمایش بیشتر
-          <svg aria-hidden="true">
-            <use href="#chevron-left" />
-          </svg>
+          <Icon name="chevron-left" />
         </DialogLink>
       ) : (
         ""

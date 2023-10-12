@@ -1,16 +1,17 @@
-import Link from "next/link";
+import DialogContainer from "../dialog-container";
+import DialogLayer from "../dialog-layer";
+import MobileOnly from "../mobile-only";
+import CartDialog from "../cart-dialog";
+import DialogCta from "../dialog-cta";
+import LoginBtn from "../login-btn";
+import PcOnly from "../pc-only";
 import Image from "next/image";
 import Search from "../search";
-import Nav from "../nav";
 import Dialog from "../dialog";
-import DialogCta from "../dialog-cta";
-import DialogContainer from "../dialog-container";
-import DialogLayer from "@components/dialog-layer";
-import MobileOnly from "@components/mobile-only";
-import PcOnly from "@components/pc-only";
-import LoginBtn from "@components/login-btn";
+import Link from "next/link";
+import Nav from "../nav";
 import "./style.scss";
-import CartDialog from "@components/cart-dialog";
+import Icon from "@components/icon";
 
 export default function Header() {
   const variants = {
@@ -20,15 +21,12 @@ export default function Header() {
 
   return (
     <header>
-      <div className="header-container">
+      <div className="header-wrapper">
         <div className="col-right">
           <MobileOnly>
             <Dialog ariaLabel="Navigation">
               <DialogCta className="menu-cta">
-                <svg>
-                  <title>open Navigation</title>
-                  <use href="#menu" />
-                </svg>
+                <Icon name="menu" title="open Navigation" />
               </DialogCta>
               <DialogLayer>
                 <DialogContainer variants={variants} takeAllSpace kickOff>
@@ -41,9 +39,9 @@ export default function Header() {
             <Link href="/" className="logo">
               <Image
                 src="/images/logo.png"
+                alt="ماه ززمین"
                 width={65}
                 height={65}
-                alt="ماه ززمین"
               />
             </Link>
             <Nav />

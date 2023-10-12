@@ -4,9 +4,7 @@
   position: relative;
 
   .dialog-cta {
-    svg {
-      @include size(30px);
-    }
+    @include icon-size(30px);
   }
 
   .dialog {
@@ -20,8 +18,7 @@
     }
 
     ul {
-      display: grid;
-      gap: 1.5em;
+      @include grid-gap(1.5em);
 
       li {
         @include flex-align-center;
@@ -32,8 +29,7 @@
         }
 
         .wrapper {
-          display: grid;
-          gap: 1em;
+          @include grid-gap(1em);
           flex: 1;
 
           p {
