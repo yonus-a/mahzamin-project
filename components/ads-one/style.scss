@@ -4,8 +4,7 @@
   margin-top: var(--sections-margin-top);
 
   ul {
-    display: flex;
-    gap: 1em;
+    @include flex-gap(1em);
 
     li {
       width: 100%;

@@ -1,7 +1,31 @@
-import Image from "next/image";
 import AnimatedItem from "../animated-item";
+import { nanoid } from "nanoid";
+import Image from "next/image";
 import Link from "next/link";
 import "./style.scss";
+
+const articles = [
+  {
+    image: "vr-headset.jpg",
+    alt: "اپل هدست ویژن پرو",
+    text: "اپل هدست ویژن پرو را با قیمت ۳۵۰۰ دلار معرفی کرد؛ ورود اپل به بازار واقعیت ترکیبی",
+  },
+  {
+    image: "laptops.jpg",
+    alt: "مک بوک ایر ۱۵ اینچی",
+    text: "مک بوک ایر ۱۵ اینچی معرفی شد؛ باریک‌ترین لپ‌تاپ ۱۵ اینچی!",
+  },
+  {
+    image: "gaming-computer.jpg",
+    alt: "کامپیوتر گیمینگ",
+    text: "راهنمای خرید کیس کامپیوتر؛ اردیبهشت سال ۱۴۰۲",
+  },
+  {
+    image: "S23-FE.jpg",
+    alt: "گوشی سامسونگ مدل گلکسی S23 FE",
+    text: "رندرهای گلکسی S23 FE از طراحی مشابه با گلکسی A54 خبر می‌دهند",
+  },
+];
 
 export default function NewsArticles() {
   return (
@@ -11,53 +35,23 @@ export default function NewsArticles() {
         <span className="line"></span>
       </div>
       <ul>
-        <AnimatedItem animation="animate__zoomIn">
-          <Link href="#">
-            <Image
-              src="/images/news-articles/vr-headset.jpg"
-              alt="اپل هدست ویژن پرو"
-              width={200}
-              height={200}
-            />
-            <p>
-              اپل هدست ویژن پرو را با قیمت ۳۵۰۰ دلار معرفی کرد؛ ورود اپل به
-              بازار واقعیت ترکیبی
-            </p>
-          </Link>
-        </AnimatedItem>
-        <AnimatedItem animation="animate__zoomIn" delay={200}>
-          <Link href="#">
-            <Image
-              src="/images/news-articles/laptops.jpg"
-              alt="مک بوک ایر ۱۵ اینچی"
-              width={200}
-              height={200}
-            />
-            <p>مک بوک ایر ۱۵ اینچی معرفی شد؛ باریک‌ترین لپ‌تاپ ۱۵ اینچی!</p>
-          </Link>
-        </AnimatedItem>
-        <AnimatedItem animation="animate__zoomIn" delay={400}>
-          <Link href="#">
-            <Image
-              src="/images/news-articles/gaming-computer.jpg"
-              alt="کامپیوتر گیمینگ"
-              width={200}
-              height={200}
-            />
-            <p>راهنمای خرید کیس کامپیوتر؛ اردیبهشت سال ۱۴۰۲</p>
-          </Link>
-        </AnimatedItem>
-        <AnimatedItem animation="animate__zoomIn" delay={600}>
-          <Link href="#">
-            <Image
-              src="/images/news-articles/S23-FE.jpg"
-              alt="گوشی سامسونگ مدل گلکسی S23 FE"
-              width={200}
-              height={200}
-            />
-            <p>رندرهای گلکسی S23 FE از طراحی مشابه با گلکسی A54 خبر می‌دهند</p>
-          </Link>
-        </AnimatedItem>
+        {articles.map(({ image, alt, text }: any, idx: number) => (
+          <AnimatedItem
+            key={nanoid()}
+            animation="animate__zoomIn"
+            delay={idx * 200}
+          >
+            <Link href="#">
+              <Image
+                src={`/images/news-articles/${image}`}
+                alt={alt}
+                width={200}
+                height={200}
+              />
+              <p>{text}</p>
+            </Link>
+          </AnimatedItem>
+        ))}
       </ul>
     </section>
   );

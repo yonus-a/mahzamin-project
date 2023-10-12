@@ -8,12 +8,13 @@ import { nanoid } from "nanoid";
 import Image from "next/image";
 import "./style.scss";
 
+// it can fetched from db and controld in admin panel
 const imageSlides = [
-  { src: "/images/hero/image1.jpg", alt: "" },
-  { src: "/images/hero/image2.jpg", alt: "" },
-  { src: "/images/hero/image3.jpg", alt: "" },
-  { src: "/images/hero/image4.jpg", alt: "" },
-  { src: "/images/hero/image5.jpg", alt: "" },
+  { image: "image1.jpg", alt: "" },
+  { image: "image2.jpg", alt: "" },
+  { image: "image3.jpg", alt: "" },
+  { image: "image4.jpg", alt: "" },
+  { image: "image5.jpg", alt: "" },
 ];
 
 export default function Hero() {
@@ -22,9 +23,14 @@ export default function Hero() {
   return (
     <section className="hero" aria-label="hero">
       <Swiper {...autoPlaySwiper()} ref={swiperRef}>
-        {imageSlides.map(({ src, alt }: any) => (
+        {imageSlides.map(({ image, alt }: any) => (
           <SwiperSlide key={nanoid()}>
-            <Image src={src} alt={alt} width={1024} height={720} />
+            <Image
+              src={`/images/hero/${image}`}
+              alt={alt}
+              width={1024}
+              height={720}
+            />
           </SwiperSlide>
         ))}
         <SwiperNavigation onPrev={handlePrev} onNext={handleNext} />

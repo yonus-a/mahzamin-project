@@ -1,9 +1,9 @@
 import "./style.scss";
 
-export default function Container({ children }:{
+interface Props {
   children: React.ReactNode;
-}) {
-  return <div className="container">{children}</div>;
 }
 
-
+export default function Container({ children }: Props) {
+  return <div className="container">{children}</div>;
+}

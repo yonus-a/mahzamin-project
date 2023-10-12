@@ -4,9 +4,8 @@
   margin-top: var(--sections-margin-top);
 
   .title {
-    display: flex;
+    @include flex-gap(1.5em);
     align-items: baseline;
-    gap: 1.5em;
 
     h2 {
       font-size: 18px;
