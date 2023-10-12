@@ -4,19 +4,24 @@ import { Select, MenuItem, Box, Chip } from "@mui/material";
 import FontProvider from "@components/font-provider";
 import "./style.scss";
 
-export default function ColorMultipleSelect({ items, register, watch }: any) {
+export default function ColorMultipleSelect({
+  items,
+  register,
+  watch,
+  defaultValue,
+}: any) {
   const selectedColors = watch("colors") || [];
-  const renderClass = selectedColors.length > 0 ? "select-fix-padding" : "";
+  const renderClass =
+    selectedColors.length > 0 || defaultValue ? "select-fix-padding" : "";
+  const validate = !defaultValue && ((value: any) => value);
 
   return (
     <FontProvider>
       <Select
-        className={`color-multiple-select ${renderClass}`}
-        {...register("colors", {
-          validate: (value: any) => value,
-        })}
         multiple
-        defaultValue={[]}
+        className={`color-multiple-select ${renderClass}`}
+        {...register("colors", { validate })}
+        defaultValue={defaultValue || []}
         renderValue={(selected: [number]) => {
           return (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>

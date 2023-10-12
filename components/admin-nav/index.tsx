@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/modify-product", text: "ویرایش محصول" },
+  { href: "/admin/update-product", text: "ویرایش محصول" },
   { href: "/add-product", text: "اضافه کردن محصول" },
 ];
 

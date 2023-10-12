@@ -13,6 +13,7 @@ interface Props {
   register: any;
   watch: any;
   className: string;
+  defaultValue: any;
 }
 
 export default function FileInput({

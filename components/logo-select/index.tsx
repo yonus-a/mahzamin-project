@@ -7,6 +7,7 @@ interface Props {
   name: string;
   className?: string;
   register: any;
+  defaultValue: any;
 }
 
 export default function LogoSelect({
@@ -14,17 +15,20 @@ export default function LogoSelect({
   name,
   className,
   register,
+  defaultValue,
 }: Props) {
   const classnames = "logo-select " + (className || "");
+  const validate = !defaultValue && ((value: any) => value);
 
   return (
     <FontProvider>
       <FormControl className={classnames} fullWidth>
         <InputLabel id="select_label">لوگو</InputLabel>
         <Select
-          {...register(name, { validate: (value: any) => value })}
+          {...register(name, { validate })}
           className="select-input"
           labelId="select_label"
+          defaultValue={defaultValue}
         >
           {items.map(({ name, id }: any) => (
             <MenuItem key={name} value={id}>

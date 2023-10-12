@@ -7,15 +7,20 @@ import FormControl from "@components/form-control";
 import ErrorMsg from "@components/error-msg";
 import "./style.scss";
 
-export default function ImageInputCreator({ register, errors, watch }: any) {
-  const [keys, setKeys] = useState([nanoid()]);
+export default function ImageInputCreator({
+  register,
+  errors,
+  watch,
+  defaultValue,
+}: any) {
+  const [values, setKeys] = useState(defaultValue || [{ id: nanoid() }]);
 
   const handleAdd = () => {
-    setKeys([...keys, nanoid()]);
+    setKeys([...values, { id: nanoid() }]);
   };
 
-  const handleRemove = (key: any) => {
-    setKeys(keys.filter((k) => k !== key));
+  const handleRemove = (id: any) => {
+    setKeys(values.filter((val: any) => val.id !== id));
   };
 
   return (
@@ -24,20 +29,21 @@ export default function ImageInputCreator({ register, errors, watch }: any) {
       <p>
         توجه داشته باشید که تصوری اول به عنوان تصور اصلی در نظر گرفته خواهد شد !
       </p>
-      {keys.map((key, i) => {
-        const isLastItem = i >= keys.length - 1;
+      {values.map((val: any, i: number) => {
+        const isLastItem = i >= values.length - 1;
         const error = errors["images"]?.[i];
 
         return (
-          <FormControl key={key}>
+          <FormControl key={val.id}>
             <FileInput
               name={`images[${i}]`}
-              onRemove={() => handleRemove(key)}
+              onRemove={() => handleRemove(val.id)}
               onAdd={handleAdd}
               showAdd={isLastItem}
               register={register}
               watch={watch}
               className={error ? "invalid-input" : ""}
+              defaultValue={val.name}
             />
             {error && <ErrorMsg>تصویر نمیتواند خالی باشد</ErrorMsg>}
           </FormControl>

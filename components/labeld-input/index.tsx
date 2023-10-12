@@ -9,6 +9,7 @@ interface Props {
   register: any;
   errors: any;
   min?: number;
+  defaultValue?: any;
 }
 
 export default function LabledInput({
@@ -18,6 +19,7 @@ export default function LabledInput({
   register,
   errors,
   min,
+  defaultValue,
 }: Props) {
   const error = errors[name];
   const requiredError = error?.type === "required";
@@ -31,6 +33,7 @@ export default function LabledInput({
         id={name}
         className={`labeld-input ${error ? "invalid-input" : ""}`}
         {...register(name, { required: true, min })}
+        defaultValue={defaultValue}
       />
       {requiredError && <ErrorMsg>{label} نمی تواند خالی باشد</ErrorMsg>}
       {minError && <ErrorMsg>{label} نمی تواند منفی باشد</ErrorMsg>}

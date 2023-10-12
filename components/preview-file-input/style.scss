@@ -1,0 +1,15 @@
+@use "@styles/mixins.scss" as *;
+
+.preview-file-input {
+  @include flex-align-center;
+  gap: 3em;
+
+  img {
+    @include size(80px, 60px);
+    object-fit: scale-down;
+  }
+
+  input {
+    display: none;
+  }
+}

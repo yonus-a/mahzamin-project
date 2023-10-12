@@ -73,7 +73,7 @@ model ProductColor {
   productId Int
   ccolorId  Int
   Color     Color   @relation(fields: [ccolorId], references: [id], onUpdate: Restrict, map: "FK_ProductColor_ColorId")
-  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "FK_ProductColor_ProductId")
+  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, map: "FK_ProductColor_ProductId")
 
   @@index([ccolorId], map: "FK_ProductColor_ColorId")
   @@index([productId], map: "FK_ProductColor_ProductId")

@@ -1,0 +1,26 @@
+@use "@styles/mixins.scss" as *;
+
+.update-image {
+  @include grid-gap(2.3em);
+
+  .wrapper {
+    @include flex-space-between;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.2);
+    padding: 0.6em 2em;
+    border-radius: 1em;
+
+    .required-symbol {
+      padding: 0.7em;
+      font-size: 20px;
+    }
+  }
+
+  .add-btn {
+    margin-top: 1.3em;
+
+    svg {
+      @include size(70px);
+    }
+  }
+}

@@ -7,6 +7,7 @@ interface Props {
   name: string;
   register: any;
   errors: any;
+  defaultValue: any;
 }
 
 export default function LabledTextarea({
@@ -14,12 +15,14 @@ export default function LabledTextarea({
   name,
   register,
   errors,
+  defaultValue,
 }: Props) {
   return (
     <FormControl>
       <label htmlFor={name}>{label}</label>
       <textarea
-        {...register(name, { required: true })}
+        {...register(name, { required: !defaultValue })}
+        defaultValue={defaultValue}
         className={`labeld-textarea ${errors[name] ? "invalid-input" : ""}`}
       ></textarea>
       {errors[name] && <ErrorMsg>{label} نمی تواند خالی باشد</ErrorMsg>}

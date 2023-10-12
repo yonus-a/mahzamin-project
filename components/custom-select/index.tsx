@@ -6,13 +6,22 @@ interface Props {
   items: any;
   name: string;
   register: any;
+  defaultValue: any;
 }
 
-export default function CustomSelect({ items, name, register }: Props) {
+export default function CustomSelect({
+  items,
+  name,
+  register,
+  defaultValue,
+}: Props) {
+  const validate = !defaultValue && ((value: any) => value);
+
   return (
     <FontProvider>
       <Select
-        {...register(name, { validate: (value: any) => value })}
+        {...register(name, { validate })}
+        defaultValue={defaultValue}
         className="custom-select"
         id={name}
       >

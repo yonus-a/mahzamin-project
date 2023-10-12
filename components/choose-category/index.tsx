@@ -4,12 +4,22 @@ import CreateCategory from "@components/create-category";
 import ErrorMsg from "@components/error-msg";
 import FormControl from "@components/form-control";
 
-export default function ChooseCategory({ categories, register, errors }: any) {
+export default function ChooseCategory({
+  categories,
+  register,
+  errors,
+  defaultValue,
+}: any) {
   return (
     <FormControl>
       <label htmlFor="category">دسته بندی</label>
       <InputWrapper className={errors.category ? "invalid-input" : ""}>
-        <CusomSelect name="category" items={categories} register={register} />
+        <CusomSelect
+          name="category"
+          items={categories}
+          register={register}
+          defaultValue={defaultValue}
+        />
         <CreateCategory />
       </InputWrapper>
       {errors.category && <ErrorMsg>دسته بندی نمی توانید خالی باشد</ErrorMsg>}

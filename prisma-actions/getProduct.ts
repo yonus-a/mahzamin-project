@@ -16,7 +16,7 @@ export default function getProduct(id: number) {
         },
       },
       ProductColor: {
-        select: {
+        include: {
           Color: true,
         },
       },
