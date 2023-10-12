@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 
 export default function useSwiperNavigation() {
-  const swiperRef = useRef<any>(null)
+  const swiperRef = useRef<any>(null);
 
   const handleNext = useCallback(() => {
     if (swiperRef.current) {
@@ -10,7 +10,6 @@ export default function useSwiperNavigation() {
   }, []);
 
   const handlePrev = useCallback(() => {
-    if (!swiperRef.current) return false;
     if (swiperRef.current) {
       swiperRef.current.swiper.slidePrev();
     }

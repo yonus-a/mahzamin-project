@@ -59,3 +59,19 @@
     height: $h;
   }
 }
+
+@mixin icon-size($w, $h: "") {
+  svg {
+    @include size($w, $h);
+  }
+}
+
+@mixin not-visible {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin visible {
+  visibility: visible;
+  opacity: 1;
+}
