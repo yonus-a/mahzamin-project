@@ -11,7 +11,7 @@ export default function ProductDetails({ details }: Props) {
       <summary>مشخصات کامل</summary>
       <dl>
         {details.map(({ id, term, definition }: any, idx: any) => {
-          var classnames = idx % 2 === 0 ? "color" : "";
+          var classnames = idx % 2 === 0 ? "colored" : "";
 
           return (
             <React.Fragment key={id}>

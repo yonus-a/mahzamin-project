@@ -1,10 +1,10 @@
 "use client";
 
+import UpdateQuantity from "../update-quantity";
 import SelectColor from "../select-color";
-import UpdateQuantity from "../updateQuantity";
-import { useState } from "react";
 import { useCart } from "react-use-cart";
-import Button from "@components/button";
+import { useState } from "react";
+import Button from "../button";
 import Link from "next/link";
 import "./style.scss";
 
@@ -15,10 +15,15 @@ interface Props {
 
 export default function ProductForm({ colors, product }: Props) {
   const { addItem, inCart, getItem } = useCart();
-  const [color, setColor] = useState(colors[0]);
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
+
   // get cart quantity for initialize quantity
   const cartQuantity = getItem(product.id)?.quantity;
   const [quantity, setQuantity] = useState(cartQuantity || 1);
+
+  const handleChangeColor = (color: any) => {
+    setSelectedColor(color);
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -27,8 +32,8 @@ export default function ProductForm({ colors, product }: Props) {
         id: product.id,
         name: product.name,
         price: product.price,
+        color: selectedColor,
         product,
-        color,
       },
       quantity
     );
@@ -36,7 +41,11 @@ export default function ProductForm({ colors, product }: Props) {
 
   return (
     <form className="add-to-cart" onSubmit={handleSubmit}>
-      <SelectColor colors={colors} color={color} setColor={setColor} />
+      <SelectColor
+        colors={colors}
+        selectedColor={selectedColor}
+        onColorChange={handleChangeColor}
+      />
       <strong>{product.price} تومان</strong>
       <div className="flex-wrapper">
         <UpdateQuantity

@@ -1,3 +1,4 @@
+import Icon from "@components/icon";
 import "./style.scss";
 
 interface Props {
@@ -11,9 +12,7 @@ export default function ProductInfo({ info }: Props) {
         {info.map(({ id, title, subTitle, Logo }: any) => (
           <li key={id}>
             <p className="title">
-              <svg aria-hidden="true">
-                <use href={`#${Logo.name}`} />
-              </svg>
+              <Icon name={Logo.name} />
               {title}
             </p>
             <p className="sub-title">{subTitle}</p>

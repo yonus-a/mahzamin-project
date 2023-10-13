@@ -1,7 +1,7 @@
 import prisma from "@lib/prisma";
 
-export default function getProduct(id: number) {
-  return prisma.product.findMany({
+export default async function getProduct(id: number) {
+  return await prisma.product.findMany({
     where: {
       id,
     },

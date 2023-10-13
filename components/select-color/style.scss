@@ -7,8 +7,7 @@
   gap: 1em;
 
   ul {
-    display: flex;
-    gap: 0.5em;
+    @include flex-gap(0.5em);
 
     .radio-btn {
       border-radius: 50%;

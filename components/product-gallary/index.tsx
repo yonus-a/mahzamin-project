@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import getDirection from "@utils/getDirection";
 import Button from "../button";
 import Image from "next/image";
 import "./style.scss";
@@ -20,27 +21,23 @@ export default function ProductGallary({ main, images, alt }: Props) {
     setMainImage(image);
   };
 
-  function getDirection() {
-    return window.innerWidth >= 1160 ? "vertical" : "horizontal";
-  }
-
   return (
     <div className="product-gallary">
       <Image
         className="main-image"
         src={base + mainImage}
-        alt={`${alt}`}
+        alt={alt as string}
         width={300}
         height={300}
       />
-      {images.length > 0 ? (
+      {images.length > 0 && (
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={10}
           direction={getDirection()}
           onResize={(swiper) => swiper.changeDirection(getDirection())}
         >
-          {images.map(({ name, id }: { name: string; id: number }) => (
+          {images.map(({ name, id }: any) => (
             <SwiperSlide key={id}>
               <Button
                 className="button-image"
@@ -48,7 +45,7 @@ export default function ProductGallary({ main, images, alt }: Props) {
               >
                 <Image
                   src={base + name}
-                  alt={`${alt}`}
+                  alt={alt as string}
                   width={100}
                   height={100}
                 />
@@ -56,8 +53,6 @@ export default function ProductGallary({ main, images, alt }: Props) {
             </SwiperSlide>
           ))}
         </Swiper>
-      ) : (
-        ""
       )}
     </div>
   );

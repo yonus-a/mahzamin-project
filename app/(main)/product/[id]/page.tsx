@@ -1,12 +1,16 @@
-import Container from "@components/container";
 import ProductGeneralInfo from "@components/product-general-info";
 import ProductDetails from "@components/product-details";
+import getProduct from "@prisma-actions/getProduct";
 import ProductInfo from "@components/product-info";
 import ProductDesc from "@components/product-desc";
-import getProduct from "@prisma-actions/getProduct";
+import Container from "@components/container";
 import { notFound } from "next/navigation";
 
-export default async function Product({ params }: { params: { id: string } }) {
+interface Props {
+  params: { id: string };
+}
+
+export default async function Product({ params }: Props) {
   const id = Number.parseInt(params.id);
   const product = (await getProduct(id))[0];
 

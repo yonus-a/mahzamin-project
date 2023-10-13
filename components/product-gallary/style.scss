@@ -24,10 +24,9 @@
   }
 
   @include on-pc {
-    display: flex;
+    @include flex-gap(1.5em);
     flex-direction: row-reverse;
     justify-content: flex-end;
-    gap: 1.5em;
 
     .swiper {
       @include size(120px, 300px);

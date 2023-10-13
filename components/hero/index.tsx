@@ -1,7 +1,7 @@
 "use client";
 
 import useSwiperNavigation from "@hooks/useSwiperNavigation";
-import SwiperNavigation from "@components/swiperNavigation";
+import SwiperNavigation from "@components/swiper-navigation";
 import autoPlaySwiper from "@utils/autoPlaySwiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";

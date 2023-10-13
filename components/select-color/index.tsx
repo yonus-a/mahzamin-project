@@ -1,19 +1,21 @@
 "use client";
 
 import Button from "../button";
+import Icon from "../icon";
 import "./style.scss";
 
 interface Props {
-  colorId: any;
-  setColorId: () => void;
+  selectedColor: any;
+  onColorChange: any;
+  colors: any;
 }
 
-export default function SelectColor({ color, setColor, colors }: any) {
+export default function SelectColor({
+  selectedColor,
+  onColorChange,
+  colors,
+}: Props) {
   if (!colors.length) return null;
-
-  const handleClick = (color: any) => {
-    setColor(color);
-  };
 
   return (
     <div className="choose-color">
@@ -22,18 +24,12 @@ export default function SelectColor({ color, setColor, colors }: any) {
         {colors.map(({ id, code, name }: any) => (
           <li key={id}>
             <Button
-              onClick={handleClick.bind(null, { id, name, code })}
+              onClick={() => onColorChange({ id, name, code })}
               style={{ backgroundColor: code }}
               className="radio-btn"
               type="button"
             >
-              {id === color.id ? (
-                <svg>
-                  <use href="#done" />
-                </svg>
-              ) : (
-                ""
-              )}
+              {id === selectedColor.id && <Icon name="done" />}
             </Button>
           </li>
         ))}

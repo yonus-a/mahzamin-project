@@ -24,8 +24,7 @@
   }
 
   @include on-pc {
-    display: flex;
-    gap: 4em;
+    @include flex-gap(4em);
 
     .left-col {
       margin-top: 0em;

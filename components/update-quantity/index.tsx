@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "react-use-cart";
-import Counter from "@components/counter";
+import Counter from "../counter";
 
 interface Props {
   quantity: number;

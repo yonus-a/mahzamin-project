@@ -1,4 +1,5 @@
 import Button from "../button";
+import Icon from "../icon";
 import "./style.scss";
 
 interface Props {
@@ -28,10 +29,7 @@ export default function Counter({
         </Button>
       ) : (
         <Button type="button" className="delete" onClick={onDelete}>
-          <svg>
-            <title>delete item</title>
-            <use href="#delete" />
-          </svg>
+          <Icon name="delete" title="delete item" />
         </Button>
       )}
     </div>

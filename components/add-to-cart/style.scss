@@ -1,3 +1,5 @@
+@use "@styles/mixins.scss" as *;
+
 .add-to-cart {
   strong {
     display: inline-block;
@@ -14,9 +16,8 @@
   }
 
   .flex-wrapper {
+    @include flex-align-center;
     margin-top: 2em;
-    display: flex;
     gap: 1em;
-    align-items: center;
   }
 }

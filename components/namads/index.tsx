@@ -7,7 +7,7 @@ export default function Namads() {
     <div className="namads">
       <ul>
         <li>
-          <Link href="">
+          <Link href="#">
             <Image
               src="/images/namads/enamad.jpeg"
               alt="اینماد"
@@ -17,7 +17,7 @@ export default function Namads() {
           </Link>
         </li>
         <li>
-          <Link href="">
+          <Link href="#">
             <Image
               src="/images/namads/samandehi.jpg"
               alt="نشان ملی ثبت"

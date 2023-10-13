@@ -11,8 +11,8 @@
     &::after {
       content: "";
       display: block;
-      @include size(135%, 2px);
       margin-top: 0.3em;
+      @include size(135%, 2px);
       background-color: var(--clr-primary);
     }
   }

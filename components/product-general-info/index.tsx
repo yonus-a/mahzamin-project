@@ -1,5 +1,5 @@
-import AddToCart from "@components/add-to-cart";
 import ProductGallary from "../product-gallary";
+import AddToCart from "../add-to-cart";
 import "./style.scss";
 
 interface Props {
