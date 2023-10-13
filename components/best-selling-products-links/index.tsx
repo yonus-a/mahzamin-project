@@ -1,9 +1,9 @@
+import PcOnly from "../pc-only";
 import Link from "next/link";
-import "./style.scss";
 
 export default function BestSellingProductsLinks() {
   return (
-    <div className="best-selling-products-links">
+    <PcOnly>
       <h3>پرفروش ترین محصولات</h3>
       <ul>
         <li>
@@ -19,6 +19,6 @@ export default function BestSellingProductsLinks() {
           <Link href="#">گوشی A23 سامسونگ</Link>
         </li>
       </ul>
-    </div>
+    </PcOnly>
   );
 }

@@ -1,9 +1,9 @@
+import PcOnly from "../pc-only";
 import Link from "next/link";
-import "./style.scss";
 
 export default function AboutMahzaminLinks() {
   return (
-    <div className="about-mahzamin-links">
+    <PcOnly>
       <h3>در باره ماه زمین</h3>
       <ul>
         <li>
@@ -19,6 +19,6 @@ export default function AboutMahzaminLinks() {
           <Link href="#">تماس با ما</Link>
         </li>
       </ul>
-    </div>
+    </PcOnly>
   );
 }

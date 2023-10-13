@@ -1,9 +1,9 @@
-import Link from "next/link";
-import QuickAccessLinks from "../quick-access-links";
 import BestSellingProductsLinks from "../best-selling-products-links";
 import AboutMahzaminLinks from "../about-mahzamin-links";
-import Namads from "../namads";
+import QuickAccessLinks from "../quick-access-links";
 import Container from "../container";
+import Namads from "../namads";
+import Link from "next/link";
 import "./style.scss";
 
 export default function Footer() {

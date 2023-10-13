@@ -8,8 +8,7 @@ footer {
 
   .section-one,
   .section-tow {
-    display: flex;
-    justify-content: space-between;
+    @include flex-space-between;
     align-items: flex-start;
     margin-bottom: 2.3em;
   }
@@ -45,10 +44,10 @@ footer {
   }
 
   .copywriting {
-    text-align: center;
-    padding: 2em;
     border-top: 2px solid white;
+    text-align: center;
     font-size: 13px;
+    padding: 2em;
   }
 
   @include on-pc {
