@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
 import "./style.scss";
 
 interface Props {
   totalPages: number;
   currentPage: number;
-  params: any;
   pathname: string;
+  params: any;
 }
 
 export default function Pagination({
@@ -29,7 +30,7 @@ export default function Pagination({
           }
 
           return (
-            <li key={idx}>
+            <li key={uuidv4()}>
               <Link href={href} className={classnames}>
                 {idx + 1}
               </Link>

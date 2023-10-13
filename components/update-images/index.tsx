@@ -3,9 +3,8 @@
 import AddBtn from "@components/add-btn";
 import PreviewFileInput from "@components/preview-file-input";
 import RemoveBtn from "@components/remove-btn";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import "./style.scss";
-import { nanoid } from "nanoid";
 
 export default function UpdateImages({ product, register, watch }: any) {
   const [images, setImages] = useState(product.Image);
@@ -21,10 +20,10 @@ export default function UpdateImages({ product, register, watch }: any) {
     setImageForRemove([
       ...imageForRemove,
       <input
-        key={nanoid()}
         type="hidden"
         {...register(`removeImages[${count}]`)}
         defaultValue={id}
+        key={id}
       />,
     ]);
     setCount(count + 1);

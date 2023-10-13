@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import FileInput from "@components/file-input";
-import { nanoid } from "nanoid";
 import FormControl from "@components/form-control";
 import ErrorMsg from "@components/error-msg";
+import { v4 as uuidv4 } from "uuid";
 import "./style.scss";
 
 export default function ImageInputCreator({
@@ -13,10 +13,10 @@ export default function ImageInputCreator({
   watch,
   defaultValue,
 }: any) {
-  const [values, setKeys] = useState(defaultValue || [{ id: nanoid() }]);
+  const [values, setKeys] = useState(defaultValue || [{ id: uuidv4() }]);
 
   const handleAdd = () => {
-    setKeys([...values, { id: nanoid() }]);
+    setKeys([...values, { id: uuidv4() }]);
   };
 
   const handleRemove = (id: any) => {

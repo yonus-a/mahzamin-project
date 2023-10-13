@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import InputWrapper from "@components/input-wrapper";
-import { nanoid } from "nanoid";
 import AddBtn from "@components/add-btn";
 import RemoveBtn from "@components/remove-btn";
 import LogoSelect from "@components/logo-select";

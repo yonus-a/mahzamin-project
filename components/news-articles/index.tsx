@@ -1,26 +1,29 @@
 import AnimatedItem from "../animated-item";
-import { nanoid } from "nanoid";
 import Image from "next/image";
 import Link from "next/link";
 import "./style.scss";
 
 const articles = [
   {
+    id: 1,
     image: "vr-headset.jpg",
     alt: "اپل هدست ویژن پرو",
     text: "اپل هدست ویژن پرو را با قیمت ۳۵۰۰ دلار معرفی کرد؛ ورود اپل به بازار واقعیت ترکیبی",
   },
   {
+    id: 2,
     image: "laptops.jpg",
     alt: "مک بوک ایر ۱۵ اینچی",
     text: "مک بوک ایر ۱۵ اینچی معرفی شد؛ باریک‌ترین لپ‌تاپ ۱۵ اینچی!",
   },
   {
+    id: 3,
     image: "gaming-computer.jpg",
     alt: "کامپیوتر گیمینگ",
     text: "راهنمای خرید کیس کامپیوتر؛ اردیبهشت سال ۱۴۰۲",
   },
   {
+    id: 4,
     image: "S23-FE.jpg",
     alt: "گوشی سامسونگ مدل گلکسی S23 FE",
     text: "رندرهای گلکسی S23 FE از طراحی مشابه با گلکسی A54 خبر می‌دهند",
@@ -35,12 +38,8 @@ export default function NewsArticles() {
         <span className="line"></span>
       </div>
       <ul>
-        {articles.map(({ image, alt, text }: any, idx: number) => (
-          <AnimatedItem
-            key={nanoid()}
-            animation="animate__zoomIn"
-            delay={idx * 200}
-          >
+        {articles.map(({ image, alt, text, id }: any, idx: number) => (
+          <AnimatedItem key={id} animation="animate__zoomIn" delay={idx * 200}>
             <Link href="#">
               <Image
                 src={`/images/news-articles/${image}`}
