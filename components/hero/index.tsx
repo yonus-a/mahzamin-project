@@ -9,11 +9,11 @@ import "./style.scss";
 
 // it can fetched from db and controld in admin panel
 const imageSlides = [
-  { id: 1, image: "image1.jpg", alt: "" },
-  { id: 2, image: "image2.jpg", alt: "" },
-  { id: 3, image: "image3.jpg", alt: "" },
-  { id: 4, image: "image4.jpg", alt: "" },
-  { id: 5, image: "image5.jpg", alt: "" },
+  { image: "image1.jpg", alt: "" },
+  { image: "image2.jpg", alt: "" },
+  { image: "image3.jpg", alt: "" },
+  { image: "image4.jpg", alt: "" },
+  { image: "image5.jpg", alt: "" },
 ];
 
 export default function Hero() {
@@ -22,8 +22,8 @@ export default function Hero() {
   return (
     <section className="hero" aria-label="hero">
       <Swiper {...autoPlaySwiper()} ref={swiperRef}>
-        {imageSlides.map(({ image, alt, id }: any) => (
-          <SwiperSlide key={id}>
+        {imageSlides.map(({ image, alt }: any) => (
+          <SwiperSlide key={image}>
             <Image
               src={`/images/hero/${image}`}
               alt={alt}
