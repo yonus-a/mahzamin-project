@@ -5,11 +5,15 @@ import { Slider } from "@mui/material";
 import { useState } from "react";
 import "./style.scss";
 
-const minDistance = 10;
+interface Props {
+  maxPrice: number;
+}
 
-export default function FilterPrice({ maxPrice }: { maxPrice: any }) {
+export default function FilterPrice({ maxPrice }: Props) {
   const [value, setValue] = useState<number[]>([0, maxPrice]);
+  const minDistance = 10;
 
+  // from material ui
   const handleChange = (
     event: Event,
     newValue: number | number[],
@@ -33,19 +37,19 @@ export default function FilterPrice({ maxPrice }: { maxPrice: any }) {
         <label>
           از
           <AutoGrowInput
+            onChange={({ target }: any) => setValue([+target.value, value[1]])}
+            value={value[0]}
             type="number"
             name="min"
-            value={value[0]}
-            onChange={({ target }: any) => setValue([+target.value, value[1]])}
           />
         </label>
         <label>
           تا
           <AutoGrowInput
+            onChange={({ target }: any) => setValue([value[0], +target.value])}
+            value={value[1]}
             type="number"
             name="max"
-            value={value[1]}
-            onChange={({ target }: any) => setValue([value[0], +target.value])}
           />
         </label>
       </div>

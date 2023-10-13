@@ -1,8 +1,8 @@
-import prisma from "@lib/prisma";
 import filterProductBaseCategory from "./filterProductBaseCategory";
+import filterProductBaseSearch from "./filterProductBaseSearch";
 import filterProductBaseBrand from "./filterProductBaseBrand";
 import filterProductBasePrice from "./filterProductBasePrice";
-import filterProductBaseSearch from "./filterProductBaseSearch";
+import prisma from "@lib/prisma";
 import sort from "./sort";
 
 export default async function getProducts(
@@ -11,10 +11,10 @@ export default async function getProducts(
   params: any
 ) {
   const filter = {
-    ...(await filterProductBaseCategory(params.category)),
-    ...(await filterProductBaseBrand(params.brand)),
     ...filterProductBasePrice(+params.min, +params.max),
+    ...filterProductBaseCategory(params.category),
     ...filterProductBaseSearch(params.search),
+    ...filterProductBaseBrand(params.brand),
   };
 
   const totalProduct = await prisma.product.count({

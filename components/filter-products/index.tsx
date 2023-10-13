@@ -1,12 +1,12 @@
 import getMostExpensiveProduct from "@prisma-actions/getMostExpensiveProduct";
-import DialogContainer from "@components/dialog-container";
-import MaterialTheme from "@components/material-theme";
 import FilterCategories from "../filter-categories";
-import DialogLayer from "@components/dialog-layer";
-import DialogCta from "@components/dialog-cta";
+import DialogContainer from "../dialog-container";
+import MaterialTheme from "../material-theme";
 import FilterBrands from "../filter-brands";
+import DialogLayer from "../dialog-layer";
 import FilterPrice from "../filter-price";
 import { Switch } from "@mui/material";
+import DialogCta from "../dialog-cta";
 import Button from "../button";
 import Dialog from "../dialog";
 import "./style.scss";
@@ -26,10 +26,10 @@ export default async function FilterProducts() {
         <DialogLayer>
           <DialogContainer variants={variants}>
             <MaterialTheme>
-              <form>
+              <form method="get">
                 <FilterCategories />
                 <FilterBrands />
-                <FilterPrice maxPrice={product?.price} />
+                <FilterPrice maxPrice={product?.price || 0} />
                 <div className="switch-container">
                   <h2>فقط کالاهای موجود</h2>
                   <Switch className="switch" name="avalable" />

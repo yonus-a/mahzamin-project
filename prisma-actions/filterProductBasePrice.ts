@@ -7,5 +7,6 @@ export default function filterProductBasePrice(min: number, max: number) {
       },
     };
   }
+
   return {};
 }

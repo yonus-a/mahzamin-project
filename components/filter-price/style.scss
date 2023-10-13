@@ -3,12 +3,11 @@
 .filter-price {
   label {
     input {
-      width: 120px;
-      padding: 0.8em;
-      border: none;
+      @include m-p(0 1.3em, 0.8em);
       background-color: var(--clr-gray);
       border-radius: 10px;
-      margin: 0 1.3em;
+      width: 120px;
+      border: none;
     }
   }
 

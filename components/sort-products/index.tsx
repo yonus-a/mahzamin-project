@@ -1,18 +1,23 @@
 "use client";
 
 import DialogContainer from "../dialog-container";
+import DialogLink from "../dialog-link";
 import DialogCta from "../dialog-cta";
 import Dialog from "../dialog";
-import DialogLink from "@components/dialog-link";
+import Icon from "../icon";
 import "./style.scss";
 
-export default function SortProducts({ pathname }: { pathname: string }) {
+interface Props {
+  pathname: string;
+}
+
+export default function SortProducts({ pathname }: Props) {
   const links = [
     { href: `${pathname}?sort=maxPrice`, name: "گرانترین ها" },
-    { href: `${pathname}/shop?sort=minPrice`, name: "ارزان ترین ها" },
-    { href: `${pathname}/shop?sort=old`, name: "قدیمی ترین ها" },
-    { href: `${pathname}/shop?sort=new`, name: "جدید ترین ها" },
-    { href: `${pathname}/shop`, name: "پرفروش ترین ها" },
+    { href: `${pathname}?sort=minPrice`, name: "ارزان ترین ها" },
+    { href: `${pathname}?sort=old`, name: "قدیمی ترین ها" },
+    { href: `${pathname}?sort=new`, name: "جدید ترین ها" },
+    { href: `${pathname}`, name: "پرفروش ترین ها" },
   ];
 
   const variants = {
@@ -27,14 +32,10 @@ export default function SortProducts({ pathname }: { pathname: string }) {
         <DialogCta>
           <span className="pc-only">
             مرتب سازی بر اساس
-            <svg>
-              <use href="#chevron-down" />
-            </svg>
+            <Icon name="chevron-down" />
           </span>
           <span className="mobile-only">
-            <svg>
-              <use href="#sort" />
-            </svg>
+            <Icon name="sort" />
           </span>
         </DialogCta>
         <DialogContainer variants={variants}>

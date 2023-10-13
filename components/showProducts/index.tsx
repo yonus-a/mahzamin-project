@@ -1,23 +1,17 @@
+import AnimatedItem from "../animated-item";
 import Image from "next/image";
 import Link from "next/link";
 import "./style.scss";
-import AnimatedItem from "@components/animated-item";
 
-interface Product {
-  id: number;
-  image: string;
-  name: string;
+interface Props {
+  products: any;
 }
 
-export default function ShowProducts({ products }: { products: any }) {
+export default function ShowProducts({ products }: Props) {
   return (
     <ul className="products">
-      {products.length <= 0 ? (
-        <h1 className="not-found">موردی یافت نشد !</h1>
-      ) : (
-        ""
-      )}
-      {products.map((product: Product) => (
+      {products.length <= 0 && <h1 className="not-found">موردی یافت نشد !</h1>}
+      {products.map((product: any) => (
         <AnimatedItem key={product.id} animation="animate__fadeIn" delay={200}>
           <Link href={`/product/${product.id}`}>
             <Image

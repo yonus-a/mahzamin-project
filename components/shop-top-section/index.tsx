@@ -1,5 +1,6 @@
 import SortProducts from "../sort-products";
 import FilterProducts from "../filter-products";
+import Icon from "../icon";
 import "./style.scss";
 
 interface Props {
@@ -17,9 +18,7 @@ export default function ShopTopSection({
     <div className="shop-top-section">
       <div className="right-col">
         <h2>
-          <svg>
-            <use href="#shop" />
-          </svg>
+          <Icon name="shop" />
           فروشگاه
         </h2>
         <p>

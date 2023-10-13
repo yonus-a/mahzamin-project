@@ -41,12 +41,12 @@
   ul {
     position: absolute;
     background: #eee;
+    overflow: hidden;
     width: 175px;
     border-radius: 10px;
     margin-top: 0.5em;
-    left: 0;
-    overflow: hidden;
     z-index: 99999;
+    left: 0;
 
     a {
       display: inline-block;

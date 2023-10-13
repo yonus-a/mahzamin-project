@@ -1,14 +1,14 @@
-import Container from "@components/container";
-import Pagination from "@components/pagination";
 import ShopTopSection from "@components/shop-top-section";
-import ShowProducts from "@components/showProducts";
 import getProducts from "@prisma-actions/getProducts";
+import ShowProducts from "@components/showProducts";
+import Pagination from "@components/pagination";
+import Container from "@components/container";
 
-export const metadata = {
-  title: "فروشگاه",
-};
+interface Props {
+  searchParams?: any;
+}
 
-export default async function Shop({ searchParams }: { searchParams?: any }) {
+export default async function Shop({ searchParams }: Props) {
   const take = 12;
   const page = Number.parseInt(searchParams?.page) || 0;
   const { products, totalProduct } = await getProducts(
