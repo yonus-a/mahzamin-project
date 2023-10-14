@@ -1,7 +1,11 @@
+import Button from "../button";
 import "./style.scss";
-import Button from "@components/button";
 
-export default function Bill({ items }: any) {
+interface Props {
+  items: any;
+}
+
+export default function Bill({ items }: Props) {
   const totoalPrice = items.reduce(
     (acc: any, { product }: any) => acc + product.price,
     0

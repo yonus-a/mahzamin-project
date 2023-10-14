@@ -1,9 +1,9 @@
 "use client";
 
-import Container from "@components/container";
 import CartItems from "@components/cart-items";
-import Bill from "@components/bill";
+import Container from "@components/container";
 import { useCart } from "react-use-cart";
+import Bill from "@components/bill";
 import "./style.scss";
 
 export default function Cart() {

@@ -1,9 +1,14 @@
-import Image from "next/image";
-import Counter from "@components/counter";
 import { useCart } from "react-use-cart";
+import Counter from "../counter";
+import Image from "next/image";
+import Icon from "../icon";
 import "./style.scss";
 
-export default function CartItems({ items }: any) {
+interface Props {
+  items: any;
+}
+
+export default function CartItems({ items }: Props) {
   const { updateItemQuantity, removeItem } = useCart();
 
   return (
@@ -30,9 +35,7 @@ export default function CartItems({ items }: any) {
                 {color.name}
               </span>
               <span className="guarantee">
-                <svg aria-hidden="true">
-                  <use href="#verified" />
-                </svg>
+                <Icon name="verified" />
                 اصالت کالا و سلامتی فیزیکی
               </span>
             </div>
