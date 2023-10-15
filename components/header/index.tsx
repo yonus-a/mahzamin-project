@@ -9,9 +9,9 @@ import Image from "next/image";
 import Search from "../search";
 import Dialog from "../dialog";
 import Link from "next/link";
+import Icon from "../icon";
 import Nav from "../nav";
 import "./style.scss";
-import Icon from "@components/icon";
 
 export default function Header() {
   const variants = {

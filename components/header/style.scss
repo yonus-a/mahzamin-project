@@ -56,7 +56,7 @@ header {
   }
 
   @include on-pc {
-    position: fixed;
+    position: sticky;
     z-index: var(--header-zIndex);
     top: 0;
 

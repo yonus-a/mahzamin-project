@@ -81,17 +81,6 @@
   padding: 0;
 }
 
-body {
-  height: 100vh;
-}
-
-.m-top {
-  // for fixed header
-  @include on-pc {
-    padding-top: 92px;
-  }
-}
-
 a {
   text-decoration: none;
   color: var(--clr-black);
