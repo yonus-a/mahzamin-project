@@ -1,0 +1,23 @@
+@use "@styles/mixins.scss" as *;
+
+.signOut {
+  @include absolute-position-center;
+  @include grid-gap(1.5em);
+  width: 400px;
+  background-color: #fff;
+  box-shadow:
+    0 0 10px 1px rgba($color: #000000, $alpha: 0.3),
+    0 0 0 100vh rgba($color: #000000, $alpha: 0.1);
+  border-radius: 2em;
+  padding: 2em;
+  text-align: center;
+
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+}

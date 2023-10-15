@@ -1,0 +1,17 @@
+@use "@styles/mixins.scss" as *;
+
+.credentials-auth {
+  @include grid-gap(1em);
+
+  .primary-btn {
+    margin-top: 0.7em;
+  }
+
+  .form-control {
+    gap: 1em;
+
+    .labeld-input {
+      padding: 1em;
+    }
+  }
+}

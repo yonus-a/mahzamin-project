@@ -7,7 +7,7 @@ interface Props {
   name: string;
   register: any;
   errors: any;
-  defaultValue: any;
+  defaultValue?: any;
 }
 
 export default function LabledTextarea({

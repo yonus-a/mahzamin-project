@@ -1,0 +1,33 @@
+@use "@styles/mixins.scss" as *;
+
+.auth {
+  .github-btn {
+    margin: 1.5em 0;
+  }
+
+  .seperator {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1em;
+
+    .text {
+      background: white;
+      padding: 0 0.5em;
+      font-size: 16px;
+    }
+
+    .line {
+      @include absolute-position-center;
+      @include size(100%, 1px);
+      display: inline-block;
+      background: #ccc;
+      z-index: -1;
+    }
+  }
+
+  .error {
+    text-align: center;
+    color: var(--clr-error);
+    margin-top: 1em;
+  }
+}

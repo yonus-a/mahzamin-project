@@ -1,55 +1,44 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import getUserByEmail from "@prisma-actions/getUserByEmail";
+import GitHubProvider from "next-auth/providers/github";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import createUser from "@prisma-actions/createUser";
 import type { Adapter } from "next-auth/adapters";
+import { compare } from "bcrypt";
 import prisma from "@lib/prisma";
 
 export const authOptions: NextAuthOptions = {
+  pages: {
+    signIn: "/auth/signin",
+    signOut: "/auth/signout",
+  },
   adapter: PrismaAdapter(prisma) as Adapter,
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
     }),
     CredentialsProvider({
       name: "Credentials",
-      credentials: {
-        email: {
-          label: "ایمیل:",
-          type: "email",
-          required: true,
-        },
-        password: {
-          label: "رمز عبور:",
-          type: "password",
-          required: true,
-        },
-      },
-      async authorize(credentials) {
+      credentials: {},
+      async authorize(credentials: any) {
         const email = credentials?.email;
         const password = credentials?.password;
 
         if (!email || !password) {
-          return null;
+          throw Error("آدرس ایمیل و پسورد نمی تواند خالی باشد");
         }
 
-        let maybeUser = await prisma.user.findFirst({
-          where: {
-            email,
-          },
-        });
+        let maybeUser = await getUserByEmail(email);
 
         if (!maybeUser) {
-          maybeUser = await prisma.user.create({
-            data: {
-              email,
-              password,
-            },
-          });
+          maybeUser = await createUser(email, password);
         } else {
-          if (maybeUser?.password !== password) {
-            return null;
+          const match = await compare(password, maybeUser.password as string);
+
+          if (!match) {
+            throw Error("پسورد اشتباه است !");
           }
         }
 
@@ -59,11 +48,6 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: "jwt",
-  },
-  theme: {
-    colorScheme: "light",
-    brandColor: "#FDC210",
-    logo: "/images/logo.png",
   },
 };
 
