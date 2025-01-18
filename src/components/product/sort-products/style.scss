@@ -1,0 +1,65 @@
+@use "@styles/mixins.scss" as *;
+
+.sort-products {
+  position: relative;
+
+  button {
+    padding: 1em 1.5em;
+    background-color: var(--clr-gray-350);
+    border-radius: 10px;
+
+    span {
+      @include flex-center;
+      gap: 0.3em;
+    }
+
+    .pc-only {
+      display: none;
+
+      svg {
+        @include size(20px);
+      }
+    }
+
+    .mobile-only {
+      svg {
+        @include size(24px);
+      }
+    }
+
+    @include on-pc {
+      .pc-only {
+        display: flex;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+    position: absolute;
+    background: #eee;
+    overflow: hidden;
+    width: 175px;
+    border-radius: 10px;
+    margin-top: 0.5em;
+    z-index: 99999;
+    left: 0;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      padding: 1em;
+
+      &:hover {
+        background-color: var(--clr-gray-350);
+      }
+    }
+
+    @include on-pc {
+      width: 100%;
+    }
+  }
+}

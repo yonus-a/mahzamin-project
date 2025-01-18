@@ -1,0 +1,52 @@
+@use "@styles/mixins.scss" as *;
+
+.news-articles {
+  margin-top: var(--sections-margin-top);
+
+  h2 {
+    margin-bottom: var(--sections-h2-margin-bottom);
+  }
+
+  ul {
+    @include flex-gap(1.5em);
+    flex-wrap: wrap;
+
+    li {
+      @include size(calc(100% - 1.5em), 300px);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+      border-radius: 1em;
+
+      img {
+        @include size(100%);
+        border-radius: 1em;
+        object-fit: cover;
+      }
+
+      p {
+        position: absolute;
+        bottom: 0px;
+        padding: 1em;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0 0 1em 1em;
+        left: 0;
+        right: 0;
+      }
+
+      @media (min-width: 712px) {
+        @include size(calc(50% - 1.5em), 300px);
+      }
+
+      @include on-pc {
+        @include size(calc(25% - 1.5em), 250px);
+
+        .title {
+          h2 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

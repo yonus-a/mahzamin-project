@@ -1,0 +1,61 @@
+@use "@styles/mixins.scss" as *;
+
+header {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--header-background);
+  width: 100%;
+
+  .header-wrapper {
+    @include flex-space-between;
+    @include m-p(0 auto, 1em 1.5em);
+
+    .col-right {
+      @include flex-align-center;
+      white-space: nowrap;
+
+      .pc-only {
+        @include flex-align-center;
+        gap: 2em;
+      }
+
+      .menu-cta {
+        svg {
+          @include size(28px);
+        }
+      }
+    }
+
+    .col-left {
+      @include flex-align-center;
+      gap: 1.5em;
+
+      .login {
+        transition: all var(--header-transition) ease-in-out;
+        background-color: var(--clr-blue);
+        border: 1px solid transparent;
+        color: var(--clr-white);
+        padding: 0.8em 1.5em;
+        border-radius: 3em;
+
+        &:hover {
+          background: transparent;
+          border: 1px solid var(--clr-primary);
+        }
+      }
+    }
+
+    @media (min-width: 1700px) {
+      width: 1700px;
+    }
+  }
+
+  @include on-pc {
+    position: sticky;
+    z-index: var(--header-zIndex);
+    top: 0;
+
+    .header-wrapper {
+      padding: 0.8em 3em;
+    }
+  }
+}

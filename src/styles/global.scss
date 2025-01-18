@@ -1,0 +1,176 @@
+@use "./mixins.scss" as *;
+
+:root {
+  // colors
+  --clr-gray-700: #888;
+  --clr-gray-500: #ccc;
+  --clr-gray-400: #ececec;
+  --clr-gray-350: #eeeeee;
+  --clr-gray-300: #f9f7f7;
+  --clr-gray-200: #f8f8f8;
+  --clr-primary: #ff4f3f;
+  --clr-white: #ffffff;
+  --clr-red: #fc0027;
+  --clr-blue: #4469f8;
+  --clr-green: #006c60;
+  --clr-error: #b00020;
+  --clr-black: #000000;
+  --clr-svgs: #333;
+
+  // backgrounds
+  --header-background: #fff;
+  // z-index
+  --error-zIndex: 99999999;
+  --header-zIndex: 99999;
+  --menu-zIndex: 999;
+  --swiperNavigation-zIndex: 99;
+  --dialog-layer-zIndex: 9999;
+
+  // transition
+  --header-transition: 300ms;
+  // margin
+  --sections-margin-top: 4em;
+  --sections-h2-margin-bottom: 2.5em;
+  // breakpoints
+  --footer-breakpoint: 1000px;
+  --default-radius: 10px;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("/fonts/iranyekan-400.woff2") format("woff2"),
+    url("/fonts/iranyekan-400.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("/fonts/iranyekan-500.woff2") format("woff2"),
+    url("/fonts/iranyekan-500.woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("/fonts/iranyekan-700.woff2") format("woff2"),
+    url("/fonts/iranyekan-700.woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("/fonts/iranyekan-700.woff2") format("woff2"),
+    url("/fonts/iranyekan-700.woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("/fonts/Roboto-Regular.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "myFont";
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-black);
+}
+
+section {
+  h2 {
+    font-size: 18px;
+  }
+}
+
+::placeholder {
+  color: var(--clr-gray-500) !important;
+}
+
+svg,
+img {
+  vertical-align: middle;
+}
+
+svg {
+  fill: var(--clr-svgs);
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.svg-sprite {
+  display: none;
+}
+
+.invalid-input {
+  border: 1px solid var(--clr-error) !important;
+}
+
+.icon-wrapper {
+  @include flex-align-center;
+  gap: 0.3em;
+}
+
+.icon-24 {
+  @include icon-size(24px);
+}
+
+.btn-style {
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+}
+
+.btn {
+  background: transparent;
+  border-radius: var(--default-radius);
+  cursor: pointer;
+  border: none;
+}
+
+.primary-btn {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  @extend .btn-style;
+}
+
+.secondary-btn {
+  background-color: var(--clr-gray-100);
+  color: var(--clr-black);
+  padding: 1em;
+}
+
+// material ui
+
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+
+.select-fix-padding {
+  .MuiSelect-select {
+    padding-block: 0.75em;
+  }
+}

@@ -1,0 +1,86 @@
+@use "@styles/mixins.scss" as *;
+
+.search {
+  position: relative;
+
+  .input-group {
+    @include flex-align-center;
+    background: var(--clr-gray-300);
+    border-radius: 3em;
+    padding: 0 1.5em;
+
+    input {
+      background-color: transparent;
+      padding: 0.9em;
+      outline: none;
+      border: none;
+    }
+
+    svg {
+      @include size(20px);
+      fill: var(--clr-gray-700);
+    }
+  }
+
+  .mobile-only {
+    .icon-button {
+      @include size(40px);
+      background: var(--clr-gray-300);
+      border-radius: 50%;
+
+      svg {
+        @include size(18px);
+      }
+    }
+
+    .input-group {
+      input {
+        width: 100%;
+      }
+    }
+
+    .search-results {
+      position: static;
+
+      ul {
+        max-height: 370px;
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+
+    .more {
+      bottom: unset;
+    }
+
+    .dialog {
+      background: white;
+      padding: 2em;
+    }
+  }
+
+  .pc-only {
+    .input-group {
+      input {
+        width: 270px;
+      }
+    }
+
+    .search-results {
+      box-shadow: 0 10px 10px 0 rgba($color: #000000, $alpha: 0.2);
+      max-height: 345px;
+      overflow: hidden;
+      width: 336px;
+      margin-top: 1em;
+
+      ul {
+        li:nth-child(4) {
+          -webkit-mask-image: linear-gradient(black, transparent);
+          mask-image: linear-gradient(black, transparent);
+          pointer-events: none;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

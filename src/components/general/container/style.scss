@@ -1,0 +1,9 @@
+@use "@styles/mixins.scss" as *;
+
+.container {
+  @include m-p(0 auto, 0 30px);
+
+  @media (min-width: 1336px) {
+    max-width: 1336px;
+  }
+}

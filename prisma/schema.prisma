@@ -8,141 +8,123 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Account {
-  id                       String  @id @default(cuid())
-  userId                   String
-  providerAccountId        String
-  access_token             String? @db.Text
-  expires_at               Int?
-  id_token                 String? @db.Text
-  provider                 String
-  refresh_token            String? @db.Text
-  scope                    String?
-  session_state            String?
-  token_type               String?
-  type                     String
-  refresh_token_expires_in Int?
-  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-  @@index([userId], map: "Account_userId_fkey")
+model brand {
+  id         Int       @id @default(autoincrement())
+  name       String?
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product[]
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  userId       String
-  expires      DateTime
-  sessionToken String   @unique
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId], map: "Session_userId_fkey")
+model category {
+  id         Int       @id @default(autoincrement())
+  name       String?   @db.TinyText
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product[]
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  password      String?
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+model product {
+  id             Int              @id @default(autoincrement())
+  name           String?          @db.TinyText
+  createdAt      DateTime         @default(now()) @db.DateTime(0)
+  updatedAt      DateTime?        @db.DateTime(0)
+  insertedId     String
+  updatedId      String?
+  deleted        Int              @default(0)
+  image          String?          @db.TinyText
+  price          Int?
+  discount       Int?             @default(0)
+  number         Int?
+  categoryId     Int?
+  brandId        Int?
+  description    String?          @db.Text
+  brand          brand?           @relation(fields: [brandId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_product_brand")
+  category       category?        @relation(fields: [categoryId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_product_category")
+  product_color  product_color[]
+  product_detail product_detail[]
+  product_image  product_image[]
+  product_info   product_info[]
+
+  @@index([brandId], map: "brandId")
+  @@index([categoryId], map: "categoryId")
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
+model product_color {
+  id         Int       @id @default(autoincrement())
+  productId  Int?
+  name       String
+  code       String
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product?  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_productColor_product")
 
-  @@unique([identifier, token])
+  @@index([productId], map: "productID")
 }
 
-model Brand {
-  id      Int       @id @default(autoincrement())
-  name    String    @unique(map: "name")
-  Product Product[]
+model product_detail {
+  id         Int       @id @default(autoincrement())
+  productId  Int?
+  term       String?   @db.TinyText
+  definition String?   @db.TinyText
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product?  @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_productDetail_product")
+
+  @@index([productId], map: "productId")
 }
 
-model Category {
-  id      Int       @id @default(autoincrement())
-  name    String    @unique(map: "name")
-  Product Product[]
+model product_image {
+  id         Int       @id @default(autoincrement())
+  productId  Int?
+  image      String?   @db.TinyText
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product?  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_productImage_product")
+
+  @@index([productId], map: "productId")
 }
 
-model Color {
-  id           Int            @id @default(autoincrement())
-  name         String         @unique(map: "name")
-  code         String         @unique(map: "code")
-  ProductColor ProductColor[]
+model product_info {
+  id         Int       @id @default(autoincrement())
+  productId  Int?
+  title      String?   @db.TinyText
+  subTitle   String?   @db.TinyText
+  logo       String?   @db.TinyText
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+  product    product?  @relation(fields: [productId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_productInfo_product")
+
+  @@index([productId], map: "productId")
 }
 
-model Product {
-  id           Int            @id @default(autoincrement())
-  name         String         @unique(map: "name")
-  image        String?
-  price        Int?
-  discount     Int?           @default(0)
-  quantity     Int?           @default(0)
-  categoryId   Int
-  brandId      Int
-  description  String?        @db.Text
-  publish      Boolean
-  Detail       Detail[]
-  Image        Image[]
-  Info         Info[]
-  Brand        Brand          @relation(fields: [brandId], references: [id], onUpdate: Restrict, map: "FK_ProductBrand")
-  Category     Category       @relation(fields: [categoryId], references: [id], onUpdate: Restrict, map: "FK_ProductCategory")
-  ProductColor ProductColor[]
-
-  @@index([brandId], map: "FK_ProductBrand")
-  @@index([categoryId], map: "FK_ProductCategory")
-}
-
-model ProductColor {
-  id        Int     @id @default(autoincrement())
-  productId Int
-  ccolorId  Int
-  Color     Color   @relation(fields: [ccolorId], references: [id], onUpdate: Restrict, map: "FK_ProductColor_ColorId")
-  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, map: "FK_ProductColor_ProductId")
-
-  @@index([ccolorId], map: "FK_ProductColor_ColorId")
-  @@index([productId], map: "FK_ProductColor_ProductId")
-}
-
-model Detail {
-  id         Int     @id @default(autoincrement())
-  productId  Int
-  term       String?
-  definition String?
-  Product    Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "FK_Detail_Product")
-
-  @@index([productId], map: "FK_Detail_Product")
-}
-
-model Image {
-  id        Int     @id @default(autoincrement())
-  productId Int
-  name      String?
-  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "FK_Image_Product")
-
-  @@index([productId], map: "FK_Image_Product")
-}
-
-model Info {
-  id        Int     @id @default(autoincrement())
-  productId Int
-  title     String?
-  subTitle  String?
-  logoId    Int?
-  Product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "FK_Info_Product")
-  Logo      Logo?   @relation(fields: [logoId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "FK_info_logo")
-
-  @@index([productId], map: "FK_Info_Product")
-  @@index([logoId], map: "FK_info_logo")
-}
-
-model Logo {
-  id   Int    @id @default(autoincrement())
-  name String @unique(map: "unique_name")
-  Info Info[]
+model user {
+  id         String    @id
+  firstname  String
+  lastname   String
+  fullName   String
+  phone      String
+  createdAt  DateTime  @default(now()) @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
 }

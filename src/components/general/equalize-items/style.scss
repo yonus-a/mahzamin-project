@@ -1,0 +1,15 @@
+@use "@styles/mixins.scss" as *;
+
+.equalize-items {
+  @include flex-gap(2em);
+  flex-direction: column;
+
+  @include on-pc {
+    flex-direction: row;
+    align-items: flex-start;
+
+    > * {
+      flex: 1;
+    }
+  }
+}

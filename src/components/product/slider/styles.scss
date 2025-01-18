@@ -1,0 +1,22 @@
+@use "@/styles/mixins.scss" as *;
+
+.product-slider {
+  margin-top: var(--sections-margin-top);
+  border-radius: 1em;
+  padding: 1em 2em;
+
+  .header {
+    @include flex-space-between;
+    color: var(--clr-white);
+    padding: 1.5em 0;
+
+    .more {
+      @include icon-size(18px);
+      color: var(--clr-white);
+
+      svg {
+        fill: var(--clr-white);
+      }
+    }
+  }
+}

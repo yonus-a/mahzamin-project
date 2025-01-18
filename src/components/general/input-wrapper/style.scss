@@ -1,0 +1,14 @@
+@use "@styles/mixins.scss" as *;
+
+.input-wrapper {
+  background-color: var(--clr-gray-350);
+  @include flex-align-center;
+  flex-direction: row-reverse;
+  border-radius: 1em;
+  padding: 0 2em;
+  gap: 1.5em;
+
+  @include on-pc {
+    border-radius: 3em;
+  }
+}

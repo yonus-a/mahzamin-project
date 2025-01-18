@@ -1,0 +1,40 @@
+@use "@/styles/mixins.scss" as *;
+
+.product-card {
+  padding: 1em;
+  border-radius: var(--default-radius);
+  box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.3);
+  background: var(--clr-white);
+  @include grid-gap(1em);
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100px;
+    object-fit: scale-down;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .info {
+    @include flex-space-between;
+    align-items: center;
+
+    strong {
+      font-weight: bold;
+    }
+
+    .cart {
+      background-color: var(--clr-green);
+      display: flex;
+      padding: 9px;
+
+      svg {
+        fill: var(--clr-white);
+        @include size(18px);
+      }
+    }
+  }
+}

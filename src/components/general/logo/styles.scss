@@ -1,0 +1,8 @@
+@use "@/styles/mixins.scss" as *;
+
+.logo {
+  img {
+    object-fit: scale-down;
+    @include size(50px);
+  }
+}
