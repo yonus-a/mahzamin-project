@@ -17,10 +17,18 @@ export default async function Product({ params }: Props) {
     },
     select: {
       id: true,
+      image: true,
       product_info: true,
+      description: true,
       product_detail: true,
       product_image: true,
-      product_color: true,
+      product_color: {
+        select: {
+          name: true,
+          code: true,
+          id: true,
+        },
+      },
       category: true,
       brand: true,
     },
@@ -34,9 +42,9 @@ export default async function Product({ params }: Props) {
     <main>
       <Container>
         <ProductGeneralInfo product={product} />
-        {/* <ProductInfo info={product.product_info} />
+        <ProductInfo info={product.product_info} />
         <ProductDetails details={product.product_detail} />
-        <ProductDesc desc={product.description} /> */}
+        <ProductDesc desc={product.description} />
       </Container>
     </main>
   );

@@ -7,22 +7,20 @@ interface Props {
 }
 
 export default function ProductGeneralInfo({ product }: Props) {
-  const colors = product.product_color?.map(({ color }: any) => color);
-
   return (
     <div className="product-general-info">
-      {/* <ProductGallary
+      <ProductGallary
+        images={product.product_image}
         main={product.image}
-        images={product.Image}
         alt={product.name}
-      /> */}
+      />
       <div className="left-col">
         <h1>{product.name}</h1>
         <ul>
           <li>برند: {product.brand.name}</li>
           <li>دسته بندی : {product.category.name}</li>
         </ul>
-        <AddToCart colors={colors} product={product} />
+        <AddToCart product={product} />
       </div>
     </div>
   );

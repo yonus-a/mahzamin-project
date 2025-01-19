@@ -3,19 +3,18 @@
 import UpdateQuantity from "../../widgets/update-quantity";
 import SelectColor from "../../select-color";
 import { useCart } from "react-use-cart";
-import { useState } from "react";
 import Button from "../../general/button";
+import { useState } from "react";
 import Link from "next/link";
 import "./style.scss";
 
 interface Props {
-  colors: any;
   product: any;
 }
 
-export default function ProductForm({ colors, product }: Props) {
+export default function ProductForm({ product }: Props) {
   const { addItem, inCart, getItem } = useCart();
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedColor, setSelectedColor] = useState(product.product_color[0]);
 
   // get cart quantity for initialize quantity
   const cartQuantity = getItem(product.id)?.quantity;
@@ -32,7 +31,7 @@ export default function ProductForm({ colors, product }: Props) {
         id: product.id,
         name: product.name,
         price: product.price,
-        color: selectedColor,
+        // color: selectedColor,
         product,
       },
       quantity
@@ -42,9 +41,9 @@ export default function ProductForm({ colors, product }: Props) {
   return (
     <form className="add-to-cart" onSubmit={handleSubmit}>
       <SelectColor
-        colors={colors}
-        selectedColor={selectedColor}
         onColorChange={handleChangeColor}
+        colors={product.product_color}
+        selectedColor={selectedColor}
       />
       <strong>{product.price} تومان</strong>
       <div className="flex-wrapper">

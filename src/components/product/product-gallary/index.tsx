@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import getDirection from "@utils/getDirection";
 import Button from "../../general/button";
+import { useState } from "react";
 import Image from "next/image";
 import "./style.scss";
 
@@ -20,6 +20,8 @@ export default function ProductGallary({ main, images, alt }: Props) {
   const handleClick = (image: string) => {
     setMainImage(image);
   };
+
+  console.log(main);
 
   return (
     <div className="product-gallary">
