@@ -1,0 +1,14 @@
+@use "@/styles/mixins.scss" as *;
+
+.labeld-textarea {
+  @include grid-gap(0.7em);
+
+  .custom-textarea {
+    border-radius: var(--default-radius);
+    background-color: var(--clr-gray-300);
+    border: none;
+    font-size: 13px;
+    padding: 1em;
+    width: 100%;
+  }
+}

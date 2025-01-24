@@ -13,7 +13,7 @@
       @include flex-center;
 
       svg {
-        fill: white;
+        // fill: white;
         @include size(24px);
       }
     }
@@ -36,7 +36,7 @@
           @include flex-center;
 
           a {
-            color: white;
+            // color: white;
             padding: 2.3em 2em;
             display: inline-block;
           }
@@ -62,8 +62,7 @@
         bottom: 0;
         width: 80%;
         background-color: white;
-        box-shadow:
-          -10px 0 10px 0 rgba($color: #000000, $alpha: 0.2),
+        box-shadow: -10px 0 10px 0 rgba($color: #000000, $alpha: 0.2),
           0 0 0 100vh rgba($color: #000000, $alpha: 0.2);
         padding: 1.5em 3em;
         display: flex;

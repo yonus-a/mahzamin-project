@@ -1,0 +1,8 @@
+@use "@/styles/mixins.scss" as *;
+
+.labeld-checkbox {
+  @include flex-gap(0.7em);
+  background-color: #eee;
+  border-radius: var(--default-radius);
+  padding: 1em;
+}

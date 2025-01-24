@@ -12,39 +12,36 @@
 
     li {
       @include flex-center;
-      width: 33.333%;
+      width: 27.333%;
 
       a {
         background-color: var(--clr-gray-300);
         @include grid-gap(0.5em);
         justify-items: center;
         border-radius: 1em;
-        padding: 1.5em 3em;
+        padding: 1.5em 0;
+        font-size: 12px;
+        width: 100%;
 
         img {
-          @include size(60px);
+          @include size(35px);
           object-fit: scale-down;
         }
       }
     }
 
-    @media (min-width: 855px) {
-      li {
-        width: 15%;
-      }
-    }
-
-    @media (min-width: 1050px) {
+    @include on-pc {
       padding: 0 2em;
+      gap: 2em;
+
+      li {
+        width: 12%;
+      }
 
       li {
         a {
-          .image {
-            padding: 2.1em;
-
-            img {
-              @include size(65px);
-            }
+          img {
+            @include size(50px);
           }
         }
       }

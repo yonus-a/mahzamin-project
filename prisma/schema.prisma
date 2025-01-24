@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["fullTextIndex", "fullTextSearch"]
+  previewFeatures = ["omitApi"]
 }
 
 datasource db {
@@ -122,9 +122,29 @@ model user {
   lastname   String
   fullName   String
   phone      String
+  email      String
   createdAt  DateTime  @default(now()) @db.DateTime(0)
   updatedAt  DateTime? @db.DateTime(0)
   insertedId String
   updatedId  String?
   deleted    Int       @default(0)
+  otp        otp?
+}
+
+model slide {
+  id         Int       @id @default(autoincrement())
+  image      String
+  alt        String
+  createdAt  DateTime  @db.DateTime(0)
+  updatedAt  DateTime? @db.DateTime(0)
+  insertedId String
+  updatedId  String?
+  deleted    Int       @default(0)
+}
+
+model otp {
+  id     String @id
+  otp    String
+  expiry BigInt
+  user   user   @relation(fields: [id], references: [id], onUpdate: Restrict, map: "FK_OTP_USER")
 }

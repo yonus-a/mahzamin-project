@@ -2,7 +2,7 @@ import UpdateProductForm from "@components/product/update-product-form";
 import getBrands from "@server-actions/brand/getBrands";
 import getCategories from "@server-actions/category/getCategories";
 import getColors from "@server-actions/color/getColors";
-import getLogos from "@server-actions/getLogos";
+// import getLogos from "@server-actions/getLogos";
 import MdContainer from "@components/general/md-container";
 import getProduct from "@server-actions/product/getProduct";
 

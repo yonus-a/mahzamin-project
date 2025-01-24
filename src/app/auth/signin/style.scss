@@ -1,17 +1,80 @@
 @use "@styles/mixins.scss" as *;
 
 .signin {
-  @include absolute-position-center;
-  display: grid;
-  width: 400px;
-  box-shadow:
-    0 0 10px 1px rgba($color: #000000, $alpha: 0.3),
-    0 0 0 100vh rgba($color: #000000, $alpha: 0.1);
-  padding: 2em;
-  border-radius: 1em;
-  border: 1px solid #eee;
+  @include flex-center;
+  height: 100vh;
+  width: 100%;
 
-  .logo {
-    justify-self: center;
+  .content-box {
+    .flex-wrapper {
+      @include flex-center;
+      position: relative;
+
+      .input-wrapper {
+        display: grid;
+        justify-content: center;
+
+        .logo {
+          justify-self: center;
+
+          img {
+            @include size(100px);
+          }
+        }
+
+        h2 {
+          margin-bottom: 2em;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+    }
+
+    @include on-pc {
+      box-shadow: 0 0 10px 1px rgba($color: #000000, $alpha: 0.3),
+        0 0 0 100vh rgba($color: #000000, $alpha: 0.1);
+      grid-template-columns: 1fr 1fr;
+      background: var(--clr-white);
+      border-radius: 35px;
+      position: relative;
+      display: grid;
+      height: 75%;
+      width: 65%;
+
+      .image {
+        width: 100%;
+        height: 100%;
+        background-image: url("/images/auth/bag.png");
+        border-radius: 0 35px 35px 0;
+        background-position: center;
+        background-size: cover;
+      }
+
+      &::before {
+        transform: translate(15%, -15%);
+        background-image: url("/images/auth/right-corner.png");
+        background-position: center;
+        background-size: cover;
+        @include size(400px);
+        position: absolute;
+        z-index: -55;
+        content: "";
+        right: 0;
+        top: 0;
+      }
+
+      &::after {
+        transform: translate(-15%, 15%);
+        background-image: url("/images/auth/left-corner.png");
+        background-position: center;
+        background-size: cover;
+        @include size(400px);
+        position: absolute;
+        z-index: -55;
+        content: "";
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
 }

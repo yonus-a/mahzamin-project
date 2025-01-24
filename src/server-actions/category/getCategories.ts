@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 import prisma from "@lib/prisma";
 
 export default async function getCategories(
-  options: Prisma.categoryFindManyArgs
+  options: Prisma.categoryFindManyArgs = {}
 ) {
   try {
     return await prisma.category.findMany({

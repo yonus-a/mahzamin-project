@@ -5,7 +5,7 @@ import filterProductBasePrice from "../../utils/filters/product/filterProductBas
 import { filterProductsType } from "./type";
 import prisma from "@lib/prisma";
 
-export default async function getProducts({
+export default async function filterProducts({
   searchParams,
   page,
   take,
@@ -17,6 +17,7 @@ export default async function getProducts({
       ...filterProductBaseSearch(searchParams),
       ...filterProductBaseBrand(searchParams),
       ...filterProductBasePrice(searchParams),
+      deleted: 0,
     };
 
     const products = await prisma.product.findMany({
@@ -35,6 +36,7 @@ export default async function getProducts({
       products,
     };
   } catch (e) {
+    console.log(e);
     throw new Error("مشکلی در سرور پیش آمده لطفا مجددا تلاش نمایید !");
   }
 }

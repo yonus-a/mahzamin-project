@@ -25,9 +25,9 @@ export default function Brands() {
             <Link href={`/shop?brand=${name}`}>
               <Image
                 src={`/images/brands/${image}`}
+                height={200}
                 alt={`sony`}
                 width={200}
-                height={200}
               />
             </Link>
           </SwiperSlide>

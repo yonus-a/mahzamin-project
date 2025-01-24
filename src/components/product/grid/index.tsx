@@ -13,7 +13,7 @@ export default function ProductGrid({ products, title }: ProductGridTypes) {
             <Link href={`/product/${item.id}`}>
               <Image
                 src={`/images/products/${item.image}`}
-                alt={item.name}
+                alt={item.name || ""}
                 height={100}
                 width={100}
               />

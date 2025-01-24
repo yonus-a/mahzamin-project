@@ -1,5 +1,5 @@
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import CreateCategory from "../create-category";
+import CreateCategory from "../category/add-category";
 import InputWrapper from "../general/input-wrapper";
 import CusomSelect from "../custom-select";
 import FormControl from "../general/form-control";

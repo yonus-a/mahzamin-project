@@ -3,13 +3,13 @@
 import ChooseBrand from "@components/choose-brand";
 import ChooseCategory from "@components/choose-category";
 import ChooseColor from "@components/choose-color";
-import DetailsInputsCreator from "@components/details-inputs-creator";
+import DetailsInputsCreator from "@components/product/detail-input";
 import EqualizeItems from "@components/general/equalize-items";
-import LabledInput from "@components/general/labeld-input";
+import LabledInput from "@components/general/input";
 import LabledTextarea from "@components/general/labeld-textarea";
 import PrimaryBtn from "@components/general/primary-btn";
 import { useForm } from "react-hook-form";
-import InfoInputsCreator from "@components/general/info-inputs-creator";
+import InfoInputsCreator from "@components/product/info-input";
 import { FormControlLabel, Switch } from "@mui/material";
 import FontProvider from "@components/general/font-provider";
 import Alert from "@components/general/alert";

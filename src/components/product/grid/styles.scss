@@ -9,7 +9,8 @@
 
   ul {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-column-gap: 20px;
 
     li {
       border-left: 1px solid var(--clr-gray-400);
@@ -34,5 +35,7 @@
         }
       }
     }
+
+    // @include
   }
 }

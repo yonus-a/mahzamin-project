@@ -1,11 +1,11 @@
-import MdContainer from "@components/general/md-container";
 import AdminShowProducts from "@components/product/admin-show-products";
-import Pagination from "@components/widgets/pagination";
 import getProducts from "@server-actions/product/filterProducts";
-import "./style.scss";
 import FilterProducts from "@components/filters/filter-products";
 import SortProducts from "@components/product/sort-products";
+import MdContainer from "@components/general/md-container";
+import Pagination from "@components/widgets/pagination";
 import Button from "@components/general/button";
+import "./style.scss";
 
 export default async function Products({
   searchParams,
@@ -14,11 +14,12 @@ export default async function Products({
 }) {
   const take = 12;
   const page = Number.parseInt(searchParams?.page) || 0;
-  const { products, totalProduct } = await getProducts(
+  const { products, totalProduct } = await getProducts({
     page,
     take,
-    searchParams
-  );
+    searchParams,
+  });
+
   const totalPages = Math.round(totalProduct / take);
   const pathname = "/admin/products";
 

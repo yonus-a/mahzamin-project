@@ -1,23 +1,28 @@
-import { authOptions } from "@app/api/auth/[...nextauth]/route";
-
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import getSession from "@server-actions/auth/getSession";
 import Logo from "@components/general/logo";
+import { redirect } from "next/navigation";
+import Login from "@components/auth/login";
 import "./style.scss";
-import Auth from "@components/auth";
 
-export default async function Signin({ searchParams }: any) {
-  const { callbackUrl } = searchParams;
-  const session = await getServerSession(authOptions);
+export default async function Signin() {
+  const session = await getSession();
 
   if (session) {
     redirect("/");
   }
 
   return (
-    <div className="signin">
-      <Logo />
-      <Auth callbackUrl={callbackUrl} />
-    </div>
+    <section aria-label="Signin" className="signin">
+      <div className="content-box">
+        <div className="image"></div>
+        <div className="flex-wrapper">
+          <div className="input-wrapper">
+            <Logo />
+            <h2>به پیکالا خوش آمدید !!</h2>
+            <Login />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

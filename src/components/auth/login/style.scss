@@ -1,0 +1,16 @@
+@use "@styles/mixins.scss" as *;
+
+.login {
+  form {
+    @include grid-gap(0.7em);
+
+    input {
+      min-width: 250px;
+    }
+
+    .input-group {
+      @include flex-gap(1em);
+      align-items: start;
+    }
+  }
+}
