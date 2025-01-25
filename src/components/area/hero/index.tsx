@@ -18,8 +18,8 @@ export default function Hero({ slides }: HeroType) {
           <SwiperSlide key={image}>
             <Image
               src={`/images/hero/${image}`}
-              width={1024}
-              height={720}
+              width={1920}
+              height={400}
               alt={alt}
             />
           </SwiperSlide>

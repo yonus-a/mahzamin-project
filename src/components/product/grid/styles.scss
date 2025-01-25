@@ -14,15 +14,7 @@
 
     li {
       border-left: 1px solid var(--clr-gray-400);
-
-      &:nth-child(5),
-      &:nth-child(10) {
-        border-left: none;
-      }
-
-      &:nth-child(n + 6) {
-        border-top: 1px solid var(--clr-gray-400);
-      }
+      border-top: 1px solid var(--clr-gray-400);
 
       a {
         padding: 2em;
@@ -34,8 +26,17 @@
           object-fit: scale-down;
         }
       }
-    }
 
-    // @include
+      @include on-pc {
+        &:nth-child(5),
+        &:nth-child(10) {
+          border-left: none;
+        }
+
+        &:nth-child(n + 6) {
+          border-top: 1px solid var(--clr-gray-400);
+        }
+      }
+    }
   }
 }
