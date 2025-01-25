@@ -6,7 +6,7 @@ export const middleware = (request: NextRequest) => {
 
   if (authCookie?.value) {
     response.cookies.set("next-auth.session-token", authCookie.value, {
-      ...authCookie.options,
+      // ...authCookie.options,
       expires: undefined,
       maxAge: undefined,
       httpOnly: true,

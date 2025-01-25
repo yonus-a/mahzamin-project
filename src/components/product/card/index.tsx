@@ -14,7 +14,7 @@ export default function ProductCard({ product }: Props) {
       <Link href={`/product/${product.id}`}>
         <Image
           src={`/images/products/${product.image}`}
-          alt={product.name}
+          alt={product.name as string}
           height={200}
           width={200}
         />

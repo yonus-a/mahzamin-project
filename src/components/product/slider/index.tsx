@@ -24,7 +24,7 @@ export default function ProductSlider({
       </div>
       <Swiper modules={[A11y]} slidesPerView={"auto"} spaceBetween={10}>
         {products.map((item) => (
-          <SwiperSlide style={{ width: 180, height: 228 }}>
+          <SwiperSlide style={{ width: 180, height: 228 }} key={item.id}>
             <ProductCard product={item} />
           </SwiperSlide>
         ))}

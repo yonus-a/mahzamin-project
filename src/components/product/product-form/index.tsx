@@ -22,10 +22,14 @@ export default function ProductForm(props: ProductFormType) {
         onSubmit={props.methods.handleSubmit(props.onSubmit)}
       >
         <EqualizeItems>
-          <Select items={props.brands} name="brand" placeholder="دسته بندی" />
+          <Select
+            items={props.brands as any}
+            name="brand"
+            placeholder="دسته بندی"
+          />
           <AddBrand />
           <Select
-            items={props.categories}
+            items={props.categories as any}
             name="categories"
             placeholder="برند"
           />
@@ -36,7 +40,7 @@ export default function ProductForm(props: ProductFormType) {
           <Input label="قیمت" name="price" type="number" />
         </EqualizeItems>
         <EqualizeItems>
-          <Select items={props.colors} name="color" placeholder="رنگ" />
+          <Select items={props.colors as any} name="color" placeholder="رنگ" />
           <Input label="موجودی" name="quantity" type="number" />
         </EqualizeItems>
         {/* <ImageInputCreator

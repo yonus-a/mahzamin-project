@@ -22,7 +22,7 @@ export default async function updateProductAction(
     });
   }
 
-  const result = await updateProduct(data);
+  const result: any = await updateProduct(data);
 
   if (result.id) {
     const allImages = [mainImage, ...(images || [])];

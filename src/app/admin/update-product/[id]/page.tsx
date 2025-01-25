@@ -15,18 +15,19 @@ export default async function UpdateProduct({
   const brands = await getBrands();
   const categories = await getCategories();
   const colors = await getColors();
-  const logos = await getLogos();
-  const product = await getProduct(id);
+  // const logos = await getLogos();
+  // const product = await getProduct(id);
 
   return (
     <MdContainer>
-      <UpdateProductForm
+      {/* <UpdateProductForm
         brands={brands}
         categories={categories}
         colors={colors}
         logos={logos}
         product={product[0]}
-      />
+      /> */}
+      test
     </MdContainer>
   );
 }

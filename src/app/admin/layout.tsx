@@ -7,6 +7,8 @@ interface Props {
   children: React.ReactNode;
 }
 
+export const dynamic = "force-dynamic";
+
 export default function AdminLayout({ children }: Props) {
   return (
     <>

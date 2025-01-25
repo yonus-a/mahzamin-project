@@ -74,59 +74,57 @@ export default async function updateProduct(data: any) {
     };
   });
 
-  return await prisma.product.update({
-    where: {
-      id: data.productId,
-    },
-    data: {
-      name: data.name,
-      price: +data.price,
-      quantity: +data.quantity,
-      image: data?.mainImage?.name,
-      description: data.description,
-      publish: data.publish,
-      Brand: {
-        connect: {
-          id: +data.brand,
-        },
-      },
-      Category: {
-        connect: {
-          id: +data.category,
-        },
-      },
-      ProductColor: {
-        deleteMany: {
-          id: {
-            in: data.ProductColor.map(({ id }: any) => +id),
-          },
-        },
-        upsert: updateColor,
-      },
-      Image: {
-        deleteMany: {
-          id: {
-            in: removeImages,
-          },
-        },
-        upsert: updateImages,
-      },
-      Info: {
-        deleteMany: {
-          id: {
-            in: removeInfo,
-          },
-        },
-        upsert: updateInfo,
-      },
-      Detail: {
-        deleteMany: {
-          id: {
-            in: removeDetails,
-          },
-        },
-        upsert: updateDetails,
-      },
-    },
-  });
+  // return await prisma.product.update({
+  //   where: {
+  //     id: data.productId,
+  //   },
+  //   data: {
+  //     name: data.name,
+  //     price: +data.price,
+  //     image: data?.mainImage?.name,
+  //     description: data.description,
+  //     Brand: {
+  //       connect: {
+  //         id: +data.brand,
+  //       },
+  //     },
+  //     Category: {
+  //       connect: {
+  //         id: +data.category,
+  //       },
+  //     },
+  //     ProductColor: {
+  //       deleteMany: {
+  //         id: {
+  //           in: data.ProductColor.map(({ id }: any) => +id),
+  //         },
+  //       },
+  //       upsert: updateColor,
+  //     },
+  //     Image: {
+  //       deleteMany: {
+  //         id: {
+  //           in: removeImages,
+  //         },
+  //       },
+  //       upsert: updateImages,
+  //     },
+  //     Info: {
+  //       deleteMany: {
+  //         id: {
+  //           in: removeInfo,
+  //         },
+  //       },
+  //       upsert: updateInfo,
+  //     },
+  //     Detail: {
+  //       deleteMany: {
+  //         id: {
+  //           in: removeDetails,
+  //         },
+  //       },
+  //       upsert: updateDetails,
+  //     },
+  //   },
+  // });
 }

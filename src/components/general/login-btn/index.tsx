@@ -1,9 +1,11 @@
+import getSession from "@server-actions/auth/getSession";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@app/api/auth/[...nextauth]/route";
+// import { authOptions } from "@app/api/auth/[...nextauth]/route";
 import Link from "next/link";
 
 export default async function LoginBtn() {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
+  const session = await getSession();
 
   if (session) {
     return (

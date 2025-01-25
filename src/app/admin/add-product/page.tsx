@@ -6,9 +6,9 @@ import getBrands from "@server-actions/brand/getBrands";
 // import getLogos from "@server-actions/getLogos";
 
 export default async function AddProduct() {
-  const categories = await getCategories();
-  const brands = await getBrands();
-  const colors = await getColors();
+  const categories: any = await getCategories();
+  const brands: any = await getBrands();
+  const colors: any = await getColors();
   // const logos = await getLogos();
 
   return (

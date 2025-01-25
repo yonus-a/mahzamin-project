@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default async function Product({ params }: Props) {
-  const product = await getProduct({
+  const product: any = await getProduct({
     where: {
       id: +params.id,
     },

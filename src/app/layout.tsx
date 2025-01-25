@@ -9,6 +9,8 @@ interface Props {
   children: React.ReactNode;
 }
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="fa" dir="rtl" prefix="og: https://ogp.me/ns#">

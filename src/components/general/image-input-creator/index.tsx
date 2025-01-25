@@ -45,21 +45,22 @@ export default function ImageInputCreator({
       </p>
       {values.map((val: any, i: number) => {
         const isLastItem = i >= values.length - 1;
-        const error = errors["images"]?.[i];
+        // const error = errors["images"]?.[i];
 
         return (
           <FormControl key={val.id}>
-            <FileInput
+            {/* <FileInput
               name={`images[${i}]`}
               onRemove={() => handleRemove(val.id)}
               onAdd={handleAdd}
               showAdd={isLastItem}
               register={register}
               watch={watch}
-              className={error ? "invalid-input" : ""}
+              // className={error ? "invalid-input" : ""}
               defaultValue={val.name}
-            />
-            {error && <ErrorMsg>تصویر نمیتواند خالی باشد</ErrorMsg>}
+            /> */}
+            test
+            {/* {error && <ErrorMsg>تصویر نمیتواند خالی باشد</ErrorMsg>} */}
           </FormControl>
         );
       })}
